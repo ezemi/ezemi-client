@@ -1,0 +1,71 @@
+h2 {
+  margin: auto;
+}
+.bg {
+  box-sizing: border-box;
+  background-image: url("/assets/images/WelcomePageBg.jpg");
+  margin: auto;
+  height: 90%;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.85;
+  position: relative;
+}
+
+.welcome-content {
+  top: 33%;
+  left: 8%;
+  color: #fff;
+  position: absolute;
+}
+
+.header {
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-shadow: 1px 2px gray;
+}
+
+.discription {
+  margin-left: 30px;
+}
+
+.discription p {
+  font-size: large;
+  text-shadow: 1px 1px gray;
+}
+
+.gsBtn {
+  margin-top: 40px;
+  height: 50px;
+  width: auto;
+}
+
+.aboutus {
+  margin-top: 50px;
+  text-align: center;
+}
+
+@media (max-width: 600px) and (min-width: 300px) {
+  .welcome-content {
+    top: 30%;
+  }
+
+  .bg {
+    height: 80%;
+  }
+
+  .header {
+    font-size: 2.3em;
+    text-align: center;
+  }
+
+  .discription {
+    text-align: center;
+  }
+
+  .gsBtn {
+    height: 40px;
+    width: auto;
+  }
+}
