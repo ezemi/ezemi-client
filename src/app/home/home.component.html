@@ -1,0 +1,8 @@
+<div *ngIf="isAdmin; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+    <app-administration></app-administration>
+</ng-template>
+
+<ng-template #elseBlock>
+    <app-products></app-products>
+</ng-template>

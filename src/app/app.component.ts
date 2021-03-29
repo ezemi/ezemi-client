@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'FinanceApp';
 
-  userLoggedin:boolean = false;
+  loggedin:boolean = true;
 }

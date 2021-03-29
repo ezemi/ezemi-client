@@ -1,5 +1,13 @@
 
+<div *ngIf="loggedin; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+    <app-nav-header></app-nav-header>
+</ng-template>
 
-<app-welcome></app-welcome>
+<ng-template #elseBlock>
+        <app-welcome></app-welcome>
+</ng-template>
+
+
 
 <app-footer></app-footer>

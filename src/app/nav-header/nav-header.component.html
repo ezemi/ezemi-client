@@ -1,0 +1,60 @@
+<mat-toolbar class="navbar" color="primary">
+    <span>FinanceApp</span>
+
+    
+
+    <div *ngIf="loggedin; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+            <div *ngIf="isAdmin; then adminBlock else customerBlock"></div>
+            <ng-template  #customerBlock>
+            <div>
+            <span>
+                <a><span class="nav-link" [routerLink]="['/products']">Products</span></a>
+                <a><span class="nav-link"  [routerLink]="['/orders']">Orders</span></a>
+                <a><span class="nav-link"  [routerLink]="['/transactions']">Transactions</span></a>
+        </span>
+        </div>
+        <span style="flex:1 1 auto;"></span>
+
+        <div>
+            <span>Hi, {{name}}
+            <mat-icon [matMenuTriggerFor]="userMenu">account_circle</mat-icon>
+            <mat-menu #userMenu="matMenu">
+                <button mat-menu-item>Profile</button>
+                <button mat-menu-item>Logout</button>
+            </mat-menu>
+            </span>
+        </div>
+        </ng-template>
+
+
+            <ng-template #adminBlock>
+                <div>
+                    <span>
+                        <span class="nav-link"  [routerLink]="['/administration']">Administration</span>
+                        <span class="nav-link"  [routerLink]="['/manage']">Manage</span>
+                    </span>
+                </div>
+                <span style="flex:1 1 auto;"></span>
+        
+                <div>
+                    <span>Hello, Admin
+                        <mat-icon [matMenuTriggerFor]="userMenu">account_circle</mat-icon>
+                        <mat-menu #userMenu="matMenu">
+                            <button mat-menu-item>Logout</button>
+                        </mat-menu>
+                    </span>
+                </div>
+            </ng-template>
+    </ng-template>
+    
+    <ng-template #elseBlock>
+        <span style="flex:1 1 auto;"></span>
+        <div>
+            <span class="nav-link" [routerLink]="['/login']">Login</span>
+            <span class="nav-link" [routerLink]="['/register']">Register</span>
+        </div>
+    </ng-template>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
