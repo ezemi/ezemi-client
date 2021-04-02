@@ -1,1 +1,19 @@
-<p>login works!</p>
+<div style="display: flex; height: 500px;">
+    <div style="align-self: center; margin:auto" class="main-div">
+        <mat-card style="width: 350px;">
+            <mat-toolbar color="primary">Login</mat-toolbar>
+            <form fxLayoutAlign="stretch" fxLayout="column" class="login-form">
+                <mat-form-field>
+                    <input matInput placeholder="Username" required>
+                </mat-form-field>
+    
+                <mat-form-field>
+                    <input matInput type="password" placeholder="Password" required>
+                </mat-form-field>
+                <a href="">Forgot password?</a> <br>
+                <button mat-raised-button type="submit" color="accent">Login</button>
+            </form>
+    
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+.container {
+  max-width: 80%;
+  background-color: rgb(220, 241, 241);
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 10px;
+}
+
+.example-card {
+  max-width: 300px;
+}

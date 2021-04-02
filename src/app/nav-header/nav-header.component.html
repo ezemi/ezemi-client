@@ -1,8 +1,5 @@
 <mat-toolbar class="navbar" color="primary">
     <span>FinanceApp</span>
-
-    
-
     <div *ngIf="loggedin; then thenBlock else elseBlock"></div>
     <ng-template #thenBlock>
             <div *ngIf="isAdmin; then adminBlock else customerBlock"></div>
@@ -26,8 +23,6 @@
             </span>
         </div>
         </ng-template>
-
-
             <ng-template #adminBlock>
                 <div>
                     <span>
@@ -56,5 +51,3 @@
         </div>
     </ng-template>
 </mat-toolbar>
-
-<router-outlet></router-outlet>

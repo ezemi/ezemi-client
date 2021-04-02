@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FinanceApp';
-
-  loggedin:boolean = true;
+  isNew:boolean = false;
+  //onValueChanged()
 }

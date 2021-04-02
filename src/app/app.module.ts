@@ -16,6 +16,9 @@ import { TransactionsComponent } from './transactions/transactions.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { FlexLayoutModule } from "@angular/flex-layout";
+import {FormsModule} from '@angular/forms';
+import { PageContentComponent } from './page-content/page-content.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +33,16 @@ import { RegisterComponent } from './register/register.component';
     TransactionsComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PageContentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FlexLayoutModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

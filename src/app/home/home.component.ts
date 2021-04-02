@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-    isAdmin:boolean=false;
+    isAdmin:boolean=true;
 
   constructor() { }
 

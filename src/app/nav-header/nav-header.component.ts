@@ -10,7 +10,7 @@ export class NavHeaderComponent implements OnInit {
   constructor() { }
 
   loggedin:boolean = false;
-  isAdmin:boolean=false;
+  isAdmin:boolean=true;
   name:string = "max";
 
 
