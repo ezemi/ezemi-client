@@ -34,6 +34,7 @@ import { AddCateogryFormComponent } from './add-cateogry-form/add-cateogry-form.
 import { AddProductFormComponent } from './add-product-form/add-product-form.component';
 import { PayComponent } from './pay/pay.component';
 import { ChangepassComponent } from './changepass/changepass.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +73,7 @@ import { ChangepassComponent } from './changepass/changepass.component';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

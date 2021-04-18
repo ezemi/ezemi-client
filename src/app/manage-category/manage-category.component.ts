@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialog , MatDialogRef} from '@angular/material/dialog';
 import { AddCateogryFormComponent } from '../add-cateogry-form/add-cateogry-form.component';
 import {Category} from '../Models/category';
+import { ProductServiceService } from '../services/product-service.service';
 
 
 @Component({
@@ -12,27 +13,24 @@ import {Category} from '../Models/category';
 
 export class ManageCategoryComponent implements OnInit {
 
-  c:Category[] = [
-    {
-      categoryId:100 , categoryName:'Laptops'
-    },
-    {
-     categoryId:101  , categoryName:'Smart Watch'
-    },
-    {
-     categoryId:102 , categoryName:'Home Appliances'
-    }
- ];
-  constructor(public dialog:MatDialog) { }
+  category:Category[];
+
+  constructor(public dialog:MatDialog, private pservice : ProductServiceService) { }
 
   
   ngOnInit(): void {
-  }
+       this.pservice.getallcategory().subscribe(
+        data=>{
+          console.log(JSON.stringify(data));
+          this.category= data;
+        }
+       );
+     }
 
   displayedColumns:String[]=['CategoryId' , 'CategoryName', 'deleteCategory'];
-  dataSource = this.c ; 
+  //dataSource = this.category ; 
 
   openAddCategoryForm(){
     this.dialog.open(AddCateogryFormComponent, {height:'350px' , width:'500px'});
-  }
-}
+   }
+    }

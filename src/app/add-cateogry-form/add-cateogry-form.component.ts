@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../Models/category';
+import { ProductServiceService } from '../services/product-service.service';
 
 @Component({
   selector: 'app-add-cateogry-form',
@@ -8,7 +9,7 @@ import { Category } from '../Models/category';
 })
 export class AddCateogryFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pservice: ProductServiceService) { }
 
   category:Category=new Category();
   
@@ -17,6 +18,11 @@ export class AddCateogryFormComponent implements OnInit {
 
   submitCategory(){
     console.log(this.category);
+    this.pservice.addcategory(this.category).subscribe(
+      data =>{
+        console.log(JSON.stringify(data));
+      }
+    );
   }
   
 }

@@ -1,3 +1,5 @@
+import { Category } from "./category";
+
 export class Product {
   productId: number;
 
@@ -12,4 +14,8 @@ export class Product {
   dateAdded: Date;
 
   productImgUrl: string;
+
+  category:Category;
+
+  inStock:boolean;
 }
