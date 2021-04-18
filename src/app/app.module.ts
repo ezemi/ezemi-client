@@ -16,15 +16,29 @@ import { TransactionsComponent } from './transactions/transactions.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { FlexLayoutModule } from "@angular/flex-layout";
-import {FormsModule} from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { PageContentComponent } from './page-content/page-content.component';
-
+import { ProfileComponent } from './profile/profile.component';
+import { ManageProductsComponent } from './manage-products/manage-products.component';
+import { ManageCategoryComponent } from './manage-category/manage-category.component';
+import { ManageBankComponent } from './manage-bank/manage-bank.component';
+import { ManageCardsComponent } from './manage-cards/manage-cards.component';
+import { CustomerAdministrationComponent } from './customer-administration/customer-administration.component';
+import { CollectandreportComponent } from './collectandreport/collectandreport.component';
+import { ProductdetailsComponent } from './productdetails/productdetails.component';
+import { AddBankFormComponent } from './add-bank-form/add-bank-form.component';
+import { AddCardTypeFormComponent } from './add-card-type-form/add-card-type-form.component';
+import { AddCateogryFormComponent } from './add-cateogry-form/add-cateogry-form.component';
+import { AddProductFormComponent } from './add-product-form/add-product-form.component';
+import { PayComponent } from './pay/pay.component';
+import { ChangepassComponent } from './changepass/changepass.component';
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    FooterComponent,  
+    FooterComponent,
     NavHeaderComponent,
     AdministrationComponent,
     ManageComponent,
@@ -34,7 +48,21 @@ import { PageContentComponent } from './page-content/page-content.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    PageContentComponent
+    PageContentComponent,
+    ProfileComponent,
+    ManageProductsComponent,
+    ManageCategoryComponent,
+    ManageBankComponent,
+    ManageCardsComponent,
+    CustomerAdministrationComponent,
+    CollectandreportComponent,
+    ProductdetailsComponent,
+    AddBankFormComponent,
+    AddCardTypeFormComponent,
+    AddCateogryFormComponent,
+    AddProductFormComponent,
+    PayComponent,
+    ChangepassComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,9 +70,10 @@ import { PageContentComponent } from './page-content/page-content.component';
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

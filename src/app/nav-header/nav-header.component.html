@@ -1,53 +1,154 @@
-<mat-toolbar class="navbar" color="primary">
-    <span>FinanceApp</span>
-    <div *ngIf="loggedin; then thenBlock else elseBlock"></div>
-    <ng-template #thenBlock>
-            <div *ngIf="isAdmin; then adminBlock else customerBlock"></div>
-            <ng-template  #customerBlock>
-            <div>
-            <span>
-                <a><span class="nav-link" [routerLink]="['/products']">Products</span></a>
-                <a><span class="nav-link"  [routerLink]="['/orders']">Orders</span></a>
-                <a><span class="nav-link"  [routerLink]="['/transactions']">Transactions</span></a>
-        </span>
-        </div>
-        <span style="flex:1 1 auto;"></span>
+<div style="height: auto">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button
+        *ngIf="loggedin"
+        mat-icon-button
+        (click)="sidenav.toggle()"
+        fxShow="true"
+        fxHide.gt-sm
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>
+        <img class="logo" src="../assets/images/svgs/LogoSvg.svg" />
+      </span>
 
-        <div>
-            <span>Hi, {{name}}
-            <mat-icon [matMenuTriggerFor]="userMenu">account_circle</mat-icon>
-            <mat-menu #userMenu="matMenu">
-                <button mat-menu-item>Profile</button>
+      <div *ngIf="loggedin; then loginBlock; else notloggedinBlock"></div>
+
+      <ng-template #loginBlock>
+        <div *ngIf="role == 'admin'; then adminBlock; else customerBlock"></div>
+        <!-- Customer side navigation-->
+        <ng-template #customerBlock>
+          <div fxShow="true" fxHide.lt-md>
+            <a mat-button routerLink="products">Products</a>
+            <a mat-button routerLink="orders">Orders</a>
+            <a mat-button routerLink="transactions"> Transaction </a>
+          </div>
+          <span style="flex: 1 1 auto"></span>
+          <div>
+            <span>
+              Hi, {{ name }}
+              <mat-icon [matMenuTriggerFor]="userMenu">account_circle</mat-icon>
+              <mat-menu #userMenu="matMenu">
+                <a routerLink="profile">
+                  <button mat-menu-item>Profile</button>
+                </a>
                 <button mat-menu-item>Logout</button>
-            </mat-menu>
+              </mat-menu>
             </span>
-        </div>
+          </div>
         </ng-template>
-            <ng-template #adminBlock>
-                <div>
-                    <span>
-                        <span class="nav-link"  [routerLink]="['/administration']">Administration</span>
-                        <span class="nav-link"  [routerLink]="['/manage']">Manage</span>
-                    </span>
-                </div>
-                <span style="flex:1 1 auto;"></span>
-        
-                <div>
-                    <span>Hello, Admin
-                        <mat-icon [matMenuTriggerFor]="userMenu">account_circle</mat-icon>
-                        <mat-menu #userMenu="matMenu">
-                            <button mat-menu-item>Logout</button>
-                        </mat-menu>
-                    </span>
-                </div>
-            </ng-template>
-    </ng-template>
-    
-    <ng-template #elseBlock>
-        <span style="flex:1 1 auto;"></span>
+
+        <!-- Admin side navigation-->
+        <ng-template #adminBlock>
+          <div fxShow="true" fxHide.lt-md>
+            <a mat-button routerLink="administration">Administration</a>
+            <a mat-button routerLink="manage">Manage</a>
+          </div>
+          <span style="flex: 1 1 auto"></span>
+
+          <div>
+            <span
+              >Hello, Admin
+              <mat-icon [matMenuTriggerFor]="userMenu">account_circle</mat-icon>
+              <mat-menu #userMenu="matMenu">
+                <button mat-menu-item>Logout</button>
+              </mat-menu>
+            </span>
+          </div>
+        </ng-template>
+      </ng-template>
+
+      <!--Navigation when customer is not logged in-->
+      <ng-template #notloggedinBlock>
+        <span style="flex: 1 1 auto"></span>
         <div>
-            <span class="nav-link" [routerLink]="['/login']">Login</span>
-            <span class="nav-link" [routerLink]="['/register']">Register</span>
+          <span class="nav-link" routerLink="login">Login</span>
+          <span class="nav-link" routerLink="register">Register</span>
         </div>
-    </ng-template>
-</mat-toolbar>
+      </ng-template>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <a (click)="sidenav.toggle()" mat-list-item>Close</a>
+
+        <div *ngIf="role == 'admin'; then adminBlock; else customerBlock"></div>
+
+        <ng-template #customerBlock>
+          <div>
+            <a class="nav-link" routerLink="products" mat-list-item>Products</a>
+            <a class="nav-link" routerLink="orders" mat-list-item>Orders</a>
+            <a class="nav-link" routerLink="transactions" mat-list-item>
+              Transaction
+            </a>
+          </div>
+        </ng-template>
+
+        <ng-template #adminBlock>
+          <div>
+            <mat-accordion>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title> Administration </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <a
+                  class="nav-link"
+                  routerLink="administration/customerAdministration"
+                  mat-list-item
+                >
+                  Customer Administration
+                </a>
+                <a
+                  class="nav-link"
+                  routerLink="administration/collectandreport"
+                  mat-list-item
+                  >Collect & Report</a
+                >
+              </mat-expansion-panel>
+
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title> Manage </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <a
+                  class="nav-link"
+                  routerLink="manage/manageproducts"
+                  mat-list-item
+                >
+                  Products
+                </a>
+                <a
+                  class="nav-link"
+                  routerLink="manage/managecategory"
+                  mat-list-item
+                  >Categories</a
+                >
+                <a class="nav-link" routerLink="manage/manageBank" mat-list-item
+                  >Bank</a
+                >
+                <a
+                  class="nav-link"
+                  routerLink="manage/manageCards"
+                  mat-list-item
+                  >Cards</a
+                >
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+
+          <span style="flex: 1 1 auto"></span>
+        </ng-template>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content fxFlexFill>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

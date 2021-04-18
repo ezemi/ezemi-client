@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="product-card">
+    <mat-card class="example-card">
+      <mat-card-header> </mat-card-header>
+      <img mat-card-image src="{{ img }}" alt="Photo of a Shiba Inu" />
+      <mat-card-content> </mat-card-content>
+      <mat-card-actions> </mat-card-actions>
+    </mat-card>
+    <!-- <img src="../assets/images/pred23.png" alt=""> -->
+  </div>
+  <div class="details">
+    <div class="details_card">
+      <h1 class="prod-name">{{ name }}</h1>
+      <h3 class="prod-dt">
+        Details : Acer Predator Helios 300 Core i7 10th Gen - (16 GB/1 TB
+        HDD/256 GB SSD/Windows 10 Home/6 GB Graphics/NVIDIA GeForce RTX 2060/144
+        Hz) PH315-53 Gaming Laptop (15.6 inch, Abyssal Black, 2.5 kg)
+      </h3>
+    </div>
+
+    <div class="btns">
+      <div class="select-btn">
+        <mat-form-field appearance="fill">
+          <mat-label>Select an EMI option</mat-label>
+          <mat-select class="mt-sel">
+            <mat-option value="none">None</mat-option>
+            <mat-option value="3">3 Months</mat-option>
+            <mat-option value="6">6 Months</mat-option>
+            <mat-option value="9">9 Months</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button color="accent" class="buy-btn">Buy Now</button>
+    </div>
+  </div>
+</div>

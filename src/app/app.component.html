@@ -1,17 +1,11 @@
-<app-nav-header></app-nav-header>
-    <div *ngIf="isNew; then thenBlock else elseBlock"></div>
-    <ng-template #thenBlock>
-        <app-welcome></app-welcome>
-    </ng-template>
-        
-    <ng-template #elseBlock>
-        <app-page-content></app-page-content>
-    </ng-template>
+<!-- <div *ngIf="isNew; then thenBlock; else elseBlock"></div>
+<ng-template #thenBlock>
+  <app-welcome></app-welcome>
+</ng-template>
 
+<ng-template #elseBlock>
+  <app-page-content></app-page-content>
+</ng-template> -->
+
+<router-outlet></router-outlet>
 <app-footer></app-footer>
-  
-
-
-
-
-

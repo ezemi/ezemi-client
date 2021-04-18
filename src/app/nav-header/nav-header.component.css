@@ -2,6 +2,17 @@ span {
   margin-right: 2rem;
 }
 
+a {
+  font-size: large;
+}
+
+.logo {
+  height: auto;
+  width: 100px;
+  margin-top: 8px;
+  margin-left: 10px;
+}
+
 mat-icon {
   margin-right: 2rem;
   margin: 10px;

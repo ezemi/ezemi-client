@@ -1,1 +1,185 @@
-<p>Registeration</p>
+<div fxLayoutAlign="center top" fxFlexFill class="main-div">
+  <mat-card style="height: 500px" fxFlex="80">
+    <mat-toolbar color="primary">Registration</mat-toolbar>
+    <div fxLayoutAlign="stretch" fxLayout="column" class="register-form">
+      <form [formGroup]="formGroup">
+        <mat-horizontal-stepper
+          #linearVerticalStepper="matHorizontalStepper"
+          formArrayName="formArray"
+          [linear]="false"
+        >
+          <mat-step formGroupName="0" [stepControl]="formArray?.get([0])">
+            <ng-template matStepLabel>Basic user Details</ng-template>
+            <mat-form-field>
+              <mat-label>First name</mat-label>
+              <input matInput formControlName="firstNameFormCtrl" required />
+              <mat-error>This field is required</mat-error>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field>
+              <mat-label>Last name</mat-label>
+              <input matInput formControlName="lastNameFormCtrl" required />
+              <mat-error>This field is required</mat-error>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field>
+              <mat-label>Pan number</mat-label>
+              <input matInput formControlName="panFormCtrl" required />
+              <mat-error>This field is required</mat-error>
+            </mat-form-field>
+
+            <div>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </mat-step>
+
+          <mat-step formGroupName="1" [stepControl]="formArray?.get([1])">
+            <ng-template matStepLabel>Email</ng-template>
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="emailFormCtrl" required />
+              <mat-error>This field is required</mat-error>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field>
+              <mat-label>OTP</mat-label>
+              <input matInput formControlName="otpFormCtrl" required />
+              <mat-error>This field is required</mat-error>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input matInput formControlName="passwordFormCtrl" required />
+              <mat-error>This field is required</mat-error>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field>
+              <mat-label>Confirm Password</mat-label>
+              <input
+                matInput
+                formControlName="confirmPasswordFormCtrl"
+                required
+              />
+              <mat-error>This field is required</mat-error>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </mat-step>
+
+          <mat-step formGroupName="2" [stepControl]="formArray?.get([2])">
+            <ng-template matStepLabel>
+              <div>Bank Details</div>
+            </ng-template>
+            <mat-form-field>
+              <mat-label>Bank Name</mat-label>
+              <input matInput formControlName="bankNameFormCtrl" />
+              <mat-error>The input is invalid.</mat-error>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field>
+              <mat-label>Card Type</mat-label>
+              <mat-select placeholder="Select Card Type" required>
+                <mat-option value="1">Gold</mat-option>
+                <mat-option value="2">Titanium</mat-option>
+              </mat-select>
+              <mat-error>The input is invalid.</mat-error>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field>
+              <mat-label>Bank Name</mat-label>
+              <mat-select placeholder="Select Bank" required>
+                <mat-option value="1">SBI</mat-option>
+                <mat-option value="2">ICICI</mat-option>
+                <mat-option value="3">HDFC</mat-option>
+                <mat-option value="4">UNION BANK</mat-option>
+                <mat-option value="5">AXIS</mat-option>
+              </mat-select>
+              <mat-error>The input is invalid.</mat-error>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field>
+              <mat-label>Bank Account number</mat-label>
+              <input matInput formControlName="accFormCtrl" required />
+              <mat-error>This field is required</mat-error>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field>
+              <mat-label>Ifsc code</mat-label>
+              <input matInput formControlName="ifscFormCtrl" required />
+              <mat-error>This field is required</mat-error>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </mat-step>
+
+          <mat-step formGroupName="3" [stepControl]="formArray?.get([3])">
+            <ng-template matStepLabel>
+              <div>Address</div>
+            </ng-template>
+
+            <mat-form-field>
+              <mat-label>Address Line 1</mat-label>
+              <textarea
+                matInput
+                type="text"
+                placeholder="Address Line 1"
+              ></textarea>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field>
+              <mat-label>Address Line 2</mat-label>
+              <textarea
+                matInput
+                type="text"
+                placeholder="Address Line 1"
+              ></textarea>
+            </mat-form-field>
+
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </mat-step>
+
+          <mat-step>
+            <ng-template matStepLabel>Confirm your information</ng-template>
+            Everything seems correct !!
+            <div>
+              <button
+                mat-raised-button
+                type="reset"
+                style="margin: 5px"
+                color="accent"
+              >
+                Reset
+              </button>
+              <button
+                mat-raised-button
+                type="submit"
+                style="margin: 5px"
+                color="accent"
+              >
+                Regiser
+              </button>
+              <br />
+            </div>
+          </mat-step>
+        </mat-horizontal-stepper>
+      </form>
+    </div>
+  </mat-card>
+</div>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="791" height="428" viewBox="0 0 791 428">
+  <g id="Rectangle_2" data-name="Rectangle 2" fill="silver" stroke="#000" stroke-width="1">
+    <rect width="791" height="428" stroke="none"/>
+    <rect x="0.5" y="0.5" width="790" height="427" fill="none"/>
+  </g>
+  <g id="Layer_2" data-name="Layer 2" transform="translate(518.67 20.25)">
+    <g id="Layer_1" data-name="Layer 1" transform="translate(0.33 -4.25)">
+      <text id="EZemi" transform="translate(0 75)" fill="#ff4081" font-size="84" font-family="BritannicBold, Britannic"><tspan x="0" y="0">EZ</tspan><tspan y="0" fill="#fff">emi</tspan></text>
+    </g>
+  </g>
+  <text id="Platinum" transform="translate(562 139)" fill="gold" font-size="43" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">Platinum</tspan></text>
+</svg>

@@ -1,1 +1,85 @@
-<p>orders works!</p>
+<div class="mat-elevation-z8">
+  <mat-card>Current Orders</mat-card>
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="OrderId">
+      <th mat-header-cell *matHeaderCellDef>Order Id</th>
+      <td mat-cell *matCellDef="let orders">{{ orders.orderId }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Cost">
+      <th mat-header-cell *matHeaderCellDef>Cost</th>
+      <td mat-cell *matCellDef="let orders">{{ orders.orderCost }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Months">
+      <th mat-header-cell *matHeaderCellDef>Months</th>
+      <td mat-cell *matCellDef="let orders">{{ orders.installments }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="EmiAmount">
+      <th mat-header-cell *matHeaderCellDef>EMi Amount</th>
+      <td mat-cell *matCellDef="let orders">{{ orders.emiAmount }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="AmountDue">
+      <th mat-header-cell *matHeaderCellDef>Amount Due</th>
+      <td mat-cell *matCellDef="let orders">{{ orders.amountDue }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="PayNow">
+      <th mat-header-cell *matHeaderCellDef>Pay Now</th>
+      <td mat-cell *matCellDef="let orders">
+        <button mat-raised-button color="primary">Pay Now</button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <!-- <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+  ></mat-paginator> -->
+</div>
+
+<div class="mat-elevation-z8">
+  <mat-card>Completed Orders</mat-card>
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="OrderId">
+      <th mat-header-cell *matHeaderCellDef>Order Id</th>
+      <td mat-cell *matCellDef="let orders">{{ orders.orderId }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Cost">
+      <th mat-header-cell *matHeaderCellDef>Cost</th>
+      <td mat-cell *matCellDef="let orders">{{ orders.orderCost }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Months">
+      <th mat-header-cell *matHeaderCellDef>Months</th>
+      <td mat-cell *matCellDef="let orders">{{ orders.emiType }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="EmiAmount">
+      <th mat-header-cell *matHeaderCellDef>EMi Amount</th>
+      <td mat-cell *matCellDef="let orders">{{ orders.emiAmount }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="AmountDue">
+      <th mat-header-cell *matHeaderCellDef>Amount Due</th>
+      <td mat-cell *matCellDef="let orders">{{ orders.amountDue }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="PayNow">
+      <th mat-header-cell *matHeaderCellDef>Completed</th>
+      <td mat-cell *matCellDef="let orders">
+        <button mat-raised-button disabled color="primary">Completed</button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <!-- <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+  ></mat-paginator> -->
+</div>

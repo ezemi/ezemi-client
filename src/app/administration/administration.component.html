@@ -1,1 +1,16 @@
-<p>administration works!</p>
+<mat-sidenav-container class="pagesize" fxShow="true">
+  <mat-sidenav mode="side" opened #sidenav position="start" fxHide.lt-md>
+    <br />
+    <button mat-button routerLink="customerAdministration" class="navButton">
+      Existing Customer</button
+    ><br />
+    <button mat-button routerLink="collectandreport" class="navButton">
+      Collect & Report</button
+    ><br />
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

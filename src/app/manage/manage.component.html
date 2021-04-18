@@ -1,1 +1,21 @@
-<p>manage works!</p>
+<mat-sidenav-container class="pagesize" fxShow="true">
+  <mat-sidenav mode="side" opened #sidenav position="start" fxHide.lt-md>
+    <br />
+    <button mat-button routerLink="manageproducts" class="navButton">
+      Product
+    </button>
+    <br />
+    <button mat-button routerLink="managecategory" class="navButton">
+      Category</button
+    ><br />
+    <button mat-button routerLink="manageBank" class="navButton">Bank</button
+    ><br />
+    <button mat-button routerLink="manageCards" class="navButton">Card</button
+    ><br />
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

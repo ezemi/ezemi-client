@@ -1,26 +1,22 @@
-import { Component, OnInit, Output, EventEmitter, SystemJsNgModuleLoader } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.css']
+  styleUrls: ['./welcome.component.css'],
 })
 export class WelcomeComponent implements OnInit {
+  constructor(private router: Router) {}
 
-  constructor(private router:Router ) { }
+  isNew: boolean;
 
-
-  isNew:boolean;
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   @Output()
-  buttonPressed : EventEmitter<boolean> = new EventEmitter<boolean>();
+  buttonPressed: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  onpressed(){
-    this.buttonPressed.emit(false);
+  ezemistore() {
+    this.router.navigate(['/page-content']);
   }
-
 }

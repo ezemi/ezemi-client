@@ -1,0 +1,20 @@
+mat-sidenav {
+  width: 280px;
+  padding: 15px;
+}
+.mat-drawer {
+  background-color: #023075;
+  color: #fff;
+}
+.main-content {
+  padding: 20px;
+}
+
+.navButton {
+  font-size: large;
+}
+
+.pagesize {
+  height: 90%;
+  width: 100%;
+}

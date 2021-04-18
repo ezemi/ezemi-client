@@ -1,0 +1,32 @@
+<div>
+  <mat-card>
+    <mat-toolbar color="primary">
+      <span class="title-center">Add Category</span> </mat-toolbar
+    ><br />
+
+    <form
+      (ngSubmit)="submitCategory()"
+      fxLayoutAlign="stretch"
+      fxLayout="column"
+    >
+      <mat-form-field>
+        <mat-label>Category Id </mat-label>
+        <input matInput name="categoryId" [(ngModel)]="category.categoryId" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Category Name</mat-label>
+        <input
+          matInput
+          type="text"
+          name="categoryName"
+          [(ngModel)]="category.categoryName"
+        />
+      </mat-form-field>
+
+      <button mat-raised-button mat-dialog-close color="accent" type="submit">
+        Add
+      </button>
+    </form>
+  </mat-card>
+</div>
