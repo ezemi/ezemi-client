@@ -10,7 +10,7 @@ export class NavHeaderComponent implements OnInit {
   constructor() {}
 
   loggedin: boolean = false;
-  role: string = 'admin';
+  role: string = 'customer';
   name: string = 'max';
   appUser: AppUser;
 

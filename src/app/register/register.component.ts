@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { AccountServiceService } from '../services/account-service.service';
 
 @Component({
   selector: 'app-register',
@@ -12,6 +13,13 @@ import {
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
+  test() {
+    console.log('button pressed');
+  }
+
+  otpsent: boolean = false;
+  email: string;
+  otp: string = '';
   hide = true;
   formGroup: FormGroup;
 
@@ -26,7 +34,19 @@ export class RegisterComponent implements OnInit {
     return this.formGroup.get('formArray');
   }
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(
+    private _formBuilder: FormBuilder,
+    private accountService: AccountServiceService
+  ) {}
+
+  getOtp() {
+    this.otpsent = true;
+    this.email = this.formGroup.get('formArray').value[0].emailFormCtrl;
+    this.accountService.getOtp(this.email).subscribe((data) => {
+      this.otp = data;
+      console.log(data);
+    });
+  }
 
   ngOnInit() {
     this.formGroup = this._formBuilder.group({
@@ -34,14 +54,19 @@ export class RegisterComponent implements OnInit {
         this._formBuilder.group({
           firstNameFormCtrl: ['', Validators.required],
           lastNameFormCtrl: ['', Validators.required],
-          panFormCtrl: ['', Validators.required],
+          // panFormCtrl: ['', Validators.required],
+          emailFormCtrl: ['', [Validators.required, Validators.email]],
         }),
         this._formBuilder.group({
-          emailFormCtrl: ['', Validators.email],
-          otpFormCtrl: ['', Validators.required],
-          passwordFormCtrl: ['', Validators.required],
-          confirmPasswordFormCtrl: ['', Validators.required],
+          otpFormCtrl: ['', [Validators.required, otpVerify.bind(this)]],
         }),
+        this._formBuilder.group(
+          {
+            passwordFormCtrl: ['', Validators.required],
+            confirmPasswordFormCtrl: ['', Validators.required],
+          },
+          { validators: checkPasswords }
+        ),
         this._formBuilder.group({
           cardFormCtrl: ['', Validators.required],
           bankNameFormCtrl: ['', Validators.required],
@@ -56,4 +81,20 @@ export class RegisterComponent implements OnInit {
       ]),
     });
   }
+}
+function otpVerify(control: AbstractControl): { [key: string]: any } | null {
+  const otpgot: string = control.value;
+  if (otpgot === this.otp) {
+    return null;
+  } else {
+    return { OtpInvalid: true };
+  }
+}
+
+function checkPasswords(group: FormGroup) {
+  // here we have the 'passwords' group
+  const password = group.get('passwordFormCtrl').value;
+  const confirmPassword = group.get('confirmPasswordFormCtrl').value;
+
+  return password === confirmPassword ? null : { notSame: true };
 }

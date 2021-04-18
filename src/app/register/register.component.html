@@ -1,13 +1,15 @@
 <div fxLayoutAlign="center top" fxFlexFill class="main-div">
-  <mat-card style="height: 500px" fxFlex="80">
-    <mat-toolbar color="primary">Registration</mat-toolbar>
+  <mat-card style="height: auto" fxFlex="70">
+    <h1>Application for your EzEmi Card</h1>
+    <!-- <mat-toolbar color="primary">Registration</mat-toolbar> -->
     <div fxLayoutAlign="stretch" fxLayout="column" class="register-form">
       <form [formGroup]="formGroup">
-        <mat-horizontal-stepper
-          #linearVerticalStepper="matHorizontalStepper"
+        <mat-vertical-stepper
+          #linearVerticalStepper="matVerticalStepper"
           formArrayName="formArray"
-          [linear]="false"
+          [linear]="true"
         >
+          <!--Basic details (fname, lname, email)-->
           <mat-step formGroupName="0" [stepControl]="formArray?.get([0])">
             <ng-template matStepLabel>Basic user Details</ng-template>
             <mat-form-field>
@@ -25,32 +27,67 @@
             <br />
 
             <mat-form-field>
-              <mat-label>Pan number</mat-label>
-              <input matInput formControlName="panFormCtrl" required />
-              <mat-error>This field is required</mat-error>
-            </mat-form-field>
-
-            <div>
-              <button mat-button matStepperNext>Next</button>
-            </div>
-          </mat-step>
-
-          <mat-step formGroupName="1" [stepControl]="formArray?.get([1])">
-            <ng-template matStepLabel>Email</ng-template>
-            <mat-form-field>
               <mat-label>Email</mat-label>
               <input matInput formControlName="emailFormCtrl" required />
               <mat-error>This field is required</mat-error>
             </mat-form-field>
             <br />
 
+            <!-- <mat-form-field>
+              <mat-label>Pan number</mat-label>
+              <input matInput formControlName="panFormCtrl" required />
+              <mat-error>This field is required</mat-error>
+            </mat-form-field> -->
+
+            <div>
+              <!-- <button mat-button matStepperNext (click)="getOtp()">Next</button> -->
+              <button
+                [disabled]="formArray?.get([0]).Valid"
+                mat-button
+                matStepperNext
+              >
+                Next
+              </button>
+            </div>
+          </mat-step>
+
+          <!--Otp email verification-->
+          <mat-step formGroupName="1" [stepControl]="formArray?.get([1])">
+            <ng-template matStepLabel>Email verification</ng-template>
+
+            <div
+              *ngIf="otpsent; then otpsentblock; else otpnotyetsentblock"
+            ></div>
+
+            <ng-template #otpnotyetsentblock>
+              <div>
+                <button mat-raised-button (click)="getOtp()">Get otp</button>
+              </div>
+            </ng-template>
+
+            <ng-template #otpsentblock>
+              <div>
+                <p>The otp has been sent to your email Id: {{ email }}</p>
+              </div>
+            </ng-template>
+
             <mat-form-field>
               <mat-label>OTP</mat-label>
+
               <input matInput formControlName="otpFormCtrl" required />
               <mat-error>This field is required</mat-error>
             </mat-form-field>
+            <div></div>
             <br />
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </mat-step>
 
+          <!--Password-->
+          <mat-step formGroupName="2" [stepControl]="formArray?.get([2])">
+            <ng-template matStepLabel>Password</ng-template>
             <mat-form-field>
               <mat-label>Password</mat-label>
               <input matInput formControlName="passwordFormCtrl" required />
@@ -73,7 +110,7 @@
             </div>
           </mat-step>
 
-          <mat-step formGroupName="2" [stepControl]="formArray?.get([2])">
+          <mat-step formGroupName="3" [stepControl]="formArray?.get([3])">
             <ng-template matStepLabel>
               <div>Bank Details</div>
             </ng-template>
@@ -125,7 +162,7 @@
             </div>
           </mat-step>
 
-          <mat-step formGroupName="3" [stepControl]="formArray?.get([3])">
+          <mat-step formGroupName="4" [stepControl]="formArray?.get([4])">
             <ng-template matStepLabel>
               <div>Address</div>
             </ng-template>
@@ -178,7 +215,7 @@
               <br />
             </div>
           </mat-step>
-        </mat-horizontal-stepper>
+        </mat-vertical-stepper>
       </form>
     </div>
   </mat-card>

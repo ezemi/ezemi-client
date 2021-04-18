@@ -70,7 +70,6 @@ const routes: Routes = [
         path: 'profile',
         component: ProfileComponent,
       },
-
       {
         path: 'transactions',
         component: TransactionsComponent,
@@ -103,14 +102,6 @@ const routes: Routes = [
         ],
       },
       {
-        path: 'customerAdministration',
-        component: CustomerAdministrationComponent,
-      },
-      {
-        path: 'collectandreport',
-        component: CollectandreportComponent,
-      },
-      {
         path: 'manage',
         component: ManageComponent,
         children: [
@@ -136,22 +127,6 @@ const routes: Routes = [
             component: ManageCardsComponent,
           },
         ],
-      },
-      {
-        path: 'manageproducts',
-        component: ManageProductsComponent,
-      },
-      {
-        path: 'managecategory',
-        component: ManageCategoryComponent,
-      },
-      {
-        path: 'manageBank',
-        component: ManageBankComponent,
-      },
-      {
-        path: 'manageCards',
-        component: ManageCardsComponent,
       },
     ],
   },
