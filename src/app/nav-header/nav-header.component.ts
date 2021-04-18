@@ -9,7 +9,7 @@ import { AppUser } from '../Models/app-user';
 export class NavHeaderComponent implements OnInit {
   constructor() {}
 
-  loggedin: boolean = false;
+  loggedin: boolean = true;
   role: string = 'admin';
   name: string = 'max';
   appUser: AppUser;

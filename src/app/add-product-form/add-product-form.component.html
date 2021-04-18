@@ -2,42 +2,50 @@
   <div>
     <mat-card>
       <mat-toolbar color="primary">
-        <span class="title-center">Add Product</span> </mat-toolbar
-      ><br />
-      <form fxLayoutAlign="stretch" fxLayout="column">
-        <mat-form-field>
-          <mat-label>Product Id </mat-label>
-          <input matInput />
-        </mat-form-field>
+        <span class="title-center">Add Product</span> </mat-toolbar><br />
+
+      <form #form = ngForm  (ngSubmit)="submitProduct()" fxLayoutAlign="stretch" fxLayout="column" >
 
         <mat-form-field>
           <mat-label>Product Name</mat-label>
-          <input matInput type="text" />
+          <input matInput type="text" name="productName" [(ngModel)]="pdt.productName" />
         </mat-form-field>
 
-        <mat-form-field>
-          <mat-label>Product Category</mat-label>
-          <input matInput type="text" />
-        </mat-form-field>
-
+        <mat-form-field appearance="fill">
+          <mat-label >Select Category</mat-label> 
+              <mat-select class="mt-sel" name="pcategoryId"  [(ngModel)]="pdt.categoryId" >
+                  <mat-option *ngFor="let category of categories" [value]="category.categoryId">{{category.categoryName}}</mat-option>  
+             </mat-select>
+       </mat-form-field>
+     
         <mat-form-field>
           <mat-label>Product Price </mat-label>
-          <input matInput type="number" />
+          <input matInput type="number" name="price" [(ngModel)]="pdt.price" />
         </mat-form-field>
 
         <mat-form-field>
-          <mat-label>Processing Price </mat-label>
-          <input matInput type="number" />
+          <mat-label>Processing Fee </mat-label>
+          <input matInput type="number" name="processingFee" [(ngModel)]="pdt.processingFee" />
         </mat-form-field>
 
         <mat-form-field>
           <mat-label>Product Details </mat-label>
-          <input matInput type="text" />
+          <input matInput type="text" name="productDetails" [(ngModel)]="pdt.productDetails" />
         </mat-form-field>
 
-        <button mat-raised-button mat-dialog-close color="accent" type="submit">
-          Add
-        </button>
+        <div>
+          <label class="image-upload-container btn btn-bwm">
+            <span>Select Image</span>
+            <input
+            #imageInput
+            type="file"
+            accept="image/*"
+            (change)="processFile(imageInput)"
+            />
+            </label>
+        </div>
+
+        <button mat-raised-button mat-dialog-close color="accent" type="submit">Add</button>
       </form>
     </mat-card>
   </div>

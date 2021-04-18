@@ -4,7 +4,7 @@
     </div><br><br>
 
     <div>
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <table mat-table [dataSource]="product" class="mat-elevation-z8">
 
             <ng-container matColumnDef="ProductId">
                 <th mat-header-cell *matHeaderCellDef> Product Id </th>
@@ -21,9 +21,9 @@
                 <td mat-cell *matCellDef="let element"> {{element.price}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="ProductDetails">
-                <th mat-header-cell *matHeaderCellDef> Product Details </th>
-                <td mat-cell *matCellDef="let element"> {{element.productDetails}} </td>
+            <ng-container matColumnDef="inStock">
+                <th mat-header-cell *matHeaderCellDef> Product Stock </th>
+                <td mat-cell *matCellDef="let element"> {{element.inStock}} </td>
             </ng-container>
 
             <ng-container matColumnDef="ProcessingFee">
@@ -36,6 +36,11 @@
                 <td mat-cell *matCellDef="let element"> {{element.dateAdded}} </td>
             </ng-container>
 
+            
+            <ng-container matColumnDef="ProductCategory">
+                <th mat-header-cell *matHeaderCellDef> Category </th>
+                <td mat-cell *matCellDef="let element"> {{element.category.categoryName}} </td>
+            </ng-container>
             
             <ng-container matColumnDef="deleteProduct">
                 <th mat-header-cell *matHeaderCellDef>Delete Product</th>
