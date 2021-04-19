@@ -14,22 +14,50 @@
             <ng-template matStepLabel>Basic user Details</ng-template>
             <mat-form-field>
               <mat-label>First name</mat-label>
-              <input matInput formControlName="firstNameFormCtrl" required />
-              <mat-error>This field is required</mat-error>
+              <input
+                matInput
+                formControlName="firstNameFormCtrl"
+                [(ngModel)]="user.firstname"
+                required
+              />
+              <mat-error>{{ formerrors.firstNameFormCtrl }}</mat-error>
             </mat-form-field>
             <br />
 
             <mat-form-field>
               <mat-label>Last name</mat-label>
-              <input matInput formControlName="lastNameFormCtrl" required />
-              <mat-error>This field is required</mat-error>
+              <input
+                matInput
+                formControlName="lastNameFormCtrl"
+                [(ngModel)]="user.lastname"
+                required
+              />
+              <mat-error>{{ formerrors.lastNameFormCtrl }}</mat-error>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field>
+              <mat-label>Phone number</mat-label>
+              <input
+                matInput
+                formControlName="phoneNumber"
+                [(ngModel)]="user.phoneNo"
+                required
+              />
+              <mat-error>{{ formerrors.phoneNumber }}</mat-error>
             </mat-form-field>
             <br />
 
             <mat-form-field>
               <mat-label>Email</mat-label>
-              <input matInput formControlName="emailFormCtrl" required />
-              <mat-error>This field is required</mat-error>
+              <input
+                matInput
+                formControlName="emailFormCtrl"
+                [(ngModel)]="user.email"
+                required
+              />
+              <mat-error>{{ formerrors.emailFormCtrl }}</mat-error>
+              <!-- <mat-error *ngIf="emailFormCtrl.errors.email"></mat-error> -->
             </mat-form-field>
             <br />
 
@@ -41,13 +69,7 @@
 
             <div>
               <!-- <button mat-button matStepperNext (click)="getOtp()">Next</button> -->
-              <button
-                [disabled]="formArray?.get([0]).Valid"
-                mat-button
-                matStepperNext
-              >
-                Next
-              </button>
+              <button mat-button matStepperNext>Next</button>
             </div>
           </mat-step>
 
@@ -90,8 +112,21 @@
             <ng-template matStepLabel>Password</ng-template>
             <mat-form-field>
               <mat-label>Password</mat-label>
-              <input matInput formControlName="passwordFormCtrl" required />
-              <mat-error>This field is required</mat-error>
+              <input
+                matInput
+                formControlName="passwordFormCtrl"
+                matInput
+                [(ngModel)]="user.password"
+                [type]="hide ? 'password' : 'text'"
+                required
+                [(ngModel)]="p1"
+                required
+              />
+              <mat-icon matSuffix (click)="hide = !hide">{{
+                hide ? "visibility_off" : "visibility"
+              }}</mat-icon>
+              <mat-error>{{ formerrors.passwordFormCtrl }}</mat-error>
+              <!-- <mat-error *ngIf=""></mat-error> -->
             </mat-form-field>
             <br />
 
@@ -99,11 +134,18 @@
               <mat-label>Confirm Password</mat-label>
               <input
                 matInput
+                [type]="hide ? 'password' : 'text'"
                 formControlName="confirmPasswordFormCtrl"
+                [(ngModel)]="p2"
+                (change)="checkpass()"
                 required
               />
-              <mat-error>This field is required</mat-error>
+              <mat-icon matSuffix (click)="hide = !hide">{{
+                hide ? "visibility_off" : "visibility"
+              }}</mat-icon>
+              <mat-error>{{ formerrors.confirmPasswordFormCtrl }}</mat-error>
             </mat-form-field>
+            <mat-error *ngIf="passmismatch"> Password did not match </mat-error>
             <div>
               <button mat-button matStepperPrevious>Back</button>
               <button mat-button matStepperNext>Next</button>
@@ -114,47 +156,50 @@
             <ng-template matStepLabel>
               <div>Bank Details</div>
             </ng-template>
-            <mat-form-field>
-              <mat-label>Bank Name</mat-label>
-              <input matInput formControlName="bankNameFormCtrl" />
-              <mat-error>The input is invalid.</mat-error>
-            </mat-form-field>
-            <br />
-
-            <mat-form-field>
-              <mat-label>Card Type</mat-label>
-              <mat-select placeholder="Select Card Type" required>
-                <mat-option value="1">Gold</mat-option>
-                <mat-option value="2">Titanium</mat-option>
-              </mat-select>
-              <mat-error>The input is invalid.</mat-error>
-            </mat-form-field>
-            <br />
 
             <mat-form-field>
               <mat-label>Bank Name</mat-label>
-              <mat-select placeholder="Select Bank" required>
-                <mat-option value="1">SBI</mat-option>
+              <mat-select
+                placeholder="Select Bank"
+                formControlName="bankNameFormCtrl"
+                required
+                [(ngModel)]="user.bankId"
+              >
+                <mat-option>select</mat-option>
+                <mat-option *ngFor="let b of banks" value="{{ b.bankId }}">
+                  {{ b.bankName }}
+                </mat-option>
+                <!-- <mat-option value="1">SBI</mat-option>
                 <mat-option value="2">ICICI</mat-option>
                 <mat-option value="3">HDFC</mat-option>
                 <mat-option value="4">UNION BANK</mat-option>
-                <mat-option value="5">AXIS</mat-option>
+                <mat-option value="5">AXIS</mat-option> -->
               </mat-select>
-              <mat-error>The input is invalid.</mat-error>
+              <mat-error>{{ formerrors.bankNameFormCtrl }}</mat-error>
             </mat-form-field>
             <br />
 
             <mat-form-field>
               <mat-label>Bank Account number</mat-label>
-              <input matInput formControlName="accFormCtrl" required />
-              <mat-error>This field is required</mat-error>
+              <input
+                matInput
+                formControlName="accFormCtrl"
+                [(ngModel)]="user.account_number"
+                required
+              />
+              <mat-error>{{ formerrors.accFormCtrl }}</mat-error>
             </mat-form-field>
             <br />
 
             <mat-form-field>
               <mat-label>Ifsc code</mat-label>
-              <input matInput formControlName="ifscFormCtrl" required />
-              <mat-error>This field is required</mat-error>
+              <input
+                matInput
+                formControlName="ifscFormCtrl"
+                [(ngModel)]="user.ifsc_code"
+                required
+              />
+              <mat-error>{{ formerrors.ifscFormCtrl }}</mat-error>
             </mat-form-field>
             <div>
               <button mat-button matStepperPrevious>Back</button>
@@ -173,7 +218,10 @@
                 matInput
                 type="text"
                 placeholder="Address Line 1"
+                formControlName="address1FormCtrl"
+                [(ngModel)]="user.addressLine1"
               ></textarea>
+              <mat-error>{{ formerrors.address1FormCtrl }}</mat-error>
             </mat-form-field>
             <br />
 
@@ -181,10 +229,144 @@
               <mat-label>Address Line 2</mat-label>
               <textarea
                 matInput
+                formControlName="address2FormCtrl"
                 type="text"
-                placeholder="Address Line 1"
+                placeholder="Address Line 2"
+                [(ngModel)]="user.addressLine2"
               ></textarea>
+              <mat-error>{{ formerrors.address2FormCtrl }}</mat-error>
             </mat-form-field>
+            <br />
+            <mat-form-field>
+              <mat-label>City</mat-label>
+              <input matInput formControlName="cityformctrl" required />
+              <mat-error>{{ formerrors.cityformctrl }}</mat-error>
+            </mat-form-field>
+            <br />
+            <mat-form-field>
+              <mat-label>Postal code</mat-label>
+              <input
+                matInput
+                type="text"
+                formControlName="pincodeformctrl"
+                [(ngModel)]="user.pinCode"
+                required
+              />
+              <mat-error>{{ formerrors.pincodeformctrl }}</mat-error>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </mat-step>
+
+          <mat-step formGroupName="5" [stepControl]="formArray?.get([5])">
+            <ng-template matStepLabel>
+              <div>Work Details</div>
+            </ng-template>
+
+            <mat-form-field>
+              <mat-label>Company name</mat-label>
+              <input
+                matInput
+                type="text"
+                placeholder="Company name"
+                formControlName="companyname"
+                [(ngModel)]="user.companyName"
+              />
+              <mat-error>{{ formerrors.companyname }}</mat-error>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field>
+              <mat-label> Company address</mat-label>
+              <textarea
+                matInput
+                formControlName="companyaddress"
+                type="text"
+                placeholder="Company address"
+                [(ngModel)]="user.companyAddress"
+              ></textarea>
+              <mat-error>{{ formerrors.companyaddress }}</mat-error>
+            </mat-form-field>
+            <br />
+            <mat-form-field>
+              <mat-label>Designation</mat-label>
+              <input
+                matInput
+                formControlName="designation"
+                [(ngModel)]="user.designation"
+                required
+              />
+              <mat-error>{{ formerrors.designation }}</mat-error>
+            </mat-form-field>
+
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </mat-step>
+
+          <mat-step formGroupName="6" [stepControl]="formArray?.get([6])">
+            <ng-template matStepLabel>
+              <div>Pan card</div>
+            </ng-template>
+
+            <div>
+              <label class="image-upload-container btn btn-bwm">
+                <span>Select Adhar card image</span>
+                <input
+                  #imageInput
+                  type="file"
+                  accept="image/*"
+                  (change)="processAdhar(imageInput)"
+                  formControlName="adharcard"
+                  required
+                />
+              </label>
+            </div>
+            <br />
+            <div>
+              <label class="image-upload-container btn btn-bwm">
+                <span>Select Pan Card image</span>
+                <input
+                  #panInput
+                  type="file"
+                  accept="image/*"
+                  (change)="processPan(panInput)"
+                  formControlName="pancard"
+                  required
+                />
+              </label>
+            </div>
+            <mat-error>{{ formerrors.pancard }}</mat-error>
+            <br />
+
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </mat-step>
+
+          <mat-step formGroupName="7" [stepControl]="formArray?.get([7])">
+            <ng-template matStepLabel>
+              <div>Select Card</div>
+            </ng-template>
+            <mat-form-field>
+              <mat-label>Card Type</mat-label>
+              <mat-select
+                placeholder="Select Card Type"
+                formControlName="cardFormCtrl"
+                required
+                [(ngModel)]="user.cardTypeId"
+              >
+                <mat-option>select</mat-option>
+                <mat-option value="1">Gold</mat-option>
+                <mat-option value="2">Titanium</mat-option>
+              </mat-select>
+              <mat-error>{{ formerrors.cardFormCtrl }}</mat-error>
+            </mat-form-field>
+            <br />
 
             <div>
               <button mat-button matStepperPrevious>Back</button>
@@ -198,19 +380,12 @@
             <div>
               <button
                 mat-raised-button
-                type="reset"
-                style="margin: 5px"
-                color="accent"
-              >
-                Reset
-              </button>
-              <button
-                mat-raised-button
                 type="submit"
                 style="margin: 5px"
                 color="accent"
+                (click)="register()"
               >
-                Regiser
+                Apply for Card
               </button>
               <br />
             </div>

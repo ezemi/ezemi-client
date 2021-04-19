@@ -4,7 +4,7 @@
         <button class="btn" mat-raised-button color="accent"  (click)="openAddCategoryForm()">Add Category</button>        
     </div><br><br>
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <table mat-table [dataSource]="category" class="mat-elevation-z8">
 
         <ng-container matColumnDef="CategoryId">
             <th mat-header-cell *matHeaderCellDef> Category Id </th>

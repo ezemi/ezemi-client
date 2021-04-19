@@ -2,13 +2,35 @@
   <div style="align-self: center; margin: auto" class="main-div">
     <mat-card style="width: 350px">
       <mat-toolbar style="padding: 40px" color="primary">Login</mat-toolbar>
-      <form fxLayoutAlign="stretch" fxLayout="column" class="login-form">
+      <div></div>
+      <form
+        fxLayoutAlign="stretch"
+        fxLayout="column"
+        class="login-form"
+        (ngSubmit)="login()"
+      >
+        <div *ngIf="invalidCredentials" style="color: red">
+          Invalid Login credentials
+        </div>
         <mat-form-field>
-          <input matInput placeholder="Username" required />
+          <input
+            matInput
+            placeholder="Username"
+            required
+            name="emailId"
+            [(ngModel)]="logindto.emailId"
+          />
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput type="password" placeholder="Password" required />
+          <input
+            matInput
+            type="password"
+            placeholder="Password"
+            name="password"
+            [(ngModel)]="logindto.password"
+            required
+          />
         </mat-form-field>
         <a href="">Forgot password?</a> <br />
         <button

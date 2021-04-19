@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppUser } from '../Models/app-user';
+import { LoginStatus } from '../Models/login-status';
 
 @Component({
   selector: 'app-nav-header',
@@ -7,19 +9,28 @@ import { AppUser } from '../Models/app-user';
   styleUrls: ['./nav-header.component.css'],
 })
 export class NavHeaderComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
 
-  loggedin: boolean = false;
-  role: string = 'customer';
-  name: string = 'max';
-  appUser: AppUser;
+  loggedin: boolean; // = false;
+  role: string; // = 'admin';
+  name: string; // = 'max';
+  //appUser: AppUser;
+  appUser: LoginStatus;
 
   ngOnInit(): void {
-    // this.appUser = JSON.parse(localStorage.getItem('appUser'));
-    // if (this.appUser === null) {
-    //   this.loggedin = false;
-    // } else {
-    //   this.role = this.appUser.role;
-    // }
+    this.appUser = JSON.parse(localStorage.getItem('loggedinuser'));
+    console.log(this.appUser);
+    if (this.appUser == null || this.appUser == undefined) {
+      this.loggedin = false;
+    } else {
+      this.loggedin = true;
+      this.role = this.appUser.role;
+    }
+  }
+
+  logoutUser() {
+    localStorage.removeItem('loggedinuser');
+    this.ngOnInit();
+    this.router.navigate(['welcome']);
   }
 }

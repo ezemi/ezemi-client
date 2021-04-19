@@ -20,6 +20,7 @@ import { ProductsComponent } from './products/products.component';
 import { ProfileComponent } from './profile/profile.component';
 
 import { RegisterComponent } from './register/register.component';
+import { RegisterationsuccessfulComponent } from './registerationsuccessful/registerationsuccessful.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
@@ -53,6 +54,10 @@ const routes: Routes = [
       {
         path: 'register',
         component: RegisterComponent,
+      },
+      {
+        path: 'registerationsuccessfull',
+        component: RegisterationsuccessfulComponent,
       },
       {
         path: 'products',
