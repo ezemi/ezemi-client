@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog , MatDialogRef} from '@angular/material/dialog';
 import { AddCateogryFormComponent } from '../add-cateogry-form/add-cateogry-form.component';
+import { DeleteComponent } from '../delete/delete.component';
 import {Category} from '../Models/category';
 import { ProductServiceService } from '../services/product-service.service';
 
@@ -30,7 +31,29 @@ export class ManageCategoryComponent implements OnInit {
   displayedColumns:String[]=['CategoryId' , 'CategoryName', 'deleteCategory'];
   //dataSource = this.category ; 
 
+
+
   openAddCategoryForm(){
-    this.dialog.open(AddCateogryFormComponent, {height:'350px' , width:'500px'});
+    let dialogref = this.dialog.open(AddCateogryFormComponent, {height:'350px' , width:'500px'});
+
+    dialogref.afterClosed().subscribe((result) => {
+      this.ngOnInit();
+    });
+    
    }
-    }
+
+   openDeleteComponent(obj){
+      let dialogref = this.dialog.open(DeleteComponent, {height : '200px' , width: '400px', data:obj });
+
+      // dialogref.afterClosed().subscribe((result) => {
+      //   this.deleteRowData(result.data);
+      // });
+   }
+
+  //  deleteRowData(row_obj){
+  //   this.category = this.category.filter((value,key)=>{
+  //     return value.categoryId != row_obj.id;
+  //   });
+  // }
+  
+}
