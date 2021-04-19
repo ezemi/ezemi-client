@@ -1,4 +1,5 @@
 .chooseFile{
-    width: 50%;
-    height: 20px;
+    font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif;
+    font-style: inherit;
+    opacity: 0.6;
 }

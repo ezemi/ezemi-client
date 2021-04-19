@@ -35,7 +35,12 @@ import { AddProductFormComponent } from './add-product-form/add-product-form.com
 import { PayComponent } from './pay/pay.component';
 import { ChangepassComponent } from './changepass/changepass.component';
 import { HttpClientModule } from '@angular/common/http';
+
 import { RegisterationsuccessfulComponent } from './registerationsuccessful/registerationsuccessful.component';
+
+import { DeleteComponent } from './delete/delete.component';
+import { NewapplicantsComponent } from './newapplicants/newapplicants.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +70,11 @@ import { RegisterationsuccessfulComponent } from './registerationsuccessful/regi
     AddProductFormComponent,
     PayComponent,
     ChangepassComponent,
+
     RegisterationsuccessfulComponent,
+
+    DeleteComponent,
+    NewapplicantsComponent,
   ],
   imports: [
     BrowserModule,

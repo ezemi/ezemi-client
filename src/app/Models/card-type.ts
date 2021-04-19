@@ -3,5 +3,5 @@ export class CardType {
 
   cardTypeName: string;
 
-  creditAmout: number;
+  creditAmount: number;
 }
