@@ -1,5 +1,6 @@
 
-<div>
+<div  class="compHeight">
+
     <div class="part1">
         <button class="btn" mat-raised-button color="accent"  (click)="openAddCategoryForm()">Add Category</button>        
     </div><br><br>
@@ -16,12 +17,15 @@
             <td mat-cell *matCellDef="let element"> {{element.categoryName}} </td>
         </ng-container>
 
+
         <span class="distance"></span>
         <ng-container matColumnDef="deleteCategory">
             <th mat-header-cell *matHeaderCellDef>Delete Category</th>
             <td mat-cell *matCellDef="let element">
-               <button mat-icon-button color="primary">
+
+               <button mat-icon-button class="icon_color" (click)="openDeleteComponent(element)">
                 <mat-icon>delete</mat-icon>
+                
               </button>
             </td>
           </ng-container>

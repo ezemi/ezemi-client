@@ -2,19 +2,14 @@
     <mat-card>  
     <mat-toolbar color="primary">
         <span  class="title-center">Add New Bank</span>
-      </mat-toolbar><br>
+      </mat-toolbar><br><br>
 
-        <form fxLayoutAlign="stretch" fxLayout="column">
+        <form (ngSubmit)="submitBank()" fxLayoutAlign="stretch" fxLayout="column">
 
             <mat-form-field >
                 <mat-label>Bank Name</mat-label>
-                <input matInput type="text">
-            </mat-form-field>       
-
-            <mat-form-field >
-                <mat-label>Bank Details</mat-label>
-                <input matInput type="text">
-            </mat-form-field>
+                <input matInput type="text" name="bankName" [(ngModel)]="bank.bankName">
+            </mat-form-field><br><br>      
 
               <button mat-raised-button mat-dialog-close color="accent" type="submit">Add</button>
           </form>

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
 h2 {
   margin: auto;
 }
@@ -68,6 +69,7 @@ h2 {
     height: 40px;
     width: auto;
   }
+
   mat-toolbar {
     justify-content: space-between;
 }
@@ -83,6 +85,148 @@ h2 {
 .column-label {
     margin-right: 8px;
     font-size: 1rem;
+  } 
 }
 
+
+
+
+
+.pt-1{
+  display: flex;
+  justify-content: space-evenly;
+  height: 300px;
+  /* background-color: rgb(169, 169, 184); */
 }
+.c1{
+  background-color: rgb(255, 255, 255);
+  margin-top: 20px;
+  height: 250px;
+  width: 95%;
+  box-shadow: 10px 10px 13px rgba(19, 18, 18, 0.651);
+  
+}
+.c1 h1{
+ 
+ margin-top: 20px;
+ text-align: center;
+ font-size: 30px;
+ font-weight: bold;
+  
+}
+.c1 div{
+  width: 80%;
+  margin-top: 5px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 20px;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+
+
+.pt-2{
+  display: flex;
+  justify-content: space-evenly;
+  height: 300px;
+
+}
+.c2{
+  /* background-color: rgb(141, 231, 247); */
+  background-image:  url("^../assets/images/m-cd-electronics.jpg");
+  background-size: cover;
+  margin-top: 20px;
+  height: 250px;
+  width: 400px;
+  box-shadow: 10px 10px 3px rgba(19, 18, 18, 0.651);
+}
+.c3{
+  /* background-color: rgb(89, 0, 255); */
+  background-image:  url("^../assets/images/save money.jpg");
+  background-size: cover;
+  margin-top: 20px;
+  height: 250px;
+  width: 400px;
+  box-shadow: 10px 10px 3px rgba(19, 18, 18, 0.651);
+}
+.c3 h2{
+  margin-top: 10px;
+  margin-left: 200px;
+  color: #fff;
+}
+.c4{
+  /* background-color: rgb(89, 0, 255); */
+  background-image:  url("^../assets/images/shoppy.jpg");
+  background-size: cover;
+  margin-top: 20px;
+  height: 250px;
+  width: 400px;
+  box-shadow: 10px 10px 3px rgba(19, 18, 18, 0.651);
+}
+.c4 h2{
+  margin-top: 10px;
+  margin-left: 25px;
+  color: #fff;
+
+}
+
+.pt-3 h2{
+  margin-top: 20px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.cards-pt{
+  display: flex;
+  justify-content: space-evenly;
+  height: 300px;
+  margin-top: 10px;
+}
+
+.gold{
+ 
+  background-image:  url("^../assets/images/svgs/GoldCardsvg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: goldenrod;
+  border-radius: 25px;
+  box-sizing: border-box;
+  border-style: solid;
+  box-shadow: 5px 5px 12px rgb(77, 77, 77);
+  height: 250px;
+  width: 440px;
+
+}
+
+.gold-card-content {
+  margin-top: 100px;
+  color: black;
+  margin-left: 30px;
+}
+.gold-card-num {
+  font-family: "Orbitron", "sans-serif";
+}
+ .platinum{
+  background-color: rgb(24, 197, 209);
+  background-image:  url("^../assets/images/svgs/PlatinumCardSvg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: rgb(102, 102, 101);
+  border-radius: 25px;
+  box-sizing: border-box;
+  border-style: solid;
+  box-shadow: 5px 5px 12px rgb(77, 77, 77);
+  height: 250px;
+  width: 440px;
+
+} 
+.plat-card-content {
+  margin-top: 100px;
+  color: black;
+  margin-left: 30px;
+}
+.plat-card-num {
+  font-family: "Orbitron", "sans-serif";
+  }

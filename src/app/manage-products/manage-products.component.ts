@@ -36,9 +36,13 @@ export class ManageProductsComponent implements OnInit {
   
 
   openAddProductForm() {
-    this.dialog.open(AddProductFormComponent, {
-      height: '500px',
+    let dialogref = this.dialog.open(AddProductFormComponent, {
+      height: '550px',
       width: '600px',
+    });
+
+    dialogref.afterClosed().subscribe((result) => {
+      this.ngOnInit();
     });
   }
 }
