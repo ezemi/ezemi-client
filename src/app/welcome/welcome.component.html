@@ -9,12 +9,7 @@
       </p>
 
       <p>
-        <button
-          class="gsBtn"
-          mat-raised-button
-          color="accent"
-          (click)="ezemistore()"
-        >
+        <button class="gsBtn" mat-raised-button color="accent" (click)="ezemistore()">
           <h2>EzEmi store</h2>
         </button>
       </p>
@@ -22,7 +17,17 @@
   </div>
 </div>
 <div>
-  <h1>Hello</h1>
-  <h1>Hello</h1>
-  <h1>Hello</h1>
-</div>
+  
+  <div class="content">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+      <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="20%" *ngFor="let num of [1,2,3]">
+        <mat-toolbar color="accent">
+          About Us
+        </mat-toolbar>
+        <mat-card class="mat-elevation-z4">
+        <mat-card-title> About Us </mat-card-title>
+        
+          
+         
+        </mat-card>
+ 

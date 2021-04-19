@@ -19,4 +19,5 @@ export class WelcomeComponent implements OnInit {
   ezemistore() {
     this.router.navigate(['/page-content']);
   }
+
 }

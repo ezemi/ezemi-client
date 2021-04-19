@@ -68,4 +68,21 @@ h2 {
     height: 40px;
     width: auto;
   }
+  mat-toolbar {
+    justify-content: space-between;
+}
+
+.content {
+    padding: 16px;
+}
+
+.content > mat-card {
+    margin-bottom: 16px;
+}
+
+.column-label {
+    margin-right: 8px;
+    font-size: 1rem;
+}
+
 }
