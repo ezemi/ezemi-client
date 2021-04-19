@@ -17,7 +17,7 @@
       <div *ngIf="loggedin; then loginBlock; else notloggedinBlock"></div>
 
       <ng-template #loginBlock>
-        <div *ngIf="role == 'admin'; then adminBlock; else customerBlock"></div>
+        <div *ngIf="role == 'ADMIN'; then adminBlock; else customerBlock"></div>
         <!-- Customer side navigation-->
         <ng-template #customerBlock>
           <div fxShow="true" fxHide.lt-md>
@@ -34,7 +34,7 @@
                 <a routerLink="profile">
                   <button mat-menu-item>Profile</button>
                 </a>
-                <button mat-menu-item>Logout</button>
+                <button mat-menu-item (click)="logoutUser()">Logout</button>
               </mat-menu>
             </span>
           </div>
@@ -53,7 +53,7 @@
               >Hello, Admin
               <mat-icon [matMenuTriggerFor]="userMenu">account_circle</mat-icon>
               <mat-menu #userMenu="matMenu">
-                <button mat-menu-item>Logout</button>
+                <button (click)="logoutUser()" mat-menu-item>Logout</button>
               </mat-menu>
             </span>
           </div>
@@ -76,7 +76,7 @@
       <mat-nav-list>
         <a (click)="sidenav.toggle()" mat-list-item>Close</a>
 
-        <div *ngIf="role == 'admin'; then adminBlock; else customerBlock"></div>
+        <div *ngIf="role == 'ADMIN'; then adminBlock; else customerBlock"></div>
 
         <ng-template #customerBlock>
           <div>

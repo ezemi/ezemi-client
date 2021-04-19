@@ -20,6 +20,7 @@ import { ProductsComponent } from './products/products.component';
 import { ProfileComponent } from './profile/profile.component';
 
 import { RegisterComponent } from './register/register.component';
+import { RegisterationsuccessfulComponent } from './registerationsuccessful/registerationsuccessful.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
@@ -55,6 +56,10 @@ const routes: Routes = [
         component: RegisterComponent,
       },
       {
+        path: 'registerationsuccessfull',
+        component: RegisterationsuccessfulComponent,
+      },
+      {
         path: 'products',
         component: ProductsComponent,
       },
@@ -70,7 +75,6 @@ const routes: Routes = [
         path: 'profile',
         component: ProfileComponent,
       },
-
       {
         path: 'transactions',
         component: TransactionsComponent,
@@ -103,14 +107,6 @@ const routes: Routes = [
         ],
       },
       {
-        path: 'customerAdministration',
-        component: CustomerAdministrationComponent,
-      },
-      {
-        path: 'collectandreport',
-        component: CollectandreportComponent,
-      },
-      {
         path: 'manage',
         component: ManageComponent,
         children: [
@@ -136,22 +132,6 @@ const routes: Routes = [
             component: ManageCardsComponent,
           },
         ],
-      },
-      {
-        path: 'manageproducts',
-        component: ManageProductsComponent,
-      },
-      {
-        path: 'managecategory',
-        component: ManageCategoryComponent,
-      },
-      {
-        path: 'manageBank',
-        component: ManageBankComponent,
-      },
-      {
-        path: 'manageCards',
-        component: ManageCardsComponent,
       },
     ],
   },

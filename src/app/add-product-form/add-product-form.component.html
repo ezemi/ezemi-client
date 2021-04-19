@@ -2,22 +2,40 @@
   <div>
     <mat-card>
       <mat-toolbar color="primary">
-        <span class="title-center">Add Product</span> </mat-toolbar><br />
+        <span class="title-center">Add Product</span> </mat-toolbar
+      ><br />
 
-      <form #form = ngForm  (ngSubmit)="submitProduct()" fxLayoutAlign="stretch" fxLayout="column" >
-
+      <form
+        #form="ngForm"
+        (ngSubmit)="submitProduct()"
+        fxLayoutAlign="stretch"
+        fxLayout="column"
+      >
         <mat-form-field>
           <mat-label>Product Name</mat-label>
-          <input matInput type="text" name="productName" [(ngModel)]="pdt.productName" />
+          <input
+            matInput
+            type="text"
+            name="productName"
+            [(ngModel)]="pdt.productName"
+          />
         </mat-form-field>
 
         <mat-form-field appearance="fill">
-          <mat-label >Select Category</mat-label> 
-              <mat-select class="mt-sel" name="pcategoryId"  [(ngModel)]="pdt.categoryId" >
-                  <mat-option *ngFor="let category of categories" [value]="category.categoryId">{{category.categoryName}}</mat-option>  
-             </mat-select>
-       </mat-form-field>
-     
+          <mat-label>Select Category</mat-label>
+          <mat-select
+            class="mt-sel"
+            name="pcategoryId"
+            [(ngModel)]="pdt.categoryId"
+          >
+            <mat-option
+              *ngFor="let category of categories"
+              [value]="category.categoryId"
+              >{{ category.categoryName }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+
         <mat-form-field>
           <mat-label>Product Price </mat-label>
           <input matInput type="number" name="price" [(ngModel)]="pdt.price" />
@@ -25,30 +43,41 @@
 
         <mat-form-field>
           <mat-label>Processing Fee </mat-label>
-          <input matInput type="number" name="processingFee" [(ngModel)]="pdt.processingFee" />
+          <input
+            matInput
+            type="number"
+            name="processingFee"
+            [(ngModel)]="pdt.processingFee"
+          />
         </mat-form-field>
 
         <mat-form-field>
           <mat-label>Product Details </mat-label>
-          <input matInput type="text" name="productDetails" [(ngModel)]="pdt.productDetails" />
+          <input
+            matInput
+            type="text"
+            name="productDetails"
+            [(ngModel)]="pdt.productDetails"
+          />
         </mat-form-field>
 
         <div>
-          <label >
-            <span class="chooseFile" >Select Image</span><br>
+          <label>
+            <span class="chooseFile">Select Image</span><br />
             <input
-            #imageInput
-            type="file"
-            accept="image/*"
-            (change)="processFile(imageInput)"
+              #imageInput
+              type="file"
+              accept="image/*"
+              (change)="processFile(imageInput)"
             />
-            </label>
-        </div><br>
+          </label>
+        </div>
+        <br />
 
-        <button mat-raised-button mat-dialog-close color="accent" type="submit">Add</button>
+        <button mat-raised-button mat-dialog-close color="accent" type="submit">
+          Add
+        </button>
       </form>
     </mat-card>
   </div>
 </div>
-
-

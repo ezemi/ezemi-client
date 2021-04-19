@@ -1,28 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { ManageCategoryComponent } from '../manage-category/manage-category.component';
 import { Category } from '../Models/category';
 import { ProductServiceService } from '../services/product-service.service';
 
 @Component({
   selector: 'app-add-cateogry-form',
   templateUrl: './add-cateogry-form.component.html',
-  styleUrls: ['./add-cateogry-form.component.css']
+  styleUrls: ['./add-cateogry-form.component.css'],
 })
 export class AddCateogryFormComponent implements OnInit {
+  constructor(private pservice: ProductServiceService) {}
 
-  constructor(private pservice: ProductServiceService) { }
+  category: Category = new Category();
 
-  category:Category=new Category();
-  
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  submitCategory(){
+  submitCategory() {
     console.log(this.category);
-    this.pservice.addcategory(this.category).subscribe(
-      data =>{
-        console.log(JSON.stringify(data));
-      }
-    );
+    this.pservice.addcategory(this.category).subscribe((data) => {
+      console.log(JSON.stringify(data));
+    });
   }
-  
 }

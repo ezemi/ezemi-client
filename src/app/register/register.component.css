@@ -4,3 +4,11 @@
 .register-form {
   padding-bottom: 5px;
 }
+
+mat-step {
+  margin: auto;
+}
+
+mat-form-field {
+  width: 300px;
+}

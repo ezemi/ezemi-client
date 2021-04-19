@@ -9,18 +9,18 @@ import { ProductServiceService } from '../services/product-service.service';
   styleUrls: ['./manage-products.component.css'],
 })
 export class ManageProductsComponent implements OnInit {
-  
   product: Product[];
 
-  constructor(public dialog: MatDialog, private pservice : ProductServiceService) {}
+  constructor(
+    public dialog: MatDialog,
+    private pservice: ProductServiceService
+  ) {}
 
   ngOnInit(): void {
-    this.pservice.getallproduct().subscribe(
-      data=>{
-        console.log(JSON.stringify(data));
-        this.product = data ; 
-      }
-    );
+    this.pservice.getallproduct().subscribe((data) => {
+      console.log(JSON.stringify(data));
+      this.product = data;
+    });
   }
 
   displayedColumns: String[] = [
@@ -33,14 +33,12 @@ export class ManageProductsComponent implements OnInit {
     'ProductCategory',
     'deleteProduct',
   ];
-  
 
   openAddProductForm() {
     let dialogref = this.dialog.open(AddProductFormComponent, {
       height: '550px',
       width: '600px',
     });
-
     dialogref.afterClosed().subscribe((result) => {
       this.ngOnInit();
     });
