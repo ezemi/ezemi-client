@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { User } from '../Models/user';
+import { NewapplicantsComponent } from '../newapplicants/newapplicants.component';
+import { AdminServiceService } from '../services/admin-service.service';
 
 @Component({
   selector: 'app-collectandreport',
@@ -7,9 +11,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CollectandreportComponent implements OnInit {
 
-  constructor() { }
+  nonApproved : User[];
+
+  constructor(public dialog :MatDialog ,private aservice : AdminServiceService) { }
 
   ngOnInit(): void {
+    this.aservice.getNotApprovedUser().subscribe(
+      data=>{
+        console.log(JSON.stringify(data));
+        this.nonApproved = data;
+      }
+    );
   }
+
+  displayedColumns: String[] = [
+    'userId',
+    'firstname',
+    'lastname',
+    'email',
+    'phoneNo',
+    'viewUser',
+  ];
+
+  viewUser(obj){
+    let dialogref = this.dialog.open(NewapplicantsComponent, {height:'350px' , width:'500px',data:obj});
+
+    dialogref.afterClosed().subscribe((result) => {
+      this.ngOnInit();
+    });
+    
+   }
 
 }

@@ -1,4 +1,6 @@
-import { Address } from 'node:cluster';
+
+import { Address } from './address';
+import { Bank } from './bank';
 import { BankDetails } from './bank-details';
 import { EmiCard } from './emi-card';
 
@@ -21,7 +23,7 @@ export class User {
 
   designation: string;
 
-  bankDetaills: BankDetails;
+  bankDetails: BankDetails;
 
   address: Address;
 

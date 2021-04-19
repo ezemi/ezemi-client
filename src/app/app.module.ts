@@ -35,6 +35,8 @@ import { AddProductFormComponent } from './add-product-form/add-product-form.com
 import { PayComponent } from './pay/pay.component';
 import { ChangepassComponent } from './changepass/changepass.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DeleteComponent } from './delete/delete.component';
+import { NewapplicantsComponent } from './newapplicants/newapplicants.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +66,8 @@ import { HttpClientModule } from '@angular/common/http';
     AddProductFormComponent,
     PayComponent,
     ChangepassComponent,
+    DeleteComponent,
+    NewapplicantsComponent,
   ],
   imports: [
     BrowserModule,

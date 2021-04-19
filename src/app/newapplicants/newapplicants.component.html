@@ -1,0 +1,81 @@
+<mat-toolbar color="primary">{{rowData.firstname}}  {{rowData.lastname}}</mat-toolbar><br><br>
+
+
+<div>
+    <table>
+        <h4>Personal Details</h4>
+            <tr>
+                <th>First Name</th>
+                <td>{{rowData.firstname}}</td>
+            </tr>
+
+            <tr>
+                <th>Last Name</th>
+                <td>{{rowData.lastname}}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{rowData.email}}</td>
+            </tr>
+
+            <tr>
+                <th>Phone No.</th>
+                <td>{{rowData.phoneNo}}</td>
+            </tr>
+            <tr>
+                <th>Company Name</th>
+                <td>{{rowData.companyName}}</td>
+            </tr>
+            <tr>
+                <th>Company Address</th>
+                <td>{{rowData.companyAddress}}</td>
+            </tr>
+            <tr>
+                <th>Designation</th>
+                <td>{{rowData.designation}}</td>
+            </tr>
+    <h4>Bank Details</h4>
+            <tr>
+                <th>Account No</th>
+                <td>{{rowData.bankDetails.account_number}}</td>
+            </tr>
+
+            <tr>
+                <th>Bank Name</th>
+                <td>{{rowData.bankDetails.bank.bankName}}</td>
+            </tr>
+
+            <tr>
+                <th>IFSC Code</th>
+                <td>{{rowData.bankDetails.ifsc_code}}</td>
+            </tr>
+
+    <h4>Address</h4>
+            <tr>
+                <th>Address</th>
+                <td>{{rowData.address.addressLine1}}, {{rowData.address.addressLine2}}, {{rowData.address.city}}</td>
+            </tr>
+
+            <tr>
+                <th>PinCode</th>
+                <td>{{rowData.address.pinCode}}</td>
+            </tr>
+    <h4>EMI Card Information</h4>
+            <tr>
+                <th>EMI Card No.</th>
+                <td>{{rowData.card.emiCardNo}}</td>
+            </tr>
+
+            <tr>
+                <th>Card Type</th>
+                <td>{{rowData.card.cardType.cardTypeName}}</td>
+            </tr>
+            
+    <h4>Documents</h4>
+    </table>
+
+    <div>
+        <button  mat-raised-button>Deny</button>
+        <button  mat-raised-button>Approve</button>
+    </div>
+</div>
