@@ -20,6 +20,8 @@
   background-color: rgb(235, 235, 235);
   padding: 20px;
   border-radius: 20px;
+  height: auto;
+  margin-bottom: 10px;
 }
 
 .container-card {
@@ -30,12 +32,12 @@
   /* grid-area: container-card; */
 }
 
-.credit-info {
+/* .credit-info { */
   /* grid-column: 2; */
   /* grid-area: credit-info; */
-}
+/* } */
 
-.card-img {
+.gold-img {
   /* width: 440px; */
   box-sizing: border-box;
   border-style: solid;
@@ -46,6 +48,19 @@
   background-repeat: no-repeat;
   background-size: cover;
   color: goldenrod;
+  border-radius: 25px;
+}
+.plat-img {
+  /* width: 440px; */
+  box-sizing: border-box;
+  border-style: solid;
+  box-shadow: 5px 5px 12px rgb(77, 77, 77);
+  height: 250px;
+  margin-top: 10px;
+  background-image: url("^../assets/images/svgs/PlatinumCardSvg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: rgb(102, 102, 101);
   border-radius: 25px;
 }
 

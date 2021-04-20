@@ -1,7 +1,7 @@
 export class LoginStatus {
   email: string;
 
-  userId: string;
+  userId: number;
 
   role: string;
 
