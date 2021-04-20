@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Product } from '../Models/product';
+import { ProductServiceService } from '../services/product-service.service';
 
 @Component({
   selector: 'app-productdetails',
@@ -7,12 +9,17 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./productdetails.component.css'],
 })
 export class ProductdetailsComponent implements OnInit {
-  name: String = 'Acer Predator Helios 300';
-  img: String = '../assets/images/pred23.png ';
+  product: Product;
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private productService: ProductServiceService
+  ) {}
 
   ngOnInit(): void {
     const id = +this.activatedRoute.snapshot.params['productId'];
+    this.productService.getProductByid(id).subscribe((data) => {
+      this.product = data;
+    });
   }
 }

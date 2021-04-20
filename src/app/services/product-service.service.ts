@@ -7,26 +7,40 @@ import { Productdto } from '../Models/productdto';
 import { Status } from '../Models/status';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductServiceService {
+  constructor(private httpClient: HttpClient) {}
 
-  constructor(private httpClient : HttpClient) { }
-
-  getallcategory():Observable<Category[]>{
-    return this.httpClient.get<Category[]>("http://localhost:9090/allcategory");
+  getallcategory(): Observable<Category[]> {
+    return this.httpClient.get<Category[]>('http://localhost:9090/allcategory');
   }
 
-  addcategory(ctg:Category):Observable<Status>{
-    return this.httpClient.post<Status>("http://localhost:9090/addcategory", ctg);
+  addcategory(ctg: Category): Observable<Status> {
+    return this.httpClient.post<Status>(
+      'http://localhost:9090/addcategory',
+      ctg
+    );
   }
 
-  getallproduct():Observable<Product[]>{
-    return this.httpClient.get<Product[]>("http://localhost:9090/allproducts");
+  getallproduct(): Observable<Product[]> {
+    return this.httpClient.get<Product[]>('http://localhost:9090/allproducts');
   }
 
-  addproduct(formdata: FormData):Observable<Status>{
-    return this.httpClient.post<Status>("http://localhost:9090/addproduct", formdata);
+  addproduct(formdata: FormData): Observable<Status> {
+    return this.httpClient.post<Status>(
+      'http://localhost:9090/addproduct',
+      formdata
+    );
   }
-  
+
+  getall(): Observable<Product[]> {
+    return this.httpClient.get<Product[]>('http://localhost:9090/getAll');
+  }
+
+  getProductByid(productId: number): Observable<Product> {
+    return this.httpClient.get<Product>(
+      'http://localhost:9090/product?productId=' + productId
+    );
+  }
 }
