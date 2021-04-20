@@ -8,4 +8,8 @@ export class LoginStatus {
   name: string;
 
   statusMsg: string;
+
+  cardType: number;
+
+  creditLeft: number;
 }
