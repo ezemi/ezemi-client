@@ -24,6 +24,7 @@ export class NavHeaderComponent implements OnInit {
     } else {
       this.loggedin = true;
       this.role = this.appUser.role;
+      this.name = this.appUser.name;
     }
   }
 

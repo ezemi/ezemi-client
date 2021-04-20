@@ -1,0 +1,64 @@
+<div mat-dialog-content style="height: fit-content">
+  <div>
+    <mat-card>
+      <mat-toolbar color="primary">
+        <span class="title-center">Update Address</span> </mat-toolbar
+      ><br />
+
+      <form
+        #form="ngForm"
+        (ngSubmit)="updateAddress()"
+        fxLayoutAlign="stretch"
+        fxLayout="column"
+      >
+        <mat-form-field>
+          <mat-label>Address Line 1</mat-label>
+          <textarea
+            matInput
+            type="text"
+            placeholder="Address Line 1"
+            name="addressLine1"
+            [(ngModel)]="address.addressLine1"
+            required
+          ></textarea>
+          <mat-error></mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field>
+          <mat-label>Address Line 2</mat-label>
+          <textarea
+            matInput
+            type="text"
+            placeholder="Address Line 2"
+            name="addressLine2"
+            [(ngModel)]="address.addressLine2"
+            required
+          ></textarea>
+          <mat-error></mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>City</mat-label>
+          <input matInput name="city" [(ngModel)]="address.city" required />
+          <mat-error></mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Postal code</mat-label>
+          <input
+            matInput
+            type="text"
+            name="pinCode"
+            [(ngModel)]="address.pinCode"
+            required
+          />
+        </mat-form-field>
+        <mat-error *ngIf="form.invalid">All feilds are required</mat-error>
+        <button mat-raised-button mat-dialog-close color="accent" type="submit">
+          Update
+        </button>
+      </form>
+    </mat-card>
+  </div>
+</div>

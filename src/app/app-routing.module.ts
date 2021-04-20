@@ -4,6 +4,7 @@ import { AdministrationComponent } from './administration/administration.compone
 import { AppComponent } from './app.component';
 import { ChangepassComponent } from './changepass/changepass.component';
 import { CollectandreportComponent } from './collectandreport/collectandreport.component';
+import { ConfirmOrderComponent } from './confirm-order/confirm-order.component';
 import { CustomerAdministrationComponent } from './customer-administration/customer-administration.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -66,6 +67,10 @@ const routes: Routes = [
       {
         path: 'products/:productId',
         component: ProductdetailsComponent,
+      },
+      {
+        path: 'confirmOrder',
+        component: ConfirmOrderComponent,
       },
       {
         path: 'orders',

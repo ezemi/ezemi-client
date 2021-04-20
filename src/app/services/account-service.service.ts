@@ -34,4 +34,8 @@ export class AccountServiceService {
       logindto
     );
   }
+
+  loggedIn(): boolean {
+    return !!localStorage.getItem('loggedinuser');
+  }
 }
