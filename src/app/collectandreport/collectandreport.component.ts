@@ -7,21 +7,21 @@ import { AdminServiceService } from '../services/admin-service.service';
 @Component({
   selector: 'app-collectandreport',
   templateUrl: './collectandreport.component.html',
-  styleUrls: ['./collectandreport.component.css']
+  styleUrls: ['./collectandreport.component.css'],
 })
 export class CollectandreportComponent implements OnInit {
+  nonApproved: User[];
 
-  nonApproved : User[];
-
-  constructor(public dialog :MatDialog ,private aservice : AdminServiceService) { }
+  constructor(
+    public dialog: MatDialog,
+    private aservice: AdminServiceService
+  ) {}
 
   ngOnInit(): void {
-    this.aservice.getNotApprovedUser().subscribe(
-      data=>{
-        console.log(JSON.stringify(data));
-        this.nonApproved = data;
-      }
-    );
+    this.aservice.getNotApprovedUser().subscribe((data) => {
+      console.log(JSON.stringify(data));
+      this.nonApproved = data;
+    });
   }
 
   displayedColumns: String[] = [
@@ -33,13 +33,15 @@ export class CollectandreportComponent implements OnInit {
     'viewUser',
   ];
 
-  viewUser(obj){
-    let dialogref = this.dialog.open(NewapplicantsComponent, {height:'350px' , width:'500px',data:obj});
+  viewUser(obj) {
+    let dialogref = this.dialog.open(NewapplicantsComponent, {
+      height: '600px',
+      width: '70%',
+      data: obj,
+    });
 
     dialogref.afterClosed().subscribe((result) => {
       this.ngOnInit();
     });
-    
-   }
-
+  }
 }

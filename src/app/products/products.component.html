@@ -1,13 +1,13 @@
 <div class="container">
-  <div class="card" *ngFor="let p of [1, 2, 3, 4, 5, 6, 7, 8]">
+  <div class="card" *ngFor="let p of productList">
     <mat-card class="example-card" (click)="onClick(p.productId)">
       <mat-card-header>
-        <mat-card-title>Acer Predator Helios 300 XT</mat-card-title>
+        <mat-card-title>{{ p.productName }}</mat-card-title>
         <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
       </mat-card-header>
       <img
         mat-card-image
-        src="../assets/images/pred23.png"
+        src="http://localhost:9090/downloads/{{ p.productImgUrl }}"
         alt="Photo of a Shiba Inu"
       />
       <mat-card-content> </mat-card-content>

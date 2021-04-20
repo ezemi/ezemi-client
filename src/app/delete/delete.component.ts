@@ -5,22 +5,21 @@ import { Category } from '../Models/category';
 @Component({
   selector: 'app-delete',
   templateUrl: './delete.component.html',
-  styleUrls: ['./delete.component.css']
+  styleUrls: ['./delete.component.css'],
 })
 export class DeleteComponent implements OnInit {
+  rowData: any;
 
-  rowData : any ;
-
-  constructor(public dialogref : MatDialogRef<DeleteComponent>,
-      @Optional() @Inject(MAT_DIALOG_DATA) public data : Category) {
-      console.log(data);
-      this.rowData = {...data};
-    }
-
-  ngOnInit(): void {
+  constructor(
+    public dialogref: MatDialogRef<DeleteComponent>,
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: Category
+  ) {
+    console.log(data);
+    this.rowData = { ...data };
   }
 
- 
-
- 
+  close() {
+    this.dialogref.close();
+  }
+  ngOnInit(): void {}
 }

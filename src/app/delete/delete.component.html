@@ -1,8 +1,13 @@
-<h1 mat-dialog-title>Want to Delete Category : <strong>{{rowData.categoryName}}?</strong></h1>
-<div mat-dialog-content><br>
-    <div align="center">
+<h1 mat-dialog-title>
+  Want to Delete Category : <strong>{{ rowData.categoryName }}?</strong>
+</h1>
+<div mat-dialog-content>
+  <br />
+  <div align="center">
     <button mat-button>Delete</button>
-    <button mat-button mat-flat-button color="warn">Cancel</button>
-    <div>
+    <button mat-button mat-flat-button (click)="close()" color="warn">
+      Cancel
+    </button>
+    <div></div>
+  </div>
 </div>
-

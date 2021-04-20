@@ -7,36 +7,38 @@ import { Status } from '../Models/status';
 import { User } from '../Models/user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AdminServiceService {
+  constructor(private httpClient: HttpClient) {}
 
-  constructor(private httpClient : HttpClient) { }
-
-
-
-  getallBanks():Observable<Bank[]>{
-    return this.httpClient.get<Bank[]>("http://localhost:9090/allbank");
+  getallBanks(): Observable<Bank[]> {
+    return this.httpClient.get<Bank[]>('http://localhost:9090/allbank');
   }
 
-
-
-  addBank(bnk: Bank):Observable<Status>{
-    return this.httpClient.post<Status>("http://localhost:9090/addbank", bnk);
+  addBank(bnk: Bank): Observable<Status> {
+    return this.httpClient.post<Status>('http://localhost:9090/addbank', bnk);
   }
 
-
-  getAllCardType():Observable<CardType[]>{
-    return this.httpClient.get<CardType[]>("http://localhost:9090/allcardtype");
+  approveUser(id: number): Observable<Status> {
+    return this.httpClient.get<Status>(
+      'http://localhost:9090/activateuser?userId=' + id
+    );
   }
 
-
-  getNotApprovedUser():Observable<User[]>{
-    return this.httpClient.get<User[]>("http://localhost:9090/getnotapprovedusers");
+  getAllCardType(): Observable<CardType[]> {
+    return this.httpClient.get<CardType[]>('http://localhost:9090/allcardtype');
   }
 
-  getApprovedUsers():Observable<User[]>{
-    return this.httpClient.get<User[]>("http://localhost:9090/getapprovedusers");
+  getNotApprovedUser(): Observable<User[]> {
+    return this.httpClient.get<User[]>(
+      'http://localhost:9090/getnotapprovedusers'
+    );
   }
 
+  getApprovedUsers(): Observable<User[]> {
+    return this.httpClient.get<User[]>(
+      'http://localhost:9090/getapprovedusers'
+    );
+  }
 }

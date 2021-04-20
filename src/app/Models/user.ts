@@ -1,4 +1,3 @@
-
 import { Address } from './address';
 import { Bank } from './bank';
 import { BankDetails } from './bank-details';
@@ -29,7 +28,9 @@ export class User {
 
   card: EmiCard;
 
-  PanCardNo: string;
+  panCard: string;
+
+  adharCard: string;
 
   isApproved: boolean;
 

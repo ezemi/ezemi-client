@@ -36,7 +36,7 @@ export class ManageProductsComponent implements OnInit {
 
   openAddProductForm() {
     let dialogref = this.dialog.open(AddProductFormComponent, {
-      height: '550px',
+      height: '500px',
       width: '600px',
     });
     dialogref.afterClosed().subscribe((result) => {
