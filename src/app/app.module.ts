@@ -40,6 +40,7 @@ import { RegisterationsuccessfulComponent } from './registerationsuccessful/regi
 
 import { DeleteComponent } from './delete/delete.component';
 import { NewapplicantsComponent } from './newapplicants/newapplicants.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { NewapplicantsComponent } from './newapplicants/newapplicants.component'
 
     DeleteComponent,
     NewapplicantsComponent,
+    UpdateProductComponent,
   ],
   imports: [
     BrowserModule,
