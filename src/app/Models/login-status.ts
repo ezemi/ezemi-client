@@ -12,4 +12,6 @@ export class LoginStatus {
   cardType: number;
 
   creditLeft: number;
+
+  isCardActivated: boolean;
 }
