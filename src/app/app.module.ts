@@ -40,7 +40,11 @@ import { RegisterationsuccessfulComponent } from './registerationsuccessful/regi
 
 import { DeleteComponent } from './delete/delete.component';
 import { NewapplicantsComponent } from './newapplicants/newapplicants.component';
+
 import { ActivatecardComponent } from './activatecard/activatecard.component';
+
+import { UpdateProductComponent } from './update-product/update-product.component';
+
 
 @NgModule({
   declarations: [
@@ -77,6 +81,8 @@ import { ActivatecardComponent } from './activatecard/activatecard.component';
     DeleteComponent,
     NewapplicantsComponent,
     ActivatecardComponent,
+    UpdateProductComponent,
+
   ],
   imports: [
     BrowserModule,
