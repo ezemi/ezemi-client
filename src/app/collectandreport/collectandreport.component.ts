@@ -36,7 +36,7 @@ export class CollectandreportComponent implements OnInit {
   viewUser(obj) {
     let dialogref = this.dialog.open(NewapplicantsComponent, {
       height: '600px',
-      width: '70%',
+      width: '55%',
       data: obj,
     });
 
