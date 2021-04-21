@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Bank } from '../Models/bank';
 import { CardType } from '../Models/card-type';
 import { Category } from '../Models/category';
+import { ContactUs } from '../Models/contact-us';
 import { Status } from '../Models/status';
 import { User } from '../Models/user';
 
@@ -45,5 +46,9 @@ export class AdminServiceService {
 
   updateCategoryDetails(category : Category):Observable<Status>{
     return this.httpClient.post<Status>('http://localhost:9090/updatecategroydetails', category);
+  }
+
+  addCustomerQuery(query : ContactUs):Observable<Status>{
+      return this.httpClient.post<Status>('http://localhost:9090/addcustomerquery', query);
   }
 }
