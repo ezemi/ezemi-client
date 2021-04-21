@@ -1,13 +1,6 @@
-.btn{
-    
-    width: 300px;
-    font-size: 20px;
-}
-
 table{
     width: 100%;
 }
-
 
 .icon_color{
     color : #192c90;
@@ -20,3 +13,4 @@ table{
 .notinStock{
     color: red;
 }
+
