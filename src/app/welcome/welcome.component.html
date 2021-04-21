@@ -4,8 +4,8 @@
 
     <div class="discription">
       <p>
-       One of the leading finserv's around <br />
-       has brought you a no cost EMI feature like never before
+       One of the leading finserv's around has brought you a <br />
+       No Cost EMI feature like never before
         <!-- even on EMI without any debit or credit card. -->
       </p>
 
@@ -87,7 +87,38 @@
         <h2 class="u-name">Max Baker</h2>
       </div>
     </div>
-      
   </div>
+</div>
 
+<div class="contactUsDiv"><br>
+<h1 class="fontHeading">Tell Us How Can We Help</h1>
+  <div class="formDiv">
+    <mat-toolbar color="primary">Contact Us</mat-toolbar><br>
+    <form #form="ngForm">
+      <div>
+        <div>
+          <mat-form-field  class="formField">
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="ezemi@example.com" name="email" [(ngModel)]="query.email"  required>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field  class="formField">
+            <mat-label>Enter Your Query</mat-label>
+            <textarea matInput name="query" [(ngModel)]="query.query" required ></textarea>
+          </mat-form-field>
+        </div><br>
+
+        <div>
+          <button  class="queryButton"mat-raised-button color="accent" [disabled]="form.invalid" (click)="submitQuery()">
+            Submit Query
+          </button>
+        </div>
+        <div class="message">{{message}}</div>
+      </div>
+    </form>
+    
+  </div>
+ 
 </div>
