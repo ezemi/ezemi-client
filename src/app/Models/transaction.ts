@@ -2,7 +2,7 @@ export class Transaction {
      transactionId:string;
 	 amount:number;
 	
-	 transactionDate:Date;
+	 date:Date;
 	
 	transactionMsg:string;
 

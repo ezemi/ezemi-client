@@ -1,0 +1,14 @@
+.container {
+  width: 60%;
+  margin: auto;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  /* aline-content: space-between; */
+  /* align-items: center; */
+}
+
+h3 {
+  display: inline-block;
+}

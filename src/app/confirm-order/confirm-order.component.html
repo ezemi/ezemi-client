@@ -1,0 +1,67 @@
+<div class="container">
+  <h1>Confirm your order</h1>
+  <div>
+    <h3>Product name: {{ product.productName }}</h3>
+    <br />
+    <h3>Cost: {{ product.price | currency: "INR" }}</h3>
+  </div>
+  <div>
+    <h3>
+      Address :
+      {{
+        address.addressLine1 +
+          ", " +
+          address.addressLine2 +
+          ", " +
+          address.city +
+          ", Pin: " +
+          address.pinCode
+      }}
+    </h3>
+    <br />
+    <button mat-raised-button (click)="update()">Edit Address</button>
+    <br />
+    <br />
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Select an EMI option</mat-label>
+        <mat-select [(ngModel)]="orderDto.emimonths">
+          <mat-option value="0">None</mat-option>
+          <mat-option value="3"
+            >3 Months (3 X
+            {{
+              (product.price + product.processingFee) / 3 | number: "1.2-2"
+            }})</mat-option
+          >
+          <mat-option value="6"
+            >6 Months (6 X
+            {{
+              (product.price + product.processingFee) / 6 | number: "1.2-2"
+            }})</mat-option
+          >
+          <mat-option value="9"
+            >9 Months (9 X
+            {{
+              (product.price + product.processingFee) / 9 | number: "1.2-2"
+            }})</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <section>
+      <mat-checkbox
+        *ngIf="orderDto.emimonths != 0"
+        [(ngModel)]="orderDto.autoDebit"
+        >Auto debit</mat-checkbox
+      >
+    </section>
+    <button
+      mat-raised-button
+      style="background-color: #0288d1; color: white"
+      (click)="confirmOrder()"
+    >
+      Pay & Confirm Order
+    </button>
+  </div>
+</div>

@@ -43,4 +43,12 @@ export class ProductServiceService {
       'http://localhost:9090/product?productId=' + productId
     );
   }
+
+  updateProductDetails(formdata: FormData , productId : number){
+    return this.httpClient.post<Status>("http://localhost:9090/updateproductdetails?productId="+ productId, formdata);
+  }
+
+  inStockToggle(productId:number){
+    return this.httpClient.get<boolean>("http://localhost:9090/instocktoggle?productId="+ productId);
+  }
 }

@@ -239,7 +239,12 @@
             <br />
             <mat-form-field>
               <mat-label>City</mat-label>
-              <input matInput formControlName="cityformctrl" required />
+              <input
+                matInput
+                [(ngModel)]="user.city"
+                formControlName="cityformctrl"
+                required
+              />
               <mat-error>{{ formerrors.cityformctrl }}</mat-error>
             </mat-form-field>
             <br />

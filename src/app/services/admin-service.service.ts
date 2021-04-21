@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Bank } from '../Models/bank';
 import { CardType } from '../Models/card-type';
+import { Category } from '../Models/category';
 import { Status } from '../Models/status';
 import { User } from '../Models/user';
 
@@ -40,5 +41,9 @@ export class AdminServiceService {
     return this.httpClient.get<User[]>(
       'http://localhost:9090/getapprovedusers'
     );
+  }
+
+  updateCategoryDetails(category : Category):Observable<Status>{
+    return this.httpClient.post<Status>('http://localhost:9090/updatecategroydetails', category);
   }
 }

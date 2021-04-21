@@ -4,3 +4,11 @@
 .login-form {
   padding: 20px;
 }
+a {
+  text-decoration: underline blue;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: underline hotpink;
+}

@@ -1,0 +1,84 @@
+<div mat-dialog-content style="height: fit-content">
+    <div>
+      <mat-card>
+        <mat-toolbar color="primary">
+          <span class="title-center">Update Product</span> </mat-toolbar
+        ><br />
+  
+        <form
+          #form="ngForm"
+          (ngSubmit)="updateProduct()"
+          fxLayoutAlign="stretch"
+          fxLayout="column"
+        >
+          <mat-form-field>
+            <mat-label>Product Name</mat-label>
+            <input
+              matInput
+              type="text"
+              name="productName"
+              [(ngModel)]="pdt.productName"
+            />
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Select Category</mat-label>
+            <mat-select
+              class="mt-sel"
+              name="pcategoryId"
+              [(ngModel)]="pdt.categoryId"
+            >
+              <mat-option
+                *ngFor="let category of categories" 
+               [value]="category.categoryId"
+                >{{ category.categoryName }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+  
+          <mat-form-field>
+            <mat-label>Product Price </mat-label>
+            <input matInput type="number" name="price" [(ngModel)]="pdt.price" />
+          </mat-form-field>
+  
+          <mat-form-field>
+            <mat-label>Processing Fee </mat-label>
+            <input
+              matInput
+              type="number"
+              name="processingFee"
+              [(ngModel)]="pdt.processingFee"
+            />
+          </mat-form-field>
+  
+          <mat-form-field>
+            <mat-label>Product Details </mat-label>
+            <input
+              matInput
+              type="text"
+              name="productDetails"
+              [(ngModel)]="pdt.productDetails"
+            />
+          </mat-form-field>
+  
+          <div>
+            <label>
+              <span class="chooseFile">Select Image</span><br />
+              <input
+                #imageInput
+                type="file"
+                accept="image/*"
+                (change)="processUpdatedImage(imageInput)"
+              />
+            </label>
+          </div>
+          <br />
+  
+          <button mat-raised-button mat-dialog-close color="accent" type="submit">
+            Update
+          </button>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+  

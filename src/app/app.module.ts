@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -40,6 +39,15 @@ import { RegisterationsuccessfulComponent } from './registerationsuccessful/regi
 
 import { DeleteComponent } from './delete/delete.component';
 import { NewapplicantsComponent } from './newapplicants/newapplicants.component';
+import { UpdateAddressComponent } from './update-address/update-address.component';
+
+import { ConfirmOrderComponent } from './confirm-order/confirm-order.component';
+
+import { ActivatecardComponent } from './activatecard/activatecard.component';
+
+import { UpdateProductComponent } from './update-product/update-product.component';
+import { ConfirmOrderPaymentComponent } from './confirm-order-payment/confirm-order-payment.component';
+import { ViewOrderComponent } from './view-order/view-order.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +83,15 @@ import { NewapplicantsComponent } from './newapplicants/newapplicants.component'
 
     DeleteComponent,
     NewapplicantsComponent,
+
+    UpdateAddressComponent,
+
+    ConfirmOrderComponent,
+
+    ActivatecardComponent,
+    UpdateProductComponent,
+    ConfirmOrderPaymentComponent,
+    ViewOrderComponent,
   ],
   imports: [
     BrowserModule,

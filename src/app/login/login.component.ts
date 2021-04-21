@@ -23,6 +23,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   user: LoginStatus;
+  forgotpass() {
+    this.router.navigate(['page-content/changepassword']);
+  }
+
   login() {
     this.accountService.loginUser(this.logindto).subscribe((data) => {
       this.user = data;

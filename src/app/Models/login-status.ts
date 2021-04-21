@@ -1,7 +1,7 @@
 export class LoginStatus {
   email: string;
 
-  userId: string;
+  userId: number;
 
   role: string;
 
@@ -13,5 +13,5 @@ export class LoginStatus {
 
   creditLeft: number;
 
-  isCardActivated: boolean;
+  cardActivated: boolean;
 }

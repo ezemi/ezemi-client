@@ -1,13 +1,16 @@
-.btn{
-    
-    width: 300px;
-    font-size: 20px;
-}
-
 table{
     width: 100%;
 }
 
 .icon_color{
-    color :#da4b4b;
+    color : #192c90;
 }
+
+.inStock{
+    color: #9acf48 ;
+}
+
+.notinStock{
+    color: red;
+}
+

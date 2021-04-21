@@ -1,5 +1,6 @@
 export class Productdto {
 
+    productId: number;
     productName:String;
     price: number;
     productDetails:String;
