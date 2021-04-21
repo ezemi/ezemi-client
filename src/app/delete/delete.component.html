@@ -1,13 +1,28 @@
-<h1 mat-dialog-title>
-  Want to Delete Category : <strong>{{ rowData.categoryName }}?</strong>
-</h1>
-<div mat-dialog-content>
-  <br />
-  <div align="center">
-    <button mat-button>Delete</button>
-    <button mat-button mat-flat-button (click)="close()" color="warn">
-      Cancel
-    </button>
-    <div></div>
-  </div>
+<div>
+  <mat-card>
+    <mat-toolbar color="primary">
+      <span class="title-center">Update Category </span> </mat-toolbar
+    ><br/>
+      <br>
+    <form
+      (ngSubmit)="submitUpdateCategory()"
+      fxLayoutAlign="stretch"
+      fxLayout="column"
+    >
+      
+      <mat-form-field>
+        <mat-label>Category Name</mat-label>
+        <input
+          matInput
+          type="text"
+          name="categoryName"
+          [(ngModel)]="category.categoryName"
+        />
+      </mat-form-field><br><br>
+
+      <button mat-raised-button mat-dialog-close color="accent" type="submit">
+        Update
+      </button>
+    </form>
+  </mat-card>
 </div>

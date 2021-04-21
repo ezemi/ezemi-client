@@ -42,21 +42,17 @@ export class ManageCategoryComponent implements OnInit {
     });
   }
 
-  openDeleteComponent(obj) {
+  openUpdateComponent(obj) {
     let dialogref = this.dialog.open(DeleteComponent, {
-      height: '200px',
+      height: '350px',
       width: '400px',
       data: obj,
     });
 
-    // dialogref.afterClosed().subscribe((result) => {
-    //   this.deleteRowData(result.data);
-    // });
+    dialogref.afterClosed().subscribe((result) => {
+      this.ngOnInit();
+    });
   }
 
-  //  deleteRowData(row_obj){
-  //   this.category = this.category.filter((value,key)=>{
-  //     return value.categoryId != row_obj.id;
-  //   });
-  // }
+  
 }

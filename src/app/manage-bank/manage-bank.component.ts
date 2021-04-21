@@ -22,7 +22,7 @@ export class ManageBankComponent implements OnInit {
     );
   }
 
-  displayedColumns: String[] = ['BankId', 'BankName', 'deleteBank'];
+  displayedColumns: String[] = ['BankId', 'BankName'];
   
 
   openAddBankForm() {

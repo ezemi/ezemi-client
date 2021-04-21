@@ -80,10 +80,10 @@
     <img src="http://localhost:9090/downloads/{{ rowData.adharCard }}" />
   </table>
 
-  <div>
-    <button mat-raised-button>Deny</button>
-    <button mat-raised-button (click)="approveUser(rowData.userId)">
-      Approve
-    </button>
+  <div *ngIf = !rowData.isApproved>
+      <button mat-raised-button>Deny</button>
+      <button mat-raised-button (click)="approveUser(rowData.userId)">
+        Approve
+      </button>
   </div>
 </div>
