@@ -15,7 +15,7 @@ export class ManageCardsComponent implements OnInit {
 
   constructor(public dialog:MatDialog, private aservice: AdminServiceService) { }
 
-  displayedColumns:String[]=['CardId' , 'CardName', 'CreditAmount' ,'deleteCategory'];
+  displayedColumns:String[]=['CardId' , 'CardName', 'CreditAmount'];
   
   
   ngOnInit(): void {

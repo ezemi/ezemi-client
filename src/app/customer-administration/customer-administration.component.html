@@ -1,3 +1,4 @@
+<h1>Our Customers</h1>
 <div>
     <table mat-table [dataSource]="approvedUser" class="mat-elevation-z8">
 
@@ -29,7 +30,7 @@
         <ng-container matColumnDef="viewUser">
             <th mat-header-cell *matHeaderCellDef>View</th>
             <td mat-cell *matCellDef="let element">
-               <button mat-icon-button class="icon_color">
+               <button mat-icon-button class="icon_color" (click)="viewUser(element)">
                 <mat-icon>launch</mat-icon>
               </button>
             </td>

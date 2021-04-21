@@ -5,6 +5,7 @@ import { Address } from '../Models/address';
 import { Order } from '../Models/order';
 import { OrderDto } from '../Models/order-dto';
 import { Status } from '../Models/status';
+import { Transaction } from '../Models/transaction';
 import { User } from '../Models/user';
 
 @Injectable({
@@ -55,5 +56,10 @@ export class UserServiceService {
     return this.httpclient.get<Order[]>(
       'http://localhost:9090/getUnPaidOrdersByUserId?userId=' + userId
     );
+  }
+
+  getTransactionByUserId(userId:number):Observable<Transaction[]>{
+    return this.httpclient.get<Transaction[]>("http://localhost:9090/transactionsbyuserid?userId="+userId);
+    
   }
 }
