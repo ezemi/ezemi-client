@@ -48,6 +48,7 @@ import { ActivatecardComponent } from './activatecard/activatecard.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { ConfirmOrderPaymentComponent } from './confirm-order-payment/confirm-order-payment.component';
 import { ViewOrderComponent } from './view-order/view-order.component';
+import { ReplyQueriesComponent } from './reply-queries/reply-queries.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import { ViewOrderComponent } from './view-order/view-order.component';
     UpdateProductComponent,
     ConfirmOrderPaymentComponent,
     ViewOrderComponent,
+    ReplyQueriesComponent,
   ],
   imports: [
     BrowserModule,

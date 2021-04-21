@@ -22,6 +22,7 @@ import { ProfileComponent } from './profile/profile.component';
 
 import { RegisterComponent } from './register/register.component';
 import { RegisterationsuccessfulComponent } from './registerationsuccessful/registerationsuccessful.component';
+import { ReplyQueriesComponent } from './reply-queries/reply-queries.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { ViewOrderComponent } from './view-order/view-order.component';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -117,6 +118,10 @@ const routes: Routes = [
           {
             path: 'collectandreport',
             component: CollectandreportComponent,
+          },
+          {
+            path: 'replyQueries',
+            component: ReplyQueriesComponent,
           },
         ],
       },
