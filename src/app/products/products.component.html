@@ -12,6 +12,10 @@
       />
       <mat-card-content>
         Price: {{ p.price | currency: "INR" }}
+
+        <div style="font-size: 0.8em" *ngIf="!p.inStock">
+          Sorry, this product currently unavailable
+        </div>
         <!-- <button
           mat-raised-button
           small

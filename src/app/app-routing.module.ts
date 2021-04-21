@@ -23,6 +23,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { RegisterationsuccessfulComponent } from './registerationsuccessful/registerationsuccessful.component';
 import { TransactionsComponent } from './transactions/transactions.component';
+import { ViewOrderComponent } from './view-order/view-order.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
@@ -57,6 +58,10 @@ const routes: Routes = [
         component: RegisterComponent,
       },
       {
+        path: 'changepassword',
+        component: ChangepassComponent,
+      },
+      {
         path: 'registerationsuccessfull',
         component: RegisterationsuccessfulComponent,
       },
@@ -71,6 +76,10 @@ const routes: Routes = [
       {
         path: 'confirmOrder',
         component: ConfirmOrderComponent,
+      },
+      {
+        path: 'viewOrder',
+        component: ViewOrderComponent,
       },
       {
         path: 'orders',

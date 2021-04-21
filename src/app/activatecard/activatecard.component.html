@@ -1,0 +1,17 @@
+<div>
+  <!-- <div class="c1"></div> -->
+  <div mat-dialog-content>
+    <div align="center">
+      <h2 mat-dialog-title>
+        Activation amount for your {{ rowData.cardType.cardTypeName }} Card is
+        {{ amount | currency: "INR":"symbol-narrow" }}
+      </h2>
+      <h2>Click on pay to activate card</h2>
+      <button mat-raised-button color="primary" (click)="activateCard()">
+        Pay
+      </button>
+      <button mat-button mat-button (click)="close()">Cancel</button>
+      <div></div>
+    </div>
+  </div>
+</div>

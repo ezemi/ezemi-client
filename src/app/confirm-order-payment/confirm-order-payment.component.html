@@ -1,0 +1,22 @@
+<h4>Confirm your order for {{ product.productName }}</h4>
+<br />
+<h3 *ngIf="orderDto.emimonths != 0">
+  Selected Emi option :
+  {{
+    orderDto.emimonths +
+      "(months)  X " +
+      ((product.price + product.processingFee) / 3 | number: "1.2-2")
+  }}
+</h3>
+<br />
+
+<h3>
+  Click on pay to pay
+  {{
+    (product.price + product.processingFee) /
+      (orderDto.emimonths == 0 ? 1 : orderDto.emimonths) | number: "1.2-2"
+  }}
+</h3>
+<button mat-raised-button color="primary" (click)="confirmOrder()">Pay</button>
+<button mat-button mat-button (click)="close()">Cancel</button>
+<br />

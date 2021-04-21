@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Address } from '../Models/address';
-import { UserService } from '../services/user.service';
+import { UserServiceService } from '../services/user-service.service';
 
 @Component({
   selector: 'app-update-address',
@@ -8,15 +8,20 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./update-address.component.css'],
 })
 export class UpdateAddressComponent implements OnInit {
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserServiceService) {}
   address: Address = new Address();
+  userId: number;
 
   ngOnInit(): void {
-    let userId = JSON.parse(localStorage.getItem('loggedinuser')).userId;
-    this.userService.getAddressByUserId(userId).subscribe((data) => {
+    this.userId = JSON.parse(localStorage.getItem('loggedinuser')).userId;
+    this.userService.getAddressByUserId(this.userId).subscribe((data) => {
       this.address = data;
     });
   }
 
-  updateAddress() {}
+  updateAddress() {
+    this.userService
+      .updateAddress(this.userId, this.address)
+      .subscribe((data) => {});
+  }
 }
