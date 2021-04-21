@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Bank } from '../Models/bank';
+import { ChangePassDto } from '../Models/change-pass-dto';
 import { LoginStatus } from '../Models/login-status';
 import { LoginUser } from '../Models/login-user';
 import { Status } from '../Models/status';
@@ -32,6 +33,20 @@ export class AccountServiceService {
     return this.httpClient.post<LoginStatus>(
       'http://localhost:9090/login',
       logindto
+    );
+  }
+
+  getOtpTochangePass(email: String): Observable<any> {
+    return this.httpClient.get(
+      'http://localhost:9090/getotptoChangePass?emailId=' + email,
+      { responseType: 'text' }
+    );
+  }
+
+  changePass(cpd: ChangePassDto): Observable<Status> {
+    return this.httpClient.put<Status>(
+      'http://localhost:9090/changepassword',
+      cpd
     );
   }
 
