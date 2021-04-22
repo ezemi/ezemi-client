@@ -1,5 +1,60 @@
+<div class="filter">
+  <div class="catfilter">
+    <mat-form-field appearance="fill">
+      <mat-label>Filter By Category</mat-label>
+      <mat-select
+        class="mt-sel"
+        name="cId"
+        [(ngModel)]="cId"
+        (selectionChange)="ctgfilter($event.value)"
+        
+      >
+      <mat-option value="0">All</mat-option>
+        <mat-option
+          *ngFor="let category of categories"
+          [value]="category.categoryId"
+          
+          >{{ category.categoryName }}</mat-option
+        >
+       
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="sortprice">
+    <mat-form-field appearance="fill">
+      <mat-label>Sort By Price</mat-label>
+      <mat-select
+        name="sort"
+        (selectionChange)="sortChange($event.value)">
+        <mat-option value="1">Low To High</mat-option>
+        <mat-option value="2">High To Low</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="search">
+   
+    <mat-form-field appearance="outline"  style="min-width: 300px; max-width: 500px;">
+      <mat-icon matSuffix>search</mat-icon>
+      <input
+            matInput
+            placeholder="Search Product"
+            name="pname"
+            [(ngModel)]="searchtext"
+            (input)='search()' 
+          />
+         
+    </mat-form-field>
+
+  </div>
+
+  
+</div>
+
+
 <div class="container">
   <div class="card" *ngFor="let p of productList">
+    <div *ngIf='p.productName.toLowerCase().startsWith(searchtext.toLowerCase())'>
     <mat-card class="example-card" (click)="onClick(p.productId)">
       <mat-card-header>
         <mat-card-title>{{ p.productName }}</mat-card-title>
@@ -30,5 +85,8 @@
          <button mat-raised-button color="accent">View</button> 
       </mat-card-actions> -->
     </mat-card>
+    </div> 
   </div>
+ 
 </div>
+<div style=" text-align: center;"><h2>{{msg}}</h2></div> 
