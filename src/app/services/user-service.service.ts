@@ -58,8 +58,15 @@ export class UserServiceService {
     );
   }
 
-  getTransactionByUserId(userId:number):Observable<Transaction[]>{
-    return this.httpclient.get<Transaction[]>("http://localhost:9090/transactionsbyuserid?userId="+userId);
-    
+  getTransactionByUserId(userId: number): Observable<Transaction[]> {
+    return this.httpclient.get<Transaction[]>(
+      'http://localhost:9090/transactionsbyuserid?userId=' + userId
+    );
+  }
+
+  payEmi(orderId: number) {
+    return this.httpclient.get(
+      'http://localhost:9090/payemi?orderId=' + orderId
+    );
   }
 }

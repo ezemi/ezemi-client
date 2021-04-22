@@ -1,7 +1,9 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminauthGuard } from './adminauth.guard';
 import { AdministrationComponent } from './administration/administration.component';
 import { AppComponent } from './app.component';
+import { AuthGuard } from './auth.guard';
 import { ChangepassComponent } from './changepass/changepass.component';
 import { CollectandreportComponent } from './collectandreport/collectandreport.component';
 import { ConfirmOrderComponent } from './confirm-order/confirm-order.component';
@@ -13,6 +15,7 @@ import { ManageCardsComponent } from './manage-cards/manage-cards.component';
 import { ManageCategoryComponent } from './manage-category/manage-category.component';
 import { ManageProductsComponent } from './manage-products/manage-products.component';
 import { ManageComponent } from './manage/manage.component';
+import { NotauthorisedComponent } from './notauthorised/notauthorised.component';
 import { OrdersComponent } from './orders/orders.component';
 import { PageContentComponent } from './page-content/page-content.component';
 import { PayComponent } from './pay/pay.component';
@@ -23,6 +26,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { RegisterationsuccessfulComponent } from './registerationsuccessful/registerationsuccessful.component';
 import { ReplyQueriesComponent } from './reply-queries/reply-queries.component';
+import { ShowNewOrdersComponent } from './show-new-orders/show-new-orders.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { ViewOrderComponent } from './view-order/view-order.component';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -77,26 +81,32 @@ const routes: Routes = [
       {
         path: 'confirmOrder',
         component: ConfirmOrderComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: 'viewOrder',
         component: ViewOrderComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: 'orders',
         component: OrdersComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: 'profile',
         component: ProfileComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: 'transactions',
         component: TransactionsComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: 'payment',
         component: PayComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: 'changepassword',
@@ -105,6 +115,7 @@ const routes: Routes = [
       {
         path: 'administration',
         component: AdministrationComponent,
+        canActivate: [AuthGuard, AdminauthGuard],
         children: [
           {
             path: '',
@@ -128,11 +139,16 @@ const routes: Routes = [
       {
         path: 'manage',
         component: ManageComponent,
+        canActivate: [AuthGuard, AdminauthGuard],
         children: [
           {
             path: '',
-            redirectTo: 'manageproducts',
+            redirectTo: 'manageorders',
             pathMatch: 'full',
+          },
+          {
+            path: 'manageorders',
+            component: ShowNewOrdersComponent,
           },
           {
             path: 'manageproducts',
@@ -151,6 +167,10 @@ const routes: Routes = [
             component: ManageCardsComponent,
           },
         ],
+      },
+      {
+        path: 'notauthorised',
+        component: NotauthorisedComponent,
       },
     ],
   },

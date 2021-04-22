@@ -1,3 +1,31 @@
+.filter{
+  background-color: rgb(220, 241, 241);
+  max-width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+}
+.catfilter{
+  margin: 15px;
+  margin-left: 50px;
+  
+}
+.sortprice{
+  margin: 15px;
+  margin-left: 50px;
+}
+.search{
+  margin: 15px;
+  margin-left: 50px;
+  
+}
+.ff{
+  display: flex;
+  width: 30%;
+}
+
 .container {
   max-width: 80%;
   background-color: rgb(220, 241, 241);
@@ -13,8 +41,18 @@
 }
 
 .example-card {
-  max-width: 250px;
+  max-width: 260px;
+  transition: box-shadow .7s;
+    border: 1px solid #ccc;
+    background: #fff;
+    float: left;
+
 }
+.example-card:hover{
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.2); 
+ max-width: 280px;
+}
+
 
 mat-card-content {
   font-size: 1.2em;

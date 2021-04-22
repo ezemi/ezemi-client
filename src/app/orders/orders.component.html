@@ -36,7 +36,9 @@
       <ng-container matColumnDef="PayNow">
         <th mat-header-cell *matHeaderCellDef>Pay Now</th>
         <td mat-cell *matCellDef="let orders">
-          <button mat-raised-button color="primary">Pay Now</button>
+          <button mat-raised-button (click)="pay(orders)" color="primary">
+            Pay Now
+          </button>
         </td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
