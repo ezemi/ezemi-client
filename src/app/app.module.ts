@@ -49,6 +49,11 @@ import { UpdateProductComponent } from './update-product/update-product.componen
 import { ConfirmOrderPaymentComponent } from './confirm-order-payment/confirm-order-payment.component';
 import { ViewOrderComponent } from './view-order/view-order.component';
 import { ReplyQueriesComponent } from './reply-queries/reply-queries.component';
+import { PayemiComponent } from './payemi/payemi.component';
+import { AuthGuard } from './auth.guard';
+import { NotauthorisedComponent } from './notauthorised/notauthorised.component';
+import { AdminauthGuard } from './adminauth.guard';
+import { ShowNewOrdersComponent } from './show-new-orders/show-new-orders.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +99,9 @@ import { ReplyQueriesComponent } from './reply-queries/reply-queries.component';
     ConfirmOrderPaymentComponent,
     ViewOrderComponent,
     ReplyQueriesComponent,
+    PayemiComponent,
+    NotauthorisedComponent,
+    ShowNewOrdersComponent,
   ],
   imports: [
     BrowserModule,
@@ -105,7 +113,7 @@ import { ReplyQueriesComponent } from './reply-queries/reply-queries.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthGuard, AdminauthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

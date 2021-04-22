@@ -9,24 +9,26 @@ import { AdminServiceService } from '../services/admin-service.service';
   styleUrls: ['./manage-bank.component.css'],
 })
 export class ManageBankComponent implements OnInit {
-
   banks: Bank[];
-  constructor(public dialog: MatDialog, private aservice : AdminServiceService) {}
+  constructor(
+    public dialog: MatDialog,
+    private aservice: AdminServiceService
+  ) {}
 
   ngOnInit(): void {
-    this.aservice.getallBanks().subscribe(
-      data=>{
-        console.log(JSON.stringify(data));
-        this.banks=data;
-      }
-    );
+    this.aservice.getallBanks().subscribe((data) => {
+      console.log(JSON.stringify(data));
+      this.banks = data;
+    });
   }
 
   displayedColumns: String[] = ['BankId', 'BankName'];
-  
 
   openAddBankForm() {
-    let dialogref = this.dialog.open(AddBankFormComponent, { height: '350px', width: '500px' });
+    let dialogref = this.dialog.open(AddBankFormComponent, {
+      height: '350px',
+      width: '500px',
+    });
 
     dialogref.afterClosed().subscribe((result) => {
       this.ngOnInit();
