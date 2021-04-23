@@ -54,9 +54,13 @@ import { AuthGuard } from './auth.guard';
 import { NotauthorisedComponent } from './notauthorised/notauthorised.component';
 import { AdminauthGuard } from './adminauth.guard';
 import { ShowNewOrdersComponent } from './show-new-orders/show-new-orders.component';
+<<<<<<< HEAD
 import { ReplyComponent } from './reply/reply.component';
 
 
+=======
+import { UserDetailsPageComponent } from './user-details-page/user-details-page.component';
+>>>>>>> 2072d72856a6838042fb2ba15e6df47c56674cec
 
 @NgModule({
   declarations: [
@@ -105,8 +109,12 @@ import { ReplyComponent } from './reply/reply.component';
     PayemiComponent,
     NotauthorisedComponent,
     ShowNewOrdersComponent,
+<<<<<<< HEAD
     ReplyComponent,
    
+=======
+    UserDetailsPageComponent,
+>>>>>>> 2072d72856a6838042fb2ba15e6df47c56674cec
   ],
   imports: [
     BrowserModule,

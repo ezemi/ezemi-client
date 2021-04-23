@@ -5,6 +5,7 @@ import { Bank } from '../Models/bank';
 import { CardType } from '../Models/card-type';
 import { Category } from '../Models/category';
 import { ContactUs } from '../Models/contact-us';
+import { Order } from '../Models/order';
 import { Status } from '../Models/status';
 import { User } from '../Models/user';
 
@@ -52,11 +53,24 @@ export class AdminServiceService {
       return this.httpClient.post<Status>('http://localhost:9090/addcustomerquery', query);
   }
 
+<<<<<<< HEAD
   getQueries():Observable<ContactUs[]>{
     return this.httpClient.get<ContactUs[]>("http://localhost:9090/getallqueries");
   }
 
   sendReply(reply:ContactUs):Observable<Status>{
    return this.httpClient.post<Status>("http://localhost:9090/sendreply",reply);
+=======
+  getAllNonShippedOrders():Observable<Order[]>{
+    return this.httpClient.get<Order[]>('http://localhost:9090/getallNonShippedorders');
+  }
+
+  orderShipped(orderId:number):Observable<Status>{
+    return this.httpClient.get<Status>("http://localhost:9090/shiporder?orderId="+orderId);
+  }
+
+  getUserByOrderId(orderId:number):Observable<User>{
+    return this.httpClient.get<User>("http://localhost:9090//getuserbyorderid?orderId="+orderId);
+>>>>>>> 2072d72856a6838042fb2ba15e6df47c56674cec
   }
 }
