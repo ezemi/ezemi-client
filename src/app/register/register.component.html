@@ -82,8 +82,11 @@
             ></div>
 
             <ng-template #otpnotyetsentblock>
-              <div>
+              <div *ngIf="otp == ''">
                 <button mat-raised-button (click)="getOtp()">Get otp</button>
+              </div>
+              <div *ngIf="otp == 'FAILED'">
+                <p>Email Id: {{ email }} already Exists</p>
               </div>
             </ng-template>
 
@@ -115,6 +118,7 @@
               <input
                 matInput
                 formControlName="passwordFormCtrl"
+                pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
                 matInput
                 [(ngModel)]="user.password"
                 [type]="hide ? 'password' : 'text'"
@@ -134,14 +138,14 @@
               <mat-label>Confirm Password</mat-label>
               <input
                 matInput
-                [type]="hide ? 'password' : 'text'"
+                [type]="hide1 ? 'password' : 'text'"
                 formControlName="confirmPasswordFormCtrl"
                 [(ngModel)]="p2"
-                (change)="checkpass()"
+                (input)="checkpass()"
                 required
               />
-              <mat-icon matSuffix (click)="hide = !hide">{{
-                hide ? "visibility_off" : "visibility"
+              <mat-icon matSuffix (click)="hide1 = !hide1">{{
+                hide1 ? "visibility_off" : "visibility"
               }}</mat-icon>
               <mat-error>{{ formerrors.confirmPasswordFormCtrl }}</mat-error>
             </mat-form-field>
@@ -366,8 +370,8 @@
                 [(ngModel)]="user.cardTypeId"
               >
                 <mat-option>select</mat-option>
-                <mat-option value="1">Gold</mat-option>
-                <mat-option value="2">Titanium</mat-option>
+                <mat-option value="1">Gold Credit:1,00,000</mat-option>
+                <mat-option value="2">Platinum Credit:2,00,000</mat-option>
               </mat-select>
               <mat-error>{{ formerrors.cardFormCtrl }}</mat-error>
             </mat-form-field>

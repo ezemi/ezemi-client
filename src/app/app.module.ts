@@ -59,6 +59,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { ReplyComponent } from './reply/reply.component';
 
 import { UserDetailsPageComponent } from './user-details-page/user-details-page.component';
+import { DenyapplicationComponent } from './denyapplication/denyapplication.component';
 
 @NgModule({
   declarations: [
@@ -111,6 +112,8 @@ import { UserDetailsPageComponent } from './user-details-page/user-details-page.
     ReplyComponent,
 
     UserDetailsPageComponent,
+
+    DenyapplicationComponent,
   ],
   imports: [
     BrowserModule,

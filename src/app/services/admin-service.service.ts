@@ -5,6 +5,7 @@ import { Bank } from '../Models/bank';
 import { CardType } from '../Models/card-type';
 import { Category } from '../Models/category';
 import { ContactUs } from '../Models/contact-us';
+import { Denyapplicationdto } from '../Models/denyapplicationdto';
 import { Order } from '../Models/order';
 import { Status } from '../Models/status';
 import { User } from '../Models/user';
@@ -70,6 +71,10 @@ export class AdminServiceService {
       'http://localhost:9090/sendreply',
       reply
     );
+  }
+
+  denyApplication(dto: Denyapplicationdto) {
+    return this.httpClient.put('http://localhost:9090/denyUser', dto);
   }
 
   getAllNonShippedOrders(): Observable<Order[]> {

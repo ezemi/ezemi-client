@@ -22,6 +22,7 @@ export class RegisterComponent implements OnInit {
   email: string;
   otp: string = '';
   hide = true;
+  hide1 = true;
 
   user: UserRegDto = new UserRegDto();
 
@@ -55,10 +56,11 @@ export class RegisterComponent implements OnInit {
       maxlength: 'Please enter 10 digits phone number',
     },
     2: { notSame: 'passwords did not match' },
-    otpFormCtrl: { required: 'Otp is required', OtpInvalid: 'Invalid otp' },
+    otpFormCtrl: { required: 'Otp is required' },
     passwordFormCtrl: {
       required: 'password is required',
-      pattern: 'Minimum eight characters, at least one letter and one number',
+      pattern:
+        'Minimum eight characters, at least one letter and one number and special character',
     },
     confirmPasswordFormCtrl: { required: 'password is required' },
     cardFormCtrl: { required: 'card is required' },
@@ -125,11 +127,15 @@ export class RegisterComponent implements OnInit {
   ) {}
 
   getOtp() {
-    this.otpsent = true;
     this.email = this.formGroup.get('formArray').value[0].emailFormCtrl;
     this.accountService.getOtp(this.email).subscribe((data) => {
       this.otp = data;
-      console.log(data);
+      //console.log(this.otp);
+      if (this.otp != 'FAILED') {
+        this.otpsent = true;
+      } else {
+        console.log(this.otp);
+      }
     });
     this.formArray.get([0]).disable();
   }
@@ -159,13 +165,7 @@ export class RegisterComponent implements OnInit {
         }),
         this._formBuilder.group(
           {
-            passwordFormCtrl: [
-              null,
-              [
-                Validators.required,
-                Validators.pattern('(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}'),
-              ],
-            ],
+            passwordFormCtrl: [null, [Validators.required]],
             confirmPasswordFormCtrl: [null, Validators.required],
           },
           { validators: checkPasswords }
@@ -229,11 +229,7 @@ export class RegisterComponent implements OnInit {
         }
       } else {
         this.formerrors[key] = '';
-        if (
-          abstractControl &&
-          abstractControl.touched &&
-          !abstractControl.valid
-        ) {
+        if (!abstractControl.valid && abstractControl.touched) {
           const msgs = this.validationMessages[key];
           for (const errorKey in abstractControl.errors) {
             if (errorKey) {

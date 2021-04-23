@@ -29,8 +29,12 @@
             placeholder="Password"
             name="password"
             [(ngModel)]="logindto.password"
+            [type]="hide1 ? 'password' : 'text'"
             required
           />
+          <mat-icon matSuffix (click)="hide1 = !hide1">{{
+            hide1 ? "visibility_off" : "visibility"
+          }}</mat-icon>
         </mat-form-field>
         <a (click)="forgotpass()">Forgot password?</a>
         <br />

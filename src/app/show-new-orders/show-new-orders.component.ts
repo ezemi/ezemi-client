@@ -7,28 +7,32 @@ import { UserDetailsPageComponent } from '../user-details-page/user-details-page
 @Component({
   selector: 'app-show-new-orders',
   templateUrl: './show-new-orders.component.html',
-  styleUrls: ['./show-new-orders.component.css']
+  styleUrls: ['./show-new-orders.component.css'],
 })
 export class ShowNewOrdersComponent implements OnInit {
-
-  orders:Order[];
-  icon :String;
+  orders: Order[];
+  icon: String;
   name: String;
-  orderId:number;
+  orderId: number;
+  shipped: boolean = false;
 
-  constructor(private aservice : AdminServiceService, public dialog: MatDialog) { }
-
-  ngOnInit(): void {
-    this.aservice.getAllNonShippedOrders().subscribe(
-      data=>{
-        console.log(JSON.stringify(data));
-        this.orders=data;
-      }
-    );
+  toggleClass() {
+    this.shipped = true;
   }
 
+  constructor(
+    private aservice: AdminServiceService,
+    public dialog: MatDialog
+  ) {}
 
-  displayedColumns :String[]=[
+  ngOnInit(): void {
+    this.aservice.getAllNonShippedOrders().subscribe((data) => {
+      console.log(JSON.stringify(data));
+      this.orders = data;
+    });
+  }
+
+  displayedColumns: String[] = [
     'orderId',
     'product',
     'orderDate',
@@ -38,21 +42,21 @@ export class ShowNewOrdersComponent implements OnInit {
     'amountDue',
     'orderCost',
     'isShipped',
-  ]; 
+  ];
 
-  shipProduct(orders){
-    
-    this.aservice.orderShipped(orders.orderId).subscribe(
-      data=>{
-        console.log(JSON.stringify(data));
-        this.ngOnInit();
-      }
-    );
+  shipProduct(orders) {
+    this.aservice.orderShipped(orders.orderId).subscribe((data) => {
+      console.log(JSON.stringify(data));
+      this.ngOnInit();
+    });
   }
 
-
-  fetchUserDetials(obj){
-    let dialogref = this.dialog.open(UserDetailsPageComponent, {height: '450px' , width : '550px', data:obj});
+  fetchUserDetials(obj) {
+    let dialogref = this.dialog.open(UserDetailsPageComponent, {
+      height: '450px',
+      width: '550px',
+      data: obj,
+    });
 
     dialogref.afterClosed().subscribe((result) => {
       this.ngOnInit();

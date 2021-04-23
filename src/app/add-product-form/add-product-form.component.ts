@@ -8,50 +8,41 @@ import { ProductServiceService } from '../services/product-service.service';
 @Component({
   selector: 'app-add-product-form',
   templateUrl: './add-product-form.component.html',
-  styleUrls: ['./add-product-form.component.css']
+  styleUrls: ['./add-product-form.component.css'],
 })
 export class AddProductFormComponent implements OnInit {
+  categories: Category[];
+  pdt: Productdto = new Productdto();
 
-  categories:Category[];
-  pdt : Productdto = new Productdto();
-
-  constructor(private pservice : ProductServiceService) { }
+  constructor(private pservice: ProductServiceService) {}
 
   ngOnInit(): void {
-    this.pservice.getallcategory().subscribe(
-      data=>{
-        console.log(JSON.stringify(data));
-        this.categories= data;
-      }
-     );
+    this.pservice.getallcategory().subscribe((data) => {
+      console.log(JSON.stringify(data));
+      this.categories = data;
+    });
   }
 
-  onFileChange(event){
+  onFileChange(event) {
     this.pdt.productImgUrl = event.target.files[0];
   }
 
-  file: File ;
+  file: File;
   processFile(imageInput: any) {
     this.file = imageInput.files[0];
   }
-  submitProduct(){
-   
-    let formdata= new FormData();
-   
-    formdata.append('productName',this.pdt.productName.toString());
-    formdata.append('price',this.pdt.price.toString());
-    formdata.append('productDetails',this.pdt.productDetails.toString());
-    formdata.append('processingFee',this.pdt.processingFee.toString());
-    formdata.append('categoryId',this.pdt.categoryId.toString());
-    formdata.append('productImgUrl',this.file);
-    
+  submitProduct() {
+    let formdata = new FormData();
 
-    this.pservice.addproduct(formdata).subscribe(
-      data=>{
-        console.log(JSON.stringify(data));
-      }
-    );
+    formdata.append('productName', this.pdt.productName.toString());
+    formdata.append('price', this.pdt.price.toString());
+    formdata.append('productDetails', this.pdt.productDetails.toString());
+    formdata.append('processingFee', this.pdt.processingFee.toString());
+    formdata.append('categoryId', this.pdt.categoryId.toString());
+    formdata.append('productImgUrl', this.file);
+
+    this.pservice.addproduct(formdata).subscribe((data) => {
+      console.log(JSON.stringify(data));
+    });
   }
-
-
 }

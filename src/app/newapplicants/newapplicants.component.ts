@@ -1,5 +1,10 @@
 import { Component, Inject, OnInit, Optional } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
+import { DenyapplicationComponent } from '../denyapplication/denyapplication.component';
 import { Status } from '../Models/status';
 import { User } from '../Models/user';
 import { AdminServiceService } from '../services/admin-service.service';
@@ -13,6 +18,7 @@ export class NewapplicantsComponent implements OnInit {
   rowData: User;
 
   constructor(
+    public dialog: MatDialog,
     public dialogref: MatDialogRef<NewapplicantsComponent>,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: User,
     private adminService: AdminServiceService
@@ -30,5 +36,19 @@ export class NewapplicantsComponent implements OnInit {
   }
   ngOnInit(): void {
     console.log(this.rowData);
+  }
+
+  denyApplication() {
+    let dialogref = this.dialog.open(DenyapplicationComponent, {
+      height: '350px',
+      width: '550px',
+      data: this.rowData.email,
+    });
+
+    dialogref.afterClosed().subscribe((result) => {
+      setTimeout(function () {
+        document.location.reload();
+      }, 0);
+    });
   }
 }
