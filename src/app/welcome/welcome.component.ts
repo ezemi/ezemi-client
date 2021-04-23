@@ -27,11 +27,14 @@ export class WelcomeComponent implements OnInit {
 
 
   submitQuery(){
+    
     this.aservice.addCustomerQuery(this.query).subscribe((data) => {
       console.log(JSON.stringify(data));
       this.message = data.message;
     });
-
+    setTimeout(function () {
+      document.location.reload();
+    }, 1000);
      
   }
 

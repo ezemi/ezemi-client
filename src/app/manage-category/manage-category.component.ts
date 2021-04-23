@@ -29,7 +29,6 @@ export class ManageCategoryComponent implements OnInit {
   }
 
   displayedColumns: String[] = ['CategoryId', 'CategoryName', 'deleteCategory'];
-  //dataSource = this.category ;
 
   openAddCategoryForm() {
     let dialogref = this.dialog.open(AddCateogryFormComponent, {
@@ -53,6 +52,4 @@ export class ManageCategoryComponent implements OnInit {
       this.ngOnInit();
     });
   }
-
-  
 }

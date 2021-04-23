@@ -1,0 +1,15 @@
+<div>
+  <!-- <div class="c1"></div> -->
+  <div mat-dialog-content>
+    <div align="center">
+      <h2 mat-dialog-title>
+        Your next installment of order {{ order.orderId }} is
+        {{ order.emiAmount | currency: "INR" }}
+      </h2>
+      <h2>Click on pay to Pay</h2>
+      <button mat-raised-button color="primary" (click)="payemi()">Pay</button>
+      <button mat-button mat-button (click)="close()">Cancel</button>
+      <div></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+
+<mat-toolbar color="primary">{{ user.firstname }} {{ user.lastname }}</mat-toolbar><br/>
+
+<div>
+    <table>
+    <h4>Personal Details</h4>
+    <tr>
+        <th>First Name</th>
+        <td>{{ user.firstname }}</td>
+    </tr>
+
+    <tr>
+        <th>Last Name</th>
+        <td>{{ user.lastname }}</td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td>{{ user.email }}</td>
+    </tr>
+
+    <tr>
+        <th>Phone No.</th>
+        <td>{{ user.phoneNo }}</td>
+    </tr>
+    
+
+    <h4>Shipping Address</h4>
+    <tr>
+        <th>
+        {{ user.address.addressLine1 }},<br> {{ user.address.addressLine2 }},<br>
+        {{ user.address.city }},<br>{{user.address.pinCode}}
+        </th>
+    </tr>
+    </table>
+</div>

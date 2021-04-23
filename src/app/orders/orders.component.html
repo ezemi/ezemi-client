@@ -1,86 +1,129 @@
-<div style="height: 90vh">
+<div style="height: 90vh" fxShow="true">
   <div class="mat-elevation-z8">
     <mat-card>Current Orders</mat-card>
-    <table mat-table [dataSource]="dataSourceUnpaid">
-      <ng-container matColumnDef="OrderId">
+    <table mat-table [dataSource]="unpaidOrders">
+      <ng-container matColumnDef="orderId">
         <th mat-header-cell *matHeaderCellDef>Order Id</th>
         <td mat-cell *matCellDef="let orders">{{ orders.orderId }}</td>
       </ng-container>
 
-      <ng-container matColumnDef="Cost">
+      <ng-container matColumnDef="product">
+        <th mat-header-cell *matHeaderCellDef>Product</th>
+        <td mat-cell *matCellDef="let orders">
+          {{ orders.product.productName }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="cost">
         <th mat-header-cell *matHeaderCellDef>Cost</th>
         <td mat-cell *matCellDef="let orders">
           {{ orders.orderCost | currency: "INR" }}
         </td>
       </ng-container>
 
-      <ng-container matColumnDef="Months">
-        <th mat-header-cell *matHeaderCellDef>Months</th>
+      <ng-container matColumnDef="months">
+        <th mat-header-cell *matHeaderCellDef>Installments paid</th>
         <td mat-cell *matCellDef="let orders">{{ orders.installments }}</td>
       </ng-container>
 
-      <ng-container matColumnDef="EmiAmount">
+      <div matColumnDef="emiAmount" fxHide.lt-md>
         <th mat-header-cell *matHeaderCellDef>EMi Amount</th>
         <td mat-cell *matCellDef="let orders">
           {{ orders.emiAmount | currency: "INR" }}
         </td>
-      </ng-container>
+      </div>
 
-      <ng-container matColumnDef="AmountDue">
+      <ng-container matColumnDef="amountDue">
         <th mat-header-cell *matHeaderCellDef>Amount Due</th>
         <td mat-cell *matCellDef="let orders">
           {{ orders.amountDue | currency: "INR" }}
         </td>
       </ng-container>
 
-      <ng-container matColumnDef="PayNow">
+      <ng-container matColumnDef="payNow">
         <th mat-header-cell *matHeaderCellDef>Pay Now</th>
         <td mat-cell *matCellDef="let orders">
-          <button mat-raised-button color="primary">Pay Now</button>
+          <button
+            *ngIf="orders.canPay"
+            mat-raised-button
+            (click)="pay(orders)"
+            color="primary"
+          >
+            Pay Now
+          </button>
+          <span *ngIf="!orders.canPay">
+            You can pay next Emi after
+            {{ getPayDate(orders) | date: "dd/MM/yyyy" }}</span
+          >
         </td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
-    <!-- <mat-paginator
+    <!--  <mat-paginator
     [pageSizeOptions]="[5, 10, 20]"
     showFirstLastButtons
   ></mat-paginator> -->
   </div>
+  <!-- 
+  <div class="mat-elevation-z8">
+    <div
+      *ngFor="let order of unpaidOrders"
+      style="
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        justify-content: space-between;
+      "
+    >
+      <div>OrderId: {{ order.orderId }}</div>
+      <div>Product : {{ order.product.productName }}</div>
+      <div>Cost: {{ order.orderCost | currency: "INR" }}</div>
+      <div>Paid installments: {{ order.installments }}</div>
+      <div>Emi Amount: {{ order.emiAmount | currency: "INR" }}</div>
+    </div>
+  </div> -->
 
   <div class="mat-elevation-z8">
     <mat-card>Completed Orders</mat-card>
-    <table mat-table [dataSource]="dataSourcepaid">
-      <ng-container matColumnDef="OrderId">
+    <table mat-table [dataSource]="paidOrders">
+      <ng-container matColumnDef="orderId">
         <th mat-header-cell *matHeaderCellDef>Order Id</th>
         <td mat-cell *matCellDef="let orders">{{ orders.orderId }}</td>
       </ng-container>
 
-      <ng-container matColumnDef="Cost">
+      <ng-container matColumnDef="product">
+        <th mat-header-cell *matHeaderCellDef>Product</th>
+        <td mat-cell *matCellDef="let orders">
+          {{ orders.product.productName }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="cost">
         <th mat-header-cell *matHeaderCellDef>Cost</th>
         <td mat-cell *matCellDef="let orders">
           {{ orders.orderCost | number: "1.2-2" }}
         </td>
       </ng-container>
 
-      <ng-container matColumnDef="Months">
+      <ng-container matColumnDef="months">
         <th mat-header-cell *matHeaderCellDef>Months</th>
         <td mat-cell *matCellDef="let orders">{{ orders.emiType }}</td>
       </ng-container>
 
-      <ng-container matColumnDef="EmiAmount">
+      <div matColumnDef="emiAmount">
         <th mat-header-cell *matHeaderCellDef>EMi Amount</th>
         <td mat-cell *matCellDef="let orders">
           {{ orders.emiAmount | number: "1.2-2" }}
         </td>
-      </ng-container>
+      </div>
 
-      <ng-container matColumnDef="AmountDue">
+      <ng-container matColumnDef="amountDue">
         <th mat-header-cell *matHeaderCellDef>Amount Due</th>
         <td mat-cell *matCellDef="let orders">{{ orders.amountDue }}</td>
       </ng-container>
 
-      <ng-container matColumnDef="PayNow">
+      <ng-container matColumnDef="payNow">
         <th mat-header-cell *matHeaderCellDef>Completed</th>
         <td mat-cell *matCellDef="let orders">
           <button mat-raised-button disabled color="primary">Completed</button>

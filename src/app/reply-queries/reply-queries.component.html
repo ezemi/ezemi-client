@@ -1,1 +1,26 @@
-<p>reply-queries works!</p>
+<div class="parent" >
+    <div><h1 style="text-align: center; font-weight: bolder;">Queries</h1></div>
+    <div class="card-container" *ngFor="let querys of queries">
+        <div *ngIf="!querys.replied">
+        <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>From:{{querys.email}}</mat-card-title> <br>
+              
+            </mat-card-header>
+            
+            <mat-card-content >
+                <p class="msg"> {{querys.query}} </p>
+              
+ 
+            </mat-card-content>
+            <button
+                mat-raised-button
+                color="accent"
+                (click)="openReply(querys)" >
+                Reply
+             </button>
+        </mat-card>
+        </div>
+    </div>
+
+</div>
