@@ -1,5 +1,6 @@
 import { EmiType } from './emi-type';
 import { Product } from './product';
+import { User } from './user';
 
 export class Order {
   orderId: number;
@@ -17,4 +18,8 @@ export class Order {
   amountDue: number;
 
   orderCost: number;
+
+  shipped : boolean;
+
+  user: User;
 }
