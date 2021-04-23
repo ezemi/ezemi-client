@@ -50,7 +50,7 @@
   </div>
 </div>
 
-
+<!-- Card Type image display -->
 <div class="pt-3">
   <h2>Shop using our E-Cards</h2>
   <div class="cards-pt">
@@ -90,6 +90,9 @@
   </div>
 </div>
 
+
+
+<!-- Contact US Form -->
 <div class="contactUsDiv"><br>
 <h1 class="fontHeading">Tell Us How Can We Help</h1>
   <div class="formDiv">
@@ -99,7 +102,7 @@
         <div>
           <mat-form-field  class="formField">
             <mat-label>Enter your email</mat-label>
-            <input matInput placeholder="ezemi@example.com" name="email" [(ngModel)]="query.email"  required>
+            <input matInput placeholder="ezemi@example.com" name="email" [(ngModel)]="query.email" pattern="[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,4}$"  required>
           </mat-form-field>
         </div>
 

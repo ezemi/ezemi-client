@@ -56,6 +56,10 @@ import { AdminauthGuard } from './adminauth.guard';
 import { ShowNewOrdersComponent } from './show-new-orders/show-new-orders.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 
+import { ReplyComponent } from './reply/reply.component';
+
+import { UserDetailsPageComponent } from './user-details-page/user-details-page.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -104,6 +108,9 @@ import { NotfoundComponent } from './notfound/notfound.component';
     NotauthorisedComponent,
     ShowNewOrdersComponent,
     NotfoundComponent,
+    ReplyComponent,
+
+    UserDetailsPageComponent,
   ],
   imports: [
     BrowserModule,

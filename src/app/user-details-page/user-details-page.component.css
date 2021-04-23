@@ -1,0 +1,23 @@
+button{
+    
+    color:white;
+    background-color: red;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+table{
+    text-align: left ;
+    position: relative; 
+}
+
+h4{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+    font-size: 20px;
+    text-align: left;
+    text-decoration: underline #023075;
+    color : #023075;
+}
+
+
