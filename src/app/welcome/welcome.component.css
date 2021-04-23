@@ -166,20 +166,52 @@ h2 {
   justify-content: space-evenly;
   height: 300px;
   margin-top: 10px;
+  flex-wrap: wrap;
 }
 
-.gold{
- 
-  background-image:  url("^../assets/images/svgs/GoldCardsvg.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: goldenrod;
+.gold-outer{
+  perspective: 1000px;
+  margin-top: 25px;
+  height: 250px;
+  width: 440px;
+}
+.gold-inner{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.gold-outer:hover .gold-inner{
+
+  transform: rotateY(180deg);
+}
+
+.gold-front{
   border-radius: 25px;
   box-sizing: border-box;
   border-style: solid;
   box-shadow: 5px 5px 12px rgb(77, 77, 77);
-  height: 250px;
-  width: 440px;
+  background-image:  url("^../assets/images/svgs/GoldCardsvg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: goldenrod;
+ 
+}
+.gold-back{
+  border-radius: 25px;
+  box-sizing: border-box;
+  /* border-style: solid; */
+  box-shadow: 5px 5px 12px rgb(77, 77, 77);
+  transform: rotateY(180deg);
+  background-color: gold;
+}
+.gold-front,.gold-back{
+   position: absolute;
+  width: 100%;
+  height: 100%; 
+  -webkit-backface-visibility: hidden; 
+  backface-visibility: hidden;
 }
 
 .gold-card-content {
@@ -190,8 +222,40 @@ h2 {
 .gold-card-num {
   font-family: "Orbitron", "sans-serif";
 }
- .platinum{
-  background-color: rgb(24, 197, 209);
+.gold-credit{
+  text-align: center; margin-top: 50px;
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+.gold-amount{
+  text-align: center; margin-top: 20px;
+  font-size: xx-large;
+}
+
+
+
+
+.platinum-outer{
+  perspective: 1000px;
+  margin-top: 25px;
+  height: 250px;
+  width: 440px;
+}
+.platinum-inner{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.platinum-outer:hover .platinum-inner{
+
+  transform: rotateY(180deg);
+}
+
+ .platinum-front{
+  
   background-image:  url("^../assets/images/svgs/PlatinumCardSvg.svg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -200,10 +264,25 @@ h2 {
   box-sizing: border-box;
   border-style: solid;
   box-shadow: 5px 5px 12px rgb(77, 77, 77);
-  height: 250px;
-  width: 440px;
 
 } 
+.platinum-back{
+  border-radius: 25px;
+  box-sizing: border-box;
+  /* border-style: solid; */
+  box-shadow: 5px 5px 12px rgb(77, 77, 77);
+  transform: rotateY(180deg);
+  background-color: rgb(165, 165, 165);
+}
+.platinum-front,.platinum-back{
+  position: absolute;
+  width: 100%;
+  height: 100%; 
+  -webkit-backface-visibility: hidden; 
+  backface-visibility: hidden;
+}
+
+
 .plat-card-content {
   margin-top: 100px;
   color: black;
@@ -213,10 +292,20 @@ h2 {
   font-family: "Orbitron", "sans-serif";
 }
 
+.platinum-credit{
+  text-align: center; margin-top: 50px;
+  font-size: xx-large;
+  font-weight: bolder;
+}
+.platinum-amount{
+  text-align: center; margin-top: 20px;
+  font-size: xx-large;
+}
+
 .contactUsDiv{
   margin : auto;
   margin-bottom: 10px;
-  margin-top: 20px;
+  margin-top: 50px;
   width: 95%;
   height: 400px;
   background-color: white;
@@ -224,6 +313,7 @@ h2 {
    background-position: right;
   background-repeat: no-repeat;
   background-size: contain;
+  
   
 }
 
@@ -233,6 +323,9 @@ h2 {
   width: 25%;
   margin-left: 5%;
   background-color:#f7f0e1;
+  /* display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; */
 }
 
 .formField{
@@ -251,7 +344,8 @@ h2 {
 .fontHeading{
   color: black;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  margin-left: 20px;
+  margin-left: 40px;
+  
 
 }
 

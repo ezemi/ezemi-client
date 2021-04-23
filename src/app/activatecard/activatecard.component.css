@@ -1,9 +1,16 @@
-.c1{
+
+/* .c1{
     height: 50px;
     width: 100%;
-    background-color: blue;
+    background-color: blue; }*/
 
-}
+
 button{
     margin:5px;
+}
+
+.par{
+    background-color: rgb(209, 209, 221);
+    height: 200px;
+    width:350px
 }

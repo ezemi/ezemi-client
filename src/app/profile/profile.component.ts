@@ -37,25 +37,30 @@ export class ProfileComponent implements OnInit {
   }
 
   openActivateCardComponent(obj) {
-    let dialogref = this.dialog.open(ActivatecardComponent, {
+    let dialogref1 = this.dialog.open(ActivatecardComponent, {
       height: '300px',
       width: '400px',
       data: obj,
     });
 
-    dialogref.afterClosed().subscribe((result) => {
-      this.ngOnInit();
+    dialogref1.afterClosed().subscribe((result) => {
+        document.location.reload();
+      
     });
   }
 
   update() {
-    let dialogref = this.dialog.open(UpdateAddressComponent, {
+    let dialogref2 = this.dialog.open(UpdateAddressComponent, {
       height: '80%',
       width: '40%',
     });
 
-    dialogref.afterClosed().subscribe((result) => {
-      this.ngOnInit();
+    dialogref2.afterClosed().subscribe((result) => {
+      setTimeout(function () {
+         document.location.reload();
+        // this.ngOnInit();
+      }, 1000);
+     
     });
   }
 }

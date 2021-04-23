@@ -22,6 +22,7 @@
   border-radius: 20px;
   height: auto;
   margin-bottom: 10px;
+  box-shadow: 10px 10px 3px rgba(19, 18, 18, 0.651);
 }
 
 .container-card {
@@ -109,10 +110,31 @@
   margin-top: 100px;
   color: black;
   margin-left: 30px;
+  font-family: "Orbitron", "sans-serif";
 }
 .card-num {
   font-family: "Orbitron", "sans-serif";
 }
+
+.u-name{
+  font-family: "Orbitron", "sans-serif";
+}
+.credit-info{
+  width: 80%;
+  margin-top: 30px;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-style: solid;
+  border-radius: 15px;
+  height: fit-content;
+  display: flex;
+  background-color: rgb(235, 235, 235);
+  
+} 
+.cic{
+  margin: auto;
+}
+
 
 .cardState {
   text-align: end;
