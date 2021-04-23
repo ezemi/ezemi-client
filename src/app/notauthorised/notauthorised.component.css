@@ -1,0 +1,16 @@
+div {
+  height: 90vh;
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: column;
+}
+
+h1 {
+  margin: auto;
+}
+
+img {
+  margin: auto;
+  min-width: 250px;
+  max-width: 350px;
+}

@@ -11,29 +11,25 @@ import { UserServiceService } from '../services/user-service.service';
   styleUrls: ['./transactions.component.css'],
 })
 export class TransactionsComponent implements OnInit {
-  
-  transacts:Transaction[]=[];
-  loguser:LoginStatus;
+  transacts: Transaction[] = [];
+  loguser: LoginStatus;
 
-  constructor(private uservice:UserServiceService){}
+  constructor(private uservice: UserServiceService) {}
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatPaginator) dataSource: MatTableDataSource<Transaction>;
 
-  
-
   ngOnInit() {
     // this.dataSource.paginator = this.paginator;
-    this.loguser= JSON.parse(localStorage.getItem("loggedinuser"));
-    this.uservice.getTransactionByUserId(this.loguser.userId).subscribe(
-      data=>{
-         console.log(JSON.stringify(data))
-        this.transacts=data;
+    this.loguser = JSON.parse(localStorage.getItem('loggedinuser'));
+    this.uservice
+      .getTransactionByUserId(this.loguser.userId)
+      .subscribe((data) => {
+        console.log(JSON.stringify(data));
+        this.transacts = data;
         // console.log(this.transacts);
         this.dataSource = new MatTableDataSource(this.transacts);
-          this.dataSource.paginator = this.paginator;
-      }
-    );
-
+        this.dataSource.paginator = this.paginator;
+      });
   }
 
   displayedColumns: string[] = [
@@ -42,7 +38,4 @@ export class TransactionsComponent implements OnInit {
     'Amount',
     'TransactionMessage',
   ];
-
 }
-
-

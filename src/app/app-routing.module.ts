@@ -16,6 +16,7 @@ import { ManageCategoryComponent } from './manage-category/manage-category.compo
 import { ManageProductsComponent } from './manage-products/manage-products.component';
 import { ManageComponent } from './manage/manage.component';
 import { NotauthorisedComponent } from './notauthorised/notauthorised.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 import { OrdersComponent } from './orders/orders.component';
 import { PageContentComponent } from './page-content/page-content.component';
 import { PayComponent } from './pay/pay.component';
@@ -119,16 +120,16 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            redirectTo: 'customerAdministration',
+            redirectTo: 'newapplications',
             pathMatch: 'full',
+          },
+          {
+            path: 'newapplications',
+            component: CollectandreportComponent,
           },
           {
             path: 'customerAdministration',
             component: CustomerAdministrationComponent,
-          },
-          {
-            path: 'collectandreport',
-            component: CollectandreportComponent,
           },
           {
             path: 'replyQueries',
@@ -172,7 +173,16 @@ const routes: Routes = [
         path: 'notauthorised',
         component: NotauthorisedComponent,
       },
+      {
+        path: '**',
+        component: NotfoundComponent,
+      },
     ],
+  },
+  {
+    path: '**',
+    redirectTo: 'page-content/**',
+    pathMatch: 'full',
   },
 ];
 

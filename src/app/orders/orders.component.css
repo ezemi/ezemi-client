@@ -2,6 +2,8 @@
   width: 80%;
   margin: auto;
   margin-top: 20px;
+  font-size: large;
+  overflow-x: auto;
 }
 
 table {

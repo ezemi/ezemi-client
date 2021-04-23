@@ -17,4 +17,6 @@ export class Order {
   amountDue: number;
 
   orderCost: number;
+
+  canPay: boolean;
 }

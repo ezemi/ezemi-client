@@ -10,17 +10,15 @@ import { UpdateProductComponent } from '../update-product/update-product.compone
   styleUrls: ['./manage-products.component.css'],
 })
 export class ManageProductsComponent implements OnInit {
-
   product: Product[];
-  productStockToggle : boolean;
-   
+  productStockToggle: boolean;
 
   constructor(
     public dialog: MatDialog,
     private pservice: ProductServiceService
   ) {}
 
-  ngOnInit():void{
+  ngOnInit(): void {
     this.pservice.getallproduct().subscribe((data) => {
       console.log(JSON.stringify(data));
       this.product = data;
@@ -49,24 +47,22 @@ export class ManageProductsComponent implements OnInit {
     });
   }
 
-  openUpdateProduct(obj){
-    let dialogref = this.dialog.open(UpdateProductComponent, {height: '550px' , width : '650px', data:obj});
-
+  openUpdateProduct(obj) {
+    let dialogref = this.dialog.open(UpdateProductComponent, {
+      height: '550px',
+      width: '650px',
+      data: obj,
+    });
     dialogref.afterClosed().subscribe((result) => {
       this.ngOnInit();
     });
   }
 
-
- toggle(product){
-   this.pservice.inStockToggle(product.productId).subscribe(
-     data=>{
-       console.log(JSON.stringify(data));
-       this.ngOnInit();
-       console.log(product.productId, product.inStock);
-     }
-   );
-   
- }
-
+  toggle(product) {
+    this.pservice.inStockToggle(product.productId).subscribe((data) => {
+      console.log(JSON.stringify(data));
+      this.ngOnInit();
+      console.log(product.productId, product.inStock);
+    });
+  }
 }

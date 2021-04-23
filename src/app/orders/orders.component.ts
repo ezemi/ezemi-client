@@ -17,22 +17,20 @@ export class OrdersComponent implements OnInit {
     public dialog: MatDialog
   ) {}
 
-  unpaidOrders: Order[] = [];
+  unpaidOrders: Order[];
   paidOrders: Order[] = [];
 
   displayedColumns: string[] = [
-    'OrderId',
-    'Cost',
-    'Months',
-    'EmiAmount',
-    'AmountDue',
-    'PayNow',
+    'orderId',
+    'product',
+    'cost',
+    'months',
+    'emiAmount',
+    'amountDue',
+    'payNow',
   ];
 
-  dataSourceUnpaid;
-  dataSourcepaid;
-
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  // @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   ngOnInit() {
     let userId = JSON.parse(localStorage.getItem('loggedinuser')).userId;
@@ -40,16 +38,46 @@ export class OrdersComponent implements OnInit {
     this.userSerive.getUnPaidOrders(userId).subscribe((data) => {
       this.unpaidOrders = data;
       console.log(this.unpaidOrders);
-      this.dataSourceUnpaid = new MatTableDataSource<Order>(this.unpaidOrders);
+
+      this.unpaidOrders.forEach((order) => {
+        order.canPay = this.canPay(order);
+      });
     });
 
     this.userSerive.getPaidOrders(userId).subscribe((data) => {
       this.paidOrders = data;
-      console.log(this.paidOrders);
-      this.dataSourcepaid = new MatTableDataSource<Order>(this.paidOrders);
     });
-
     ///this.dataSource.paginator = this.paginator;
+  }
+
+  getPayDate(order: Order) {
+    let rdt = new Date(order.orderDate);
+    rdt.setMonth(rdt.getMonth() + order.installments);
+    //console.log(rdt);
+    //console.log(order.orderDate);
+
+    return rdt;
+  }
+
+  canPay(order: Order) {
+    let orderdt = new Date(order.orderDate);
+    let currdt = new Date();
+    //console.log(orderdt);
+    //console.log(currdt);
+
+    console.log(this.monthDiff(orderdt, currdt));
+    if (this.monthDiff(orderdt, currdt) >= order.installments) {
+      return true;
+    }
+    return false;
+  }
+
+  monthDiff(d1: Date, d2: Date) {
+    let months;
+    months = (d2.getFullYear() - d1.getFullYear()) * 12;
+    months -= d1.getMonth();
+    months += d2.getMonth();
+    return months <= 0 ? 0 : months;
   }
 
   pay(order: Order) {
