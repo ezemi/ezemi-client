@@ -77,15 +77,30 @@
 
     <h4>Documents</h4>
     <tr>
-      <th><img src="http://localhost:9090/downloads/{{ rowData.panCard }}" /></th>
-      <td><img src="http://localhost:9090/downloads/{{ rowData.adharCard }}" /></td>
+      <th>
+        <img src="http://localhost:9090/downloads/{{ rowData.panCard }}" />
+      </th>
+      <td>
+        <img src="http://localhost:9090/downloads/{{ rowData.adharCard }}" />
+      </td>
     </tr>
-  </table><br>
+  </table>
+  <br />
 
-  <div *ngIf = !rowData.isApproved align="end">
-      <button mat-raised-button>Deny</button>
-      <button mat-raised-button (click)="approveUser(rowData.userId)">
-        Approve
-      </button>
+  <div *ngIf="!rowData.isApproved" align="end">
+    <button
+      mat-raised-button
+      (click)="denyApplication()"
+      style="background-color: #f44336"
+    >
+      Deny
+    </button>
+    <button
+      mat-raised-button
+      style="background-color: #4caf50"
+      (click)="approveUser(rowData.userId)"
+    >
+      Approve
+    </button>
   </div>
 </div>

@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
     private header: NavHeaderComponent
   ) {}
 
+  hide1: boolean = true;
   logindto: LoginUser = new LoginUser();
   invalidCredentials: boolean = false;
   ngOnInit(): void {}
@@ -36,9 +37,7 @@ export class LoginComponent implements OnInit {
         if (this.user.role == 'CUSTOMER') {
           this.router.navigate(['page-content/products']);
         } else if (this.user.role == 'ADMIN') {
-          this.router.navigate([
-            'page-content/administration/customerAdministration',
-          ]);
+          this.router.navigate(['page-content/administration/newapplications']);
         }
       } else {
         if (this.user.role == 'CUSTOMER') {

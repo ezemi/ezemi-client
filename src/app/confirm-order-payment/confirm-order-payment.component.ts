@@ -13,9 +13,11 @@ import { UpdateProductComponent } from '../update-product/update-product.compone
   styleUrls: ['./confirm-order-payment.component.css'],
 })
 export class ConfirmOrderPaymentComponent implements OnInit {
+
   orderDto: OrderDto = new OrderDto();
   product: Product = new Product();
   amtToPay: number = 0;
+  
   constructor(
     private router: Router,
     private userSerivce: UserServiceService,
@@ -24,7 +26,7 @@ export class ConfirmOrderPaymentComponent implements OnInit {
     @Optional() @Inject(MAT_DIALOG_DATA) public data: OrderDto
   ) {
     this.orderDto = { ...data };
-    // console.log(this.orderDto);
+    //console.log(this.orderDto);
   }
 
   ngOnInit(): void {

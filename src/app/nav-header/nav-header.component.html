@@ -11,7 +11,11 @@
         <mat-icon>menu</mat-icon>
       </button>
       <span>
-        <img class="logo" src="../assets/images/svgs/LogoSvg.svg" />
+        <img
+          class="logo"
+          (click)="toHome()"
+          src="../assets/images/svgs/LogoSvg.svg"
+        />
       </span>
 
       <div *ngIf="loggedin; then loginBlock; else notloggedinBlock"></div>

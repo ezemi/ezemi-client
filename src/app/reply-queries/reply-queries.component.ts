@@ -8,23 +8,23 @@ import { AdminServiceService } from '../services/admin-service.service';
 @Component({
   selector: 'app-reply-queries',
   templateUrl: './reply-queries.component.html',
-  styleUrls: ['./reply-queries.component.css']
+  styleUrls: ['./reply-queries.component.css'],
 })
 export class ReplyQueriesComponent implements OnInit {
-
-  queries:ContactUs[]=[];
-  constructor(public dialog: MatDialog,private aservice:AdminServiceService) { }
+  queries: ContactUs[] = [];
+  constructor(
+    public dialog: MatDialog,
+    private aservice: AdminServiceService
+  ) {}
 
   ngOnInit(): void {
-    this.aservice.getQueries().subscribe(
-      data=>{
-        console.log(JSON.stringify(data))
-        this.queries=data;
-      }
-    );
+    this.aservice.getQueries().subscribe((data) => {
+      console.log(JSON.stringify(data));
+      this.queries = data;
+    });
   }
 
-  openReply(obj){
+  openReply(obj) {
     let dialogref = this.dialog.open(ReplyComponent, {
       height: '350px',
       width: '550px',
@@ -34,8 +34,7 @@ export class ReplyQueriesComponent implements OnInit {
     dialogref.afterClosed().subscribe((result) => {
       setTimeout(function () {
         document.location.reload();
-      }, 1000);
-   });
+      }, 0);
+    });
   }
-
 }

@@ -50,25 +50,35 @@
 <div class="pt-3">
   <h2>Shop using our E-Cards</h2>
   <div class="cards-pt">
-    <div class="gold">
-      <div class="gold-card-content">
-        <h2 class="gold-card-num">5768 6868 8755 3454</h2>
-        <table class="vfvu">
-          <tr>
-            <td>Valid from</td>
-            <td>Valid upto</td>
-          </tr>
-          <tr>
-            <td>10/10</td>
-            <td>10/20</td>
-          </tr>
-        </table>
-        <h2 class="u-name">Max Baker</h2>
+    <div class="gold-outer">
+      <div class="gold-inner">
+        <div class="gold-front">
+          <div class="gold-card-content">
+            <h2 class="gold-card-num">5768 6868 8755 3454</h2>
+              <table class="vfvu">
+              <tr>
+               <td>Valid from</td>
+               <td>Valid upto</td>
+              </tr>
+              <tr>
+               <td>10/10</td>
+               <td>10/20</td>
+              </tr>
+              </table>
+            <h2 class="u-name">Max Baker</h2>
+          </div>
+        </div>
+        <div class="gold-back">
+          <h1 class="gold-credit" >Credit</h1>
+          <h1 class="gold-amount" >{{goldcredit | currency: "INR":"symbol-narrow"}}</h1>
+        </div>
       </div>
     </div>
     
-    <div class="platinum"> 
-      <div class="plat-card-content">
+    <div class="platinum-outer">
+      <div class="platinum-inner">
+        <div class="platinum-front"> 
+        <div class="plat-card-content">
         <h2 class="plat-card-num">5768 6868 8755 3454</h2>
         <table class="vfvu">
           <tr>
@@ -81,7 +91,13 @@
           </tr>
         </table>
         <h2 class="u-name">Max Baker</h2>
-      </div>
+        </div>
+        </div>
+        <div class="platinum-back">
+          <h1 class="platinum-credit">Credit</h1>
+          <h1 class="platinum-amount">{{platcredit |currency: "INR":"symbol-narrow"}}</h1>
+        </div>
+      </div>  
     </div>
   </div>
 </div>

@@ -15,6 +15,8 @@ export class WelcomeComponent implements OnInit {
   isNew: boolean;
   query:ContactUs = new ContactUs();
   message:String;
+  goldcredit:number=100000;
+  platcredit:number=200000;
 
   ngOnInit(): void {}
 

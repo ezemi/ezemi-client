@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Address } from '../Models/address';
+import { Status } from '../Models/status';
 import { UserServiceService } from '../services/user-service.service';
 
 @Component({
@@ -8,9 +10,15 @@ import { UserServiceService } from '../services/user-service.service';
   styleUrls: ['./update-address.component.css'],
 })
 export class UpdateAddressComponent implements OnInit {
-  constructor(private userService: UserServiceService) {}
+  constructor(public dialogref: MatDialogRef<UpdateAddressComponent>,
+              private userService: UserServiceService) {}
   address: Address = new Address();
   userId: number;
+  addstatus:Status;
+
+  close() {
+    this.dialogref.close();
+  }
 
   ngOnInit(): void {
     this.userId = JSON.parse(localStorage.getItem('loggedinuser')).userId;
@@ -22,6 +30,12 @@ export class UpdateAddressComponent implements OnInit {
   updateAddress() {
     this.userService
       .updateAddress(this.userId, this.address)
-      .subscribe((data) => {});
+      .subscribe((data) => {
+        this.addstatus=data;
+        console.log(this.addstatus);
+        if(this.addstatus!=null){
+          this.close();
+        }
+      });
   }
 }
