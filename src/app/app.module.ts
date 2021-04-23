@@ -60,6 +60,7 @@ import { ReplyComponent } from './reply/reply.component';
 
 import { UserDetailsPageComponent } from './user-details-page/user-details-page.component';
 import { DenyapplicationComponent } from './denyapplication/denyapplication.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -114,6 +115,8 @@ import { DenyapplicationComponent } from './denyapplication/denyapplication.comp
     UserDetailsPageComponent,
 
     DenyapplicationComponent,
+
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,

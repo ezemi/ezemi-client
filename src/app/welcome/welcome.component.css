@@ -333,7 +333,7 @@ h2 {
   width: 95%;
   height: 400px;
   background-color: white;
-  background-image: url("src\assets\images\shopping bg.jpg");
+  background-image: url("^../assets/images/shopping bg.jpg");
    background-position: right;
   background-repeat: no-repeat;
   background-size: contain;

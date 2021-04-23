@@ -41,6 +41,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
+ 
 
 @NgModule({
   exports: [
@@ -87,6 +89,7 @@ import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-
     PortalModule,
     ScrollingModule,
     MatFormFieldModule,
+    MatCarouselModule,
   
   ],
   declarations: [],
