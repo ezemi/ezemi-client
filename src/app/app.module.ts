@@ -54,6 +54,9 @@ import { AuthGuard } from './auth.guard';
 import { NotauthorisedComponent } from './notauthorised/notauthorised.component';
 import { AdminauthGuard } from './adminauth.guard';
 import { ShowNewOrdersComponent } from './show-new-orders/show-new-orders.component';
+import { ReplyComponent } from './reply/reply.component';
+
+
 
 @NgModule({
   declarations: [
@@ -102,6 +105,8 @@ import { ShowNewOrdersComponent } from './show-new-orders/show-new-orders.compon
     PayemiComponent,
     NotauthorisedComponent,
     ShowNewOrdersComponent,
+    ReplyComponent,
+   
   ],
   imports: [
     BrowserModule,

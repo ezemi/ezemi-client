@@ -51,4 +51,12 @@ export class AdminServiceService {
   addCustomerQuery(query : ContactUs):Observable<Status>{
       return this.httpClient.post<Status>('http://localhost:9090/addcustomerquery', query);
   }
+
+  getQueries():Observable<ContactUs[]>{
+    return this.httpClient.get<ContactUs[]>("http://localhost:9090/getallqueries");
+  }
+
+  sendReply(reply:ContactUs):Observable<Status>{
+   return this.httpClient.post<Status>("http://localhost:9090/sendreply",reply);
+  }
 }

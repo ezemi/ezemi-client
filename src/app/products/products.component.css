@@ -46,11 +46,26 @@
     border: 1px solid #ccc;
     background: #fff;
     float: left;
+    -webkit-transition: .5s all;   
+    -webkit-transition-delay: 5s; 
+    -moz-transition: .5s all;   
+    -moz-transition-delay: 5s; 
+    -ms-transition: .5s all;   
+    -ms-transition-delay: 5s; 
+    -o-transition: .5s all;   
+    -o-transition-delay: 5s; 
+    transition: .1s all;   
+    transition-delay: 0.1s; 
 
 }
 .example-card:hover{
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.2); 
  max-width: 280px;
+ -webkit-transition-delay: 1s;
+ -moz-transition-delay: 0s;
+ -ms-transition-delay: 0s;
+ -o-transition-delay: 0s;
+ transition-delay: 0s;
 }
 
 

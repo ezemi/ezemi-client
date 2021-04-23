@@ -99,7 +99,7 @@
         <div>
           <mat-form-field  class="formField">
             <mat-label>Enter your email</mat-label>
-            <input matInput placeholder="ezemi@example.com" name="email" [(ngModel)]="query.email"  required>
+            <input matInput placeholder="ezemi@example.com" name="email" [(ngModel)]="query.email" pattern="[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,4}$"  required>
           </mat-form-field>
         </div>
 
