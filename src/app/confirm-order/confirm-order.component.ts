@@ -60,7 +60,7 @@ export class ConfirmOrderComponent implements OnInit {
   confirmOrder() {
     let dialogref = this.dialog.open(ConfirmOrderPaymentComponent, {
       height: '50%',
-      width: '40%',
+      width: '30%',
       data: this.orderDto,
     });
 
