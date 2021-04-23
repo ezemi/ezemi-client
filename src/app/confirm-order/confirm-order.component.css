@@ -1,14 +1,30 @@
 .container {
+  /* background-color: greenyellow; */
   width: 60%;
   margin: auto;
   min-height: 60vh;
   display: flex;
   flex-direction: column;
-  align-content: space-between;
+  align-content:center;
   /* aline-content: space-between; */
   /* align-items: center; */
 }
 
+
+.textContent{
+  /* background-color: pink;  */
+  margin : auto;
+  width: 50%;
+}
+
+h1{
+  font-weight: bold;
+}
+
 h3 {
   display: inline-block;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-right: 5px;
 }
+

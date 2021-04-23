@@ -14,4 +14,9 @@
 .msg{
     margin-left: 50px;
     font-size: large;
+    text-decoration: underline grey;
 }
+
+button{
+   margin-left: 90%;    
+} 
