@@ -18,6 +18,7 @@
             type="text"
             name="productName"
             [(ngModel)]="pdt.productName"
+            required
           />
         </mat-form-field>
 
@@ -27,6 +28,7 @@
             class="mt-sel"
             name="pcategoryId"
             [(ngModel)]="pdt.categoryId"
+            required
           >
             <mat-option
               *ngFor="let category of categories"
@@ -38,7 +40,7 @@
 
         <mat-form-field>
           <mat-label>Product Price </mat-label>
-          <input matInput type="number" name="price" [(ngModel)]="pdt.price" />
+          <input matInput type="number" name="price" [(ngModel)]="pdt.price" required/>
         </mat-form-field>
 
         <mat-form-field>
@@ -48,6 +50,7 @@
             type="number"
             name="processingFee"
             [(ngModel)]="pdt.processingFee"
+            required
           />
         </mat-form-field>
 
@@ -58,6 +61,7 @@
             type="text"
             name="productDetails"
             [(ngModel)]="pdt.productDetails"
+            required
           />
         </mat-form-field>
 
@@ -69,12 +73,13 @@
               type="file"
               accept="image/*"
               (change)="processFile(imageInput)"
+              required
             />
           </label>
         </div>
         <br />
 
-        <button mat-raised-button mat-dialog-close color="accent" type="submit">
+        <button mat-raised-button mat-dialog-close color="accent" [disabled]=form.invalid type="submit">
           Add
         </button>
       </form>

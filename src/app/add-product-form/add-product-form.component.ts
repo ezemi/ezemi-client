@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Category } from '../Models/category';
 import { Product } from '../Models/product';
 import { Productdto } from '../Models/productdto';
+import { Status } from '../Models/status';
 import { ProductServiceService } from '../services/product-service.service';
 
 @Component({
@@ -13,14 +14,21 @@ import { ProductServiceService } from '../services/product-service.service';
 export class AddProductFormComponent implements OnInit {
   categories: Category[];
   pdt: Productdto = new Productdto();
+  pstatus:Status;
 
-  constructor(private pservice: ProductServiceService) {}
+  constructor(private pservice: ProductServiceService,
+    public dialogref: MatDialogRef<AddProductFormComponent>,
+   ) {}
 
   ngOnInit(): void {
     this.pservice.getallcategory().subscribe((data) => {
       console.log(JSON.stringify(data));
       this.categories = data;
     });
+  }
+
+  close() {
+    this.dialogref.close();
   }
 
   onFileChange(event) {
@@ -43,6 +51,12 @@ export class AddProductFormComponent implements OnInit {
 
     this.pservice.addproduct(formdata).subscribe((data) => {
       console.log(JSON.stringify(data));
+
+      if(this.pstatus!=null){
+        this.close();
+      }
     });
+
+    
   }
 }
