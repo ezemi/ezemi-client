@@ -9,8 +9,13 @@ button{
     margin:5px;
 }
 
-.par{
-    background-color: rgb(209, 209, 221);
-    height: 200px;
-    width:350px
+
+.cnl{
+    background-color: red;
+    color: white;
+    margin-top: 20px;
+
+}
+.cnf{
+    margin-top: 20px;
 }
