@@ -7,12 +7,13 @@
         style="height: 200px; width: auto"
       />
     </div> -->
-    <h3 style="margin-top: 50px;">Email :{{ user.email }}</h3>
+    <h1 style="margin-top: 30px; font-size: 30px; margin-bottom: 40px;">{{ user.firstname }} {{ user.lastname }}</h1>
+    <h3>Email :{{ user.email }}</h3>
     <h3>Phone : {{ user.phoneNo }}</h3>
     <h3>
       Address: {{ user.address.addressLine1 }},{{
         user.address.addressLine2
-      }},{{ user.address.city }},{{ user.address.pinCode }}
+      }},{{ user.address.city }},{{ user.address.pinCode }} <br>
       <button mat-raised-button style="margin-top: 20px;" color="accent" (click)="update()">Edit Address</button>
     </h3>
 
@@ -21,7 +22,7 @@
     <!-- </div> -->
     <!-- <mat-divider></mat-divider> -->
     <!-- <div class="bank-info"> -->
-    <h1>Bank Details</h1>
+    <h1>Bank Details :</h1>
     <h3>Bank :{{ user.bankDetails.bank.bankName }}</h3>
     <h3>Account no :{{ user.bankDetails.account_number }}</h3>
     <h3>IFSC :{{ user.bankDetails.ifsc_code }}</h3>
@@ -36,7 +37,7 @@
       Card status :{{ cstatus }}
     </h3>
     <div *ngIf="!user.card.isActivated">
-      <h4>Hi {{ user.firstname }} your card is inactive</h4>
+      <h4  style="font-weight: bolder;">Hi {{ user.firstname }} your card is inactive</h4>
       <button
         mat-raised-button
         color="accent"
@@ -66,7 +67,7 @@
     </div>
   </div>
   <div class="credit-info">
-    <h2 class="cic">
+    <h2 class="cic" style="font-size: x-large;">
       Credit left:{{ user.card.creditLeft | currency: "INR":"symbol-narrow" }}
     </h2>
   </div>
