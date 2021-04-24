@@ -54,7 +54,8 @@ export class ManageProductsComponent implements OnInit {
       data: obj,
     });
     dialogref.afterClosed().subscribe((result) => {
-      this.ngOnInit();
+      //this.ngOnInit();
+      document.location.reload();
     });
   }
 

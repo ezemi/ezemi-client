@@ -5,6 +5,7 @@
     ><br/>
       <br>
     <form
+      #form = "ngForm"
       (ngSubmit)="submitCategory()"
       fxLayoutAlign="stretch"
       fxLayout="column"
@@ -17,10 +18,11 @@
           type="text"
           name="categoryName"
           [(ngModel)]="category.categoryName"
+          required
         />
       </mat-form-field><br><br>
 
-      <button mat-raised-button mat-dialog-close color="accent" type="submit">
+      <button mat-raised-button mat-dialog-close color="accent" [disabled]=form.invalid type="submit">
         Add
       </button>
     </form>
