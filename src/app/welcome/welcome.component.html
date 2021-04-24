@@ -4,13 +4,18 @@
 
     <div class="discription">
       <p>
-       One of the leading finserv's around has brought you a <br />
-       No Cost EMI feature like never before
+        One of the leading finserv's around has brought you a <br />
+        No Cost EMI feature like never before
         <!-- even on EMI without any debit or credit card. -->
       </p>
 
       <p>
-        <button class="gsBtn" mat-raised-button color="accent" (click)="ezemistore()">
+        <button
+          class="gsBtn"
+          mat-raised-button
+          color="accent"
+          (click)="ezemistore()"
+        >
           <h2>EzEmi store</h2>
         </button>
       </p>
@@ -18,114 +23,130 @@
   </div>
 </div>
 
-
-
-
 <div>
   <app-carousel></app-carousel>
 </div>
 
-
-<div class="pt-1">
-  <div class="c1">
-   
-    <h1 >About Us</h1>
-    <div class="c1-div">The EZ EMI Store is EMI-only online destination. 
-      With a network of thousands of sellers across India, we offer a variety of products on No Cost EMI. 
-      and with other benefits such as no debit or credit card 
-      we bring to you a superior shopping experience with our online EMI Store. </div>
-  </div>
-</div>
-
 <!-- Card Type image display -->
 <div class="pt-3">
-  <h2>Shop using our E-Cards</h2>
+  <h2 class="mat-display-1">Shop using our E-Cards</h2>
   <div class="cards-pt">
     <div class="gold-outer">
       <div class="gold-inner">
         <div class="gold-front">
           <div class="gold-card-content">
             <h2 class="gold-card-num">5768 6868 8755 3454</h2>
-              <table class="vfvu">
+            <table class="vfvu">
               <tr>
-               <td>Valid from</td>
-               <td>Valid upto</td>
+                <td>Valid from</td>
+                <td>Valid upto</td>
               </tr>
               <tr>
-               <td>10/10</td>
-               <td>10/20</td>
+                <td>10/10</td>
+                <td>10/20</td>
               </tr>
-              </table>
+            </table>
             <h2 class="u-name">Max Baker</h2>
           </div>
         </div>
         <div class="gold-back">
-          <h1 class="gold-credit" >Credit</h1>
-          <h1 class="gold-amount" >{{goldcredit | currency: "INR":"symbol-narrow"}}</h1>
+          <h1 class="gold-credit">Credit</h1>
+          <h1 class="gold-amount">
+            {{ goldcredit | currency: "INR":"symbol-narrow" }}
+          </h1>
         </div>
       </div>
     </div>
-    
+
     <div class="platinum-outer">
       <div class="platinum-inner">
-        <div class="platinum-front"> 
-        <div class="plat-card-content">
-        <h2 class="plat-card-num">5768 6868 8755 3454</h2>
-        <table class="vfvu">
-          <tr>
-            <td>Valid from</td>
-            <td>Valid upto</td>
-          </tr>
-          <tr>
-            <td>10/10</td>
-            <td>10/20</td>
-          </tr>
-        </table>
-        <h2 class="u-name">Max Baker</h2>
-        </div>
+        <div class="platinum-front">
+          <div class="plat-card-content">
+            <h2 class="plat-card-num">5768 6868 8755 3454</h2>
+            <table class="vfvu">
+              <tr>
+                <td>Valid from</td>
+                <td>Valid upto</td>
+              </tr>
+              <tr>
+                <td>10/10</td>
+                <td>10/20</td>
+              </tr>
+            </table>
+            <h2 class="u-name">Max Baker</h2>
+          </div>
         </div>
         <div class="platinum-back">
           <h1 class="platinum-credit">Credit</h1>
-          <h1 class="platinum-amount">{{platcredit |currency: "INR":"symbol-narrow"}}</h1>
+          <h1 class="platinum-amount">
+            {{ platcredit | currency: "INR":"symbol-narrow" }}
+          </h1>
         </div>
-      </div>  
+      </div>
     </div>
   </div>
 </div>
 
-
+<div class="pt-1">
+  <div class="c1">
+    <h1>About Us</h1>
+    <div class="c1-div">
+      The EZ EMI Store is EMI-only online destination. With a network of
+      thousands of sellers across India, we offer a variety of products on No
+      Cost EMI. and with other benefits such as no debit or credit card we bring
+      to you a superior shopping experience with our online EMI Store.
+    </div>
+  </div>
+</div>
 
 <!-- Contact US Form -->
-<div class="contactUsDiv"><br>
-<h1 class="fontHeading">Tell Us How Can We Help</h1>
+<div class="contactUsDiv">
+  <br />
+  <h1 class="fontHeading">Tell Us How Can We Help</h1>
   <div class="formDiv">
-    <mat-toolbar color="primary">Contact Us</mat-toolbar><br>
+    <mat-toolbar color="primary">Contact Us</mat-toolbar><br />
     <form #form="ngForm">
       <div>
         <div>
-          <mat-form-field  class="formField">
+          <mat-form-field class="formField">
             <mat-label>Enter your email</mat-label>
-            <input matInput placeholder="ezemi@example.com" name="email" [(ngModel)]="query.email" pattern="[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,4}$"  required>
+            <input
+              matInput
+              placeholder="ezemi@example.com"
+              name="email"
+              [(ngModel)]="query.email"
+              pattern="[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,4}$"
+              required
+            />
           </mat-form-field>
         </div>
 
         <div>
-          <mat-form-field  class="formField">
+          <mat-form-field class="formField">
             <mat-label>Enter Your Query</mat-label>
-            <textarea matInput name="query" [(ngModel)]="query.query" required ></textarea>
+            <textarea
+              matInput
+              name="query"
+              [(ngModel)]="query.query"
+              required
+            ></textarea>
           </mat-form-field>
-        </div><br>
+        </div>
+        <br />
 
         <div>
-          <button  class="queryButton"mat-raised-button color="accent" [disabled]="form.invalid" (click)="submitQuery()">
+          <button
+            class="queryButton"
+            mat-raised-button
+            color="accent"
+            [disabled]="form.invalid"
+            (click)="submitQuery()"
+          >
             Submit Query
           </button>
         </div>
-        <div class="message">{{message}}</div>
+        <div class="message">{{ message }}</div>
       </div>
     </form>
-    
   </div>
- 
 </div>
-

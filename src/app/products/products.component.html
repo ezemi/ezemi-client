@@ -1,100 +1,91 @@
-<div class="filter">
-  <div class="catfilter">
-    <mat-form-field appearance="fill">
-      <mat-label>Filter By Category</mat-label>
-      <mat-select
-        class="mt-sel"
-        name="cId"
-        [(ngModel)]="cId"
-        (selectionChange)="ctgfilter($event.value)"
-        
-      >
-      <mat-option value="0">All</mat-option>
-        <mat-option
-          *ngFor="let category of categories"
-          [value]="category.categoryId"
-          
-          >{{ category.categoryName }}</mat-option
+<div style="min-height: 80vh">
+  <div class="filter">
+    <div class="catfilter">
+      <mat-form-field color="accent" appearance="fill">
+        <mat-label>Filter By Category</mat-label>
+        <mat-select
+          class="mt-sel"
+          name="cId"
+          [(ngModel)]="cId"
+          (selectionChange)="ctgfilter($event.value)"
         >
-       
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <div class="sortprice">
-    <mat-form-field appearance="fill">
-      <mat-label>Sort By Price</mat-label>
-      <mat-select
-        name="sort"
-        (selectionChange)="sortChange($event.value)">
-        <mat-option value="1">Low To High</mat-option>
-        <mat-option value="2">High To Low</mat-option>
-      </mat-select>
-    </mat-form-field>
+          <mat-option value="0">All</mat-option>
+          <mat-option
+            *ngFor="let category of categories"
+            [value]="category.categoryId"
+            >{{ category.categoryName }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="sortprice">
+      <mat-form-field color="accent" appearance="fill">
+        <mat-label>Sort By Price</mat-label>
+        <mat-select name="sort" (selectionChange)="sortChange($event.value)">
+          <mat-option value="1">Low To High</mat-option>
+          <mat-option value="2">High To Low</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="search">
+      <mat-form-field
+        color="accent"
+        appearance="outline"
+        style="min-width: 300px; max-width: 500px"
+      >
+        <mat-icon matSuffix>search</mat-icon>
+        <input
+          matInput
+          placeholder="Search Product"
+          name="pname"
+          [(ngModel)]="searchtext"
+          (input)="search()"
+        />
+      </mat-form-field>
+    </div>
   </div>
 
-  <div class="search">
-   
-    <mat-form-field appearance="outline"  style="min-width: 300px; max-width: 500px;">
-      <mat-icon matSuffix>search</mat-icon>
-      <input
-            matInput
-            placeholder="Search Product"
-            name="pname"
-            [(ngModel)]="searchtext"
-            (input)='search()' 
+  <div class="container">
+    <div class="card" *ngFor="let p of productList">
+      <div
+        *ngIf="p.productName.toLowerCase().startsWith(searchtext.toLowerCase())"
+      >
+        <mat-card class="example-card" (click)="onClick(p.productId)">
+          <mat-card-header>
+            <mat-card-title>{{ p.productName }}</mat-card-title>
+            <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+          </mat-card-header>
+          <img
+            mat-card-image
+            src="http://localhost:9090/downloads/{{ p.productImgUrl }}"
+            alt="Product img"
           />
-         
-    </mat-form-field>
+          <mat-card-content>
+            Price: {{ p.price | currency: "INR" }}
 
+            <div style="font-size: 0.8em" *ngIf="!p.inStock">
+              Sorry, this product currently unavailable
+            </div>
+            <!-- <button
+            mat-raised-button
+            small
+            color="accent"
+            (click)="onClick(p.productId)"
+          >
+            View
+          </button> -->
+          </mat-card-content>
+          <!--
+        <mat-card-actions align="end">
+           <button mat-raised-button color="accent">View</button>
+        </mat-card-actions> -->
+        </mat-card>
+      </div>
+    </div>
   </div>
 
-  
-</div>
-
-
-<div class="container">
-
-  <div class="card" *ngFor="let p of productList">
-
-
-    <div *ngIf='p.productName.toLowerCase().startsWith(searchtext.toLowerCase())'>
-
-    <mat-card class="example-card" (click)="onClick(p.productId)">
-      <mat-card-header>
-        <mat-card-title>{{ p.productName }}</mat-card-title>
-        <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
-      </mat-card-header>
-      <img
-        mat-card-image
-        src="http://localhost:9090/downloads/{{ p.productImgUrl }}"
-        alt="Product img"
-      />
-      <mat-card-content>
-        Price: {{ p.price | currency: "INR" }}
-
-        <div style="font-size: 0.8em" *ngIf="!p.inStock">
-          Sorry, this product currently unavailable
-        </div>
-        <!-- <button
-          mat-raised-button
-          small
-          color="accent"
-          (click)="onClick(p.productId)"
-        > 
-          View
-        </button> -->
-      </mat-card-content>
-      <!-- 
-      <mat-card-actions align="end">
-         <button mat-raised-button color="accent">View</button> 
-      </mat-card-actions> -->
-    </mat-card>
-    </div> 
+  <div style="text-align: center">
+    <h2>{{ msg }}</h2>
   </div>
-
 </div>
-
- 
-
-<div style=" text-align: center;"><h2>{{msg}}</h2></div> 
-

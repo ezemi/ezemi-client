@@ -1,6 +1,8 @@
 <div fxLayoutAlign="center top" fxFlexFill class="main-div">
   <mat-card style="height: auto" fxFlex="70">
-    <h1>Application for your EzEmi Card</h1>
+    <h1 style="margin-left: 20px" class="mat-display-1">
+      Application for your EzEmi Card
+    </h1>
     <!-- <mat-toolbar color="primary">Registration</mat-toolbar> -->
     <div fxLayoutAlign="stretch" fxLayout="column" class="register-form">
       <form [formGroup]="formGroup">
@@ -83,7 +85,9 @@
 
             <ng-template #otpnotyetsentblock>
               <div *ngIf="otp == ''">
-                <button mat-raised-button (click)="getOtp()">Get otp</button>
+                <button color="primary" mat-raised-button (click)="getOtp()">
+                  Get otp
+                </button>
               </div>
               <div *ngIf="otp == 'FAILED'">
                 <p>Email Id: {{ email }} already Exists</p>

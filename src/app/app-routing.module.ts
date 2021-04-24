@@ -8,6 +8,7 @@ import { ChangepassComponent } from './changepass/changepass.component';
 import { CollectandreportComponent } from './collectandreport/collectandreport.component';
 import { ConfirmOrderComponent } from './confirm-order/confirm-order.component';
 import { CustomerAdministrationComponent } from './customer-administration/customer-administration.component';
+import { CustomerauthGuard } from './customerauth.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ManageBankComponent } from './manage-bank/manage-bank.component';
@@ -82,32 +83,32 @@ const routes: Routes = [
       {
         path: 'confirmOrder',
         component: ConfirmOrderComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard, CustomerauthGuard],
       },
       {
         path: 'viewOrder',
         component: ViewOrderComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard, CustomerauthGuard],
       },
       {
         path: 'orders',
         component: OrdersComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard, CustomerauthGuard],
       },
       {
         path: 'profile',
         component: ProfileComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard, CustomerauthGuard],
       },
       {
         path: 'transactions',
         component: TransactionsComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard, CustomerauthGuard],
       },
       {
         path: 'payment',
         component: PayComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard, CustomerauthGuard],
       },
       {
         path: 'changepassword',

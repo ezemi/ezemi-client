@@ -4,9 +4,11 @@ div {
   flex-direction: column;
 }
 
-h1 {
+.mat-display-1 {
   margin: auto;
   color: green;
+  /* padding: 5px; */
+  text-align: center;
 }
 
 img {

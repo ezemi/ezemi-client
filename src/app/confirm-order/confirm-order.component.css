@@ -2,22 +2,21 @@
   /* background-color: greenyellow; */
   width: 60%;
   margin: auto;
-  min-height: 60vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
-  align-content:center;
+  align-content: center;
   /* aline-content: space-between; */
   /* align-items: center; */
 }
 
-
-.textContent{
+.textContent {
   /* background-color: pink;  */
-  margin : auto;
+  margin: auto;
   width: 50%;
 }
 
-h1{
+h1 {
   font-weight: bold;
 }
 
@@ -27,4 +26,3 @@ h3 {
   margin-left: 10px;
   margin-right: 5px;
 }
-

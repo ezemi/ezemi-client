@@ -68,6 +68,8 @@ export class RegisterComponent implements OnInit {
     accFormCtrl: {
       pattern: 'number only',
       required: 'account number is required',
+      minlength: 'Account number is between 10 to 16 digits',
+      maxlength: 'Account number is between 10 to 16 digits',
     },
     ifscFormCtrl: { required: 'ifsc is required' },
     address1FormCtrl: { required: 'address is required' },
@@ -76,6 +78,8 @@ export class RegisterComponent implements OnInit {
     pincodeformctrl: {
       required: 'Pincode is required',
       pattern: 'number only',
+      minlength: 'Pin code is 6 digits only',
+      maxlength: 'Pin code is 6 digits only',
     },
     companyname: { required: 'Company name is required' },
     designation: { required: 'Designation is required' },
@@ -174,7 +178,12 @@ export class RegisterComponent implements OnInit {
           bankNameFormCtrl: [null, Validators.required],
           accFormCtrl: [
             '',
-            [Validators.required, Validators.pattern('^[0-9]*$')],
+            [
+              Validators.required,
+              Validators.pattern('^[0-9]*$'),
+              Validators.minLength(10),
+              Validators.maxLength(16),
+            ],
           ],
           ifscFormCtrl: ['', Validators.required],
         }),
@@ -184,7 +193,12 @@ export class RegisterComponent implements OnInit {
           cityformctrl: ['', Validators.required],
           pincodeformctrl: [
             '',
-            [Validators.required, Validators.pattern('^[0-9]*$')],
+            [
+              Validators.required,
+              Validators.pattern('^[0-9]*$'),
+              Validators.maxLength(6),
+              Validators.minLength(6),
+            ],
           ],
         }),
         this._formBuilder.group({
@@ -195,15 +209,6 @@ export class RegisterComponent implements OnInit {
         this._formBuilder.group({
           pancard: ['', Validators.required],
           adharcard: ['', Validators.required],
-          // adharcard: [
-          //   '',
-          //   [
-          //     Validators.required,
-          //     Validators.minLength(12),
-          //     Validators.maxLength(12),
-          //     Validators.pattern('^[0-9]*$'),
-          //   ],
-          //],
         }),
         this._formBuilder.group({
           cardFormCtrl: [null, Validators.required],

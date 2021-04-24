@@ -5,3 +5,10 @@
 table {
   width: 100%;
 }
+
+@media (max-width: 600px) and (min-width: 300px) {
+  .mat-elevation-z8 {
+    width: auto;
+    /* margin: auto; */
+  }
+}

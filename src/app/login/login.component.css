@@ -12,3 +12,13 @@ a {
 a:hover {
   text-decoration: underline hotpink;
 }
+
+.card {
+  width: 350px;
+}
+
+@media (max-width: 600px) and (min-width: 300px) {
+  .card {
+    width: 300px;
+  }
+}

@@ -37,8 +37,10 @@ export class OrdersComponent implements OnInit {
 
     this.userSerive.getUnPaidOrders(userId).subscribe((data) => {
       this.unpaidOrders = data;
-      console.log(this.unpaidOrders);
 
+      this.unpaidOrders.sort(
+        (b, a) => +new Date(a.orderDate) - +new Date(b.orderDate)
+      );
       this.unpaidOrders.forEach((order) => {
         order.canPay = this.canPay(order);
       });
@@ -46,6 +48,9 @@ export class OrdersComponent implements OnInit {
 
     this.userSerive.getPaidOrders(userId).subscribe((data) => {
       this.paidOrders = data;
+      this.unpaidOrders.sort(
+        (b, a) => +new Date(a.orderDate) - +new Date(b.orderDate)
+      );
     });
     ///this.dataSource.paginator = this.paginator;
   }

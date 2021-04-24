@@ -1,59 +1,69 @@
-<div style="width: 80%; margin: auto; background-color: rgb(244, 248, 248);">
+<div
+  style="
+    width: 80%;
+    margin: auto;
+    background-color: rgb(244, 248, 248);
+    min-height: 90vh;
+  "
+>
   <div class="container">
-  <div class="product-card">
-    <mat-card class="example-card">
-      <img
-        mat-card-image
-        src="http://localhost:9090/downloads/{{ product.productImgUrl }}"
-        alt="Photo of a Shiba Inu"
-      />
-    </mat-card>
-    <!-- <img src="../assets/images/pred23.png" alt=""> -->
-  </div>
-
- <div class="details">
-    <div class="details_card">
-      <h1 class="prod-name">{{ product.productName }}</h1>
-      <h3 class="prod-dt">
-        {{ product.productDetails }}
-      </h3>
+    <div class="product-card">
+      <mat-card class="example-card">
+        <img
+          mat-card-image
+          src="http://localhost:9090/downloads/{{ product.productImgUrl }}"
+          alt="Photo of a Shiba Inu"
+        />
+      </mat-card>
+      <!-- <img src="../assets/images/pred23.png" alt=""> -->
     </div>
 
-    <div class="details_card" style="margin-bottom: 20px">
-      <h3 class="prod-dt" style="margin-bottom: 5px">
-        Price : {{ product.price | currency: "INR" }}
-      </h3>
-      Processing Fee : {{ product.processingFee | currency: "INR" }}
-    </div>
+    <div class="details">
+      <div class="details_card">
+        <h1 class="prod-name">{{ product.productName }}</h1>
+        <h3 class="prod-dt">
+          {{ product.productDetails }}
+        </h3>
+      </div>
 
-    <div>
+      <div class="details_card" style="margin-bottom: 20px">
+        <h3 class="prod-dt" style="margin-bottom: 5px">
+          Price : {{ product.price | currency: "INR" }}
+        </h3>
+        Processing Fee : {{ product.processingFee | currency: "INR" }}
+      </div>
+
       <div>
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title> EMI Options </mat-panel-title>
-          </mat-expansion-panel-header>
-          <!-- <mat-panel-description> </mat-panel-description> -->
-          <div>
-            3 Months (3 X
-            {{ (product.price + product.processingFee) / 3 | number: "1.2-2" }})
-            &nbsp;&nbsp; Total =
-            {{ product.price + product.processingFee | currency: "INR" }}
-          </div>
-          <div>
-            6 Months (6 X
-            {{ (product.price + product.processingFee) / 6 | number: "1.2-2" }})
-            &nbsp;&nbsp; Total =
-            {{ product.price + product.processingFee | currency: "INR" }}
-          </div>
-          <div>
-            9 Months (9 X
-            {{ (product.price + product.processingFee) / 9 | number: "1.2-2" }})
-            &nbsp;&nbsp; Total =
-            {{ product.price + product.processingFee | currency: "INR" }}
-          </div>
-        </mat-expansion-panel>
+        <div>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title> EMI Options </mat-panel-title>
+            </mat-expansion-panel-header>
+            <!-- <mat-panel-description> </mat-panel-description> -->
+            <div>
+              3 Months (3 X
+              {{
+                (product.price + product.processingFee) / 3 | number: "1.2-2"
+              }}) &nbsp;&nbsp; Total =
+              {{ product.price + product.processingFee | currency: "INR" }}
+            </div>
+            <div>
+              6 Months (6 X
+              {{
+                (product.price + product.processingFee) / 6 | number: "1.2-2"
+              }}) &nbsp;&nbsp; Total =
+              {{ product.price + product.processingFee | currency: "INR" }}
+            </div>
+            <div>
+              9 Months (9 X
+              {{
+                (product.price + product.processingFee) / 9 | number: "1.2-2"
+              }}) &nbsp;&nbsp; Total =
+              {{ product.price + product.processingFee | currency: "INR" }}
+            </div>
+          </mat-expansion-panel>
 
-        <!--<mat-form-field appearance="fill">
+          <!--<mat-form-field appearance="fill">
           <mat-label>Select an EMI option</mat-label>
           <mat-select [(ngModel)]="emimonths">
             <mat-option value="0">None</mat-option>
@@ -77,38 +87,39 @@
             >
           </mat-select> 
         </mat-form-field>-->
-      </div>
-      <div style="font-size: 0.8em" *ngIf="!product.inStock">
-        Sorry, this product currently unavailable
-      </div>
+        </div>
+        <div style="font-size: 0.8em" *ngIf="!product.inStock">
+          Sorry, this product currently unavailable
+        </div>
 
-      <div *ngIf="product.inStock">
-        <button
-          mat-raised-button
-          color="accent"
-          (click)="orderNow()"
-          class="buy-btn"
-          [disabled]="
-            isLoggedin &&
-            (creditLeft < product.price + product.processingFee || !isActivated)
-          "
-        >
-          Buy Now
-        </button>
-        <div *ngIf="isLoggedin">
-          <div
-            style="color: #ff5722"
-            *ngIf="creditLeft < product.price + product.processingFee"
+        <div *ngIf="product.inStock">
+          <button
+            mat-raised-button
+            color="accent"
+            (click)="orderNow()"
+            class="buy-btn"
+            [disabled]="
+              isLoggedin &&
+              (creditLeft < product.price + product.processingFee ||
+                !isActivated)
+            "
           >
-            Your current credit amount is lower than you need to make this this
-            order
-          </div>
-          <div style="color: #ff5722" *ngIf="!isActivated">
-            Your need to activate your card to make this order
+            Buy Now
+          </button>
+          <div *ngIf="isLoggedin">
+            <div
+              style="color: #ff5722"
+              *ngIf="creditLeft < product.price + product.processingFee"
+            >
+              Your current credit amount is lower than you need to make this
+              this order
+            </div>
+            <div style="color: #ff5722" *ngIf="!isActivated">
+              Your need to activate your card to make this order
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>

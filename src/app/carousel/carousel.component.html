@@ -1,23 +1,23 @@
-<h1 class="ourservices">Our Services</h1>
+<h1 class="ourservices mat-display-3">Our Services</h1>
 <mat-carousel
-timings="250ms ease-in"
-[autoplay]="true"
-interval="3000"
-color="primary"
-maxWidth="auto"
-proportion="20"
-slides="8"
-[loop]="true"
-[hideArrows]="false"
-[hideIndicators]="false"
-[useKeyboard]="true"
-[useMouseWheel]="false"
-orientation="ltr"
+  timings="250ms ease-in"
+  [autoplay]="true"
+  interval="3000"
+  color="primary"
+  maxWidth="auto"
+  proportion="20"
+  slides="8"
+  [loop]="true"
+  [hideArrows]="false"
+  [hideIndicators]="false"
+  [useKeyboard]="true"
+  [useMouseWheel]="false"
+  orientation="ltr"
 >
-<mat-carousel-slide
-  #matCarouselSlide
-  *ngFor="let slide of slides; let i = index"
-  [image]="slide.image"
-  overlayColor="#00000000"
-></mat-carousel-slide>
+  <mat-carousel-slide
+    #matCarouselSlide
+    *ngFor="let slide of slides; let i = index"
+    [image]="slide.image"
+    overlayColor="#00000000"
+  ></mat-carousel-slide>
 </mat-carousel>
