@@ -14,11 +14,12 @@ import { ProductServiceService } from '../services/product-service.service';
 export class AddProductFormComponent implements OnInit {
   categories: Category[];
   pdt: Productdto = new Productdto();
-  pstatus:Status;
+  pstatus: Status;
 
-  constructor(private pservice: ProductServiceService,
-    public dialogref: MatDialogRef<AddProductFormComponent>,
-   ) {}
+  constructor(
+    private pservice: ProductServiceService,
+    public dialogref: MatDialogRef<AddProductFormComponent>
+  ) {}
 
   ngOnInit(): void {
     this.pservice.getallcategory().subscribe((data) => {
@@ -35,9 +36,11 @@ export class AddProductFormComponent implements OnInit {
     this.pdt.productImgUrl = event.target.files[0];
   }
 
+  fileSelected: boolean = false;
   file: File;
   processFile(imageInput: any) {
     this.file = imageInput.files[0];
+    this.fileSelected = true;
   }
   submitProduct() {
     let formdata = new FormData();
@@ -52,11 +55,9 @@ export class AddProductFormComponent implements OnInit {
     this.pservice.addproduct(formdata).subscribe((data) => {
       console.log(JSON.stringify(data));
 
-      if(this.pstatus!=null){
+      if (this.pstatus != null) {
         this.close();
       }
     });
-
-    
   }
 }

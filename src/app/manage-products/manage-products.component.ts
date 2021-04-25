@@ -20,7 +20,6 @@ export class ManageProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.pservice.getallproduct().subscribe((data) => {
-      console.log(JSON.stringify(data));
       this.product = data;
     });
   }
@@ -43,7 +42,7 @@ export class ManageProductsComponent implements OnInit {
     });
 
     dialogref.afterClosed().subscribe((result) => {
-      this.ngOnInit();
+      window.location.reload();
     });
   }
 
@@ -54,8 +53,7 @@ export class ManageProductsComponent implements OnInit {
       data: obj,
     });
     dialogref.afterClosed().subscribe((result) => {
-      //this.ngOnInit();
-      document.location.reload();
+      window.location.reload();
     });
   }
 

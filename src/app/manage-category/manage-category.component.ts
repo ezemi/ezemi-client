@@ -37,7 +37,7 @@ export class ManageCategoryComponent implements OnInit {
     });
 
     dialogref.afterClosed().subscribe((result) => {
-      this.ngOnInit();
+      window.location.reload();
     });
   }
 
@@ -49,7 +49,7 @@ export class ManageCategoryComponent implements OnInit {
     });
 
     dialogref.afterClosed().subscribe((result) => {
-      this.ngOnInit();
+      window.location.reload();
     });
   }
 }

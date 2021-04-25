@@ -12,24 +12,30 @@ import { ProductServiceService } from '../services/product-service.service';
 })
 export class UpdateProductComponent implements OnInit {
   categories: Category[];
-  pdt: Productdto;
+  pdt: Productdto = new Productdto();
   productId: number;
 
   constructor(
     public pservice: ProductServiceService,
     public dialogref: MatDialogRef<UpdateProductComponent>,
-    @Optional() @Inject(MAT_DIALOG_DATA) public data: Productdto
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: Product
   ) {
     //console.log(data);
-    this.pdt = { ...data };
+    this.pdt.categoryId = data.category.categoryId;
+    this.pdt.productName = data.productName;
+    this.pdt.price = data.price;
+    this.pdt.processingFee = data.processingFee;
+    this.pdt.productDetails = data.productDetails;
+    this.pdt.productImgUrl = data.productImgUrl;
+    this.pdt.productId = data.productId;
   }
 
   ngOnInit(): void {
     this.pservice.getallcategory().subscribe((data) => {
       console.log(JSON.stringify(data));
       this.categories = data;
-      console.log(this.pdt);
-      console.log(this.pdt.productId);
+      //console.log(this.pdt);
+      //console.log(this.pdt.productId);
     });
   }
 
