@@ -1,12 +1,12 @@
-table{
-    width: 95%;
-    margin: auto;
+table {
+  width: 95%;
+  margin: auto;
 }
 
-.compHeight{
-    height: 600px;
+.compHeight {
+  height: auto;
 }
 
-.icon_color{
-    color :#da4b4b;
+.icon_color {
+  color: #da4b4b;
 }

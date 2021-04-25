@@ -1,18 +1,26 @@
-
-
 <div>
-  <mat-toolbar color="primary" style="text-align: center;"> Card Activation </mat-toolbar>
+  <mat-toolbar color="primary" style="text-align: center">
+    Card Activation
+  </mat-toolbar>
   <!-- <div mat-dialog-content> -->
-    <div align="center">
-      <h2 mat-dialog-title>
-        Activation amount for your {{ rowData.cardType.cardTypeName }} Card is
-        {{ amount | currency: "INR":"symbol-narrow" }}
-      </h2>
-      <h2>Click on pay to activate card</h2>
-      <button mat-raised-button class="cnf" color="primary" (click)="activateCard()">
-        Pay
-      </button>
-      <button mat-raised-button class="cnl" (click)="close()">Cancel</button>
-    </div>
+  <div align="center">
+    <h2 mat-dialog-title>
+      Activation amount for your {{ rowData.cardType.cardTypeName }} Card is
+      {{ amount | currency: "INR":"symbol-narrow" }}
+    </h2>
+    <h2>Click on pay to activate card</h2>
+    Enter Otp sent to your email :
+    <input [(ngModel)]="otp" (input)="verifyOtp()" placeholder="OTP" required />
+    <button
+      mat-raised-button
+      class="cnf"
+      [disabled]="!verified"
+      color="primary"
+      (click)="activateCard()"
+    >
+      Pay
+    </button>
+    <button mat-raised-button class="cnl" (click)="close()">Cancel</button>
+  </div>
   <!-- </div> -->
 </div>

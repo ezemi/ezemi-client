@@ -1,22 +1,49 @@
-<mat-sidenav-container class="pagesize" fxShow="true" >
+<mat-sidenav-container class="pagesize" fxShow="true">
   <mat-sidenav mode="side" opened #sidenav position="start" fxHide.lt-md>
     <br />
 
-    <button mat-button routerLink="manageorders" class="navButton">
+    <button
+      mat-button
+      routerLink="manageorders"
+      routerLinkActive
+      class="navButton"
+    >
       New Orders
     </button>
     <br />
 
-    <button mat-button routerLink="manageproducts" class="navButton">
+    <a
+      mat-button
+      routerLink="manageproducts"
+      routerLinkActive
+      class="navButton"
+    >
       Product
-    </button>
+    </a>
     <br />
-    <button mat-button routerLink="managecategory" class="navButton">
-      Category</button
+    <a
+      mat-button
+      routerLink="managecategory"
+      routerLinkActive
+      class="navButton"
+    >
+      Category</a
     ><br />
-    <button mat-button routerLink="manageBank" class="navButton">Bank</button
+    <a
+      mat-button
+      routerLink="manageBank"
+      routerLinkActive="active"
+      class="navButton"
+    >
+      Bank</a
     ><br />
-    <button mat-button routerLink="manageCards" class="navButton">Card</button
+    <a
+      mat-button
+      routerLink="manageCards"
+      routerLinkActive="active"
+      class="navButton"
+    >
+      Card</a
     ><br />
   </mat-sidenav>
   <mat-sidenav-content>

@@ -1,15 +1,26 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  CanDeactivate,
+} from '@angular/router';
 import { Observable } from 'rxjs';
+import { RegisterComponent } from './register/register.component';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class RegisterationCandeactivateGuard implements CanActivate {
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+export class RegisterationCandeactivateGuard
+  implements CanDeactivate<RegisterComponent> {
+  canDeactivate(
+    component: RegisterComponent,
+    currentRoute: ActivatedRouteSnapshot,
+    currentState: RouterStateSnapshot,
+    nextState?: RouterStateSnapshot
+  ): boolean {
+    if (component.registerform.dirty) {
+      return confirm('Are you sure you want to discard your changes?');
+    }
     return true;
   }
-  
 }

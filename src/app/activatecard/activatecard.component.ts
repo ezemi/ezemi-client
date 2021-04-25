@@ -13,7 +13,7 @@ export class ActivatecardComponent implements OnInit {
   rowData: any;
   amount: string;
   loguser: LoginStatus;
-  cstatus:Status;
+  cstatus: Status;
   constructor(
     public dialogref: MatDialogRef<ActivatecardComponent>,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: EmiCard,
@@ -23,15 +23,33 @@ export class ActivatecardComponent implements OnInit {
     this.rowData = { ...data };
   }
 
-  close() {
-    this.dialogref.close();
-  }
   ngOnInit(): void {
     if (this.rowData.cardType.cardTypeId == 1) {
       this.amount = '300';
     } else {
       this.amount = '500';
     }
+    let email = JSON.parse(localStorage.getItem('loggedinuser')).email;
+
+    this.uservice.getOtpforpayment(email).subscribe((data) => {
+      this.correctOtp = data;
+    });
+  }
+
+  otp: string = '';
+  correctOtp: string = '';
+  verified: boolean = false;
+
+  verifyOtp() {
+    if (this.correctOtp != '' && this.correctOtp == this.otp) {
+      this.verified = true;
+    } else {
+      this.verified = false;
+    }
+  }
+
+  close() {
+    this.dialogref.close();
   }
 
   activateCard() {
@@ -39,12 +57,11 @@ export class ActivatecardComponent implements OnInit {
     this.uservice.activateCard(this.loguser.userId).subscribe((data) => {
       // console.log(JSON.stringify(data));
       this.loguser.cardActivated = true;
-      this.cstatus=data;
+      this.cstatus = data;
       localStorage.setItem('loggedinuser', JSON.stringify(this.loguser));
-      if(this.cstatus!=null){
+      if (this.cstatus != null) {
         this.close();
       }
     });
-   
   }
 }

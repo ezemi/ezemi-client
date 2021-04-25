@@ -69,4 +69,11 @@ export class UserServiceService {
       'http://localhost:9090/payemi?orderId=' + orderId
     );
   }
+
+  getOtpforpayment(email: string) {
+    return this.httpclient.get(
+      'http://localhost:9090/getotpforpayment?emailId=' + email,
+      { responseType: 'text' }
+    );
+  }
 }

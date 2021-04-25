@@ -1,70 +1,81 @@
 <div class="container">
   <div class="textContent">
-      <h1>Confirm your order</h1>
-      <div>
-        <h3>Product name:</h3><span>{{ product.productName }}</span>
-        <br />
-        <h3>Cost:</h3><span> {{ product.price | currency: "INR" }}</span>
-      </div>
-      <div>
-        <h3>Address :</h3>
-        <span>
-          {{
-            address.addressLine1 +
-              ", " +
-              address.addressLine2 +
-              ", " + 
-              address.city +
-              ", Pin: " +
-              address.pinCode
-          }}
-        </span>
-        <br />
-        <button style="margin-left: 2%;" mat-raised-button (click)="update()">Edit Address</button>
-        <br />
-        <br />
+    <h1>Confirm your order</h1>
+    <div>
+      <h3>Product name:</h3>
+      <span>{{ product.productName }}</span>
+      <br />
+      <h3>Cost:</h3>
+      <span> {{ product.price | currency: "INR" }}</span>
+    </div>
+    <div>
+      <h3>Address :</h3>
+      <span>
+        {{
+          address.addressLine1 +
+            ", " +
+            address.addressLine2 +
+            ", " +
+            address.city +
+            ", Pin: " +
+            address.pinCode
+        }}
+      </span>
+      <br />
+      <button style="margin-left: 2%" mat-raised-button (click)="update()">
+        Edit Address
+      </button>
+      <br />
+      <br />
 
-        <div style="margin-left: 2%;">
-          <mat-form-field appearance="fill">
-            <mat-label>Select an EMI option</mat-label>
-            <mat-select [(ngModel)]="orderDto.emimonths">
-              <mat-option value="0">None</mat-option>
-              <mat-option value="3"
-                >3 Months (3 X
-                {{
-                  (product.price + product.processingFee) / 3 | number: "1.2-2"
-                }})</mat-option
-              >
-              <mat-option value="6"
-                >6 Months (6 X
-                {{
-                  (product.price + product.processingFee) / 6 | number: "1.2-2"
-                }})</mat-option
-              >
-              <mat-option value="9"
-                >9 Months (9 X
-                {{
-                  (product.price + product.processingFee) / 9 | number: "1.2-2"
-                }})</mat-option
-              >
-            </mat-select>
-          </mat-form-field>
-        </div>
-
-        <section >
-          <mat-checkbox style="margin-left: 2%;"
-            *ngIf="orderDto.emimonths != 0"
-            [(ngModel)]="orderDto.autoDebit"
-            >Auto debit</mat-checkbox
+      <div style="margin-left: 2%">
+        <mat-form-field appearance="fill">
+          <mat-label>Select an EMI option</mat-label>
+          <mat-select
+            [disabled]="creditLeft < product.price + product.processingFee"
+            [(ngModel)]="orderDto.emimonths"
           >
-        </section>
-        <button
-          mat-raised-button
-          style="background-color: #0288d1; color: white; margin-left: 60%; margin-bottom: 10px;"
-          (click)="confirmOrder()"
+            <mat-option value="0">None</mat-option>
+            <mat-option value="3"
+              >3 Months (3 X
+              {{
+                (product.price + product.processingFee) / 3 | number: "1.2-2"
+              }})</mat-option
+            >
+            <mat-option value="6"
+              >6 Months (6 X
+              {{
+                (product.price + product.processingFee) / 6 | number: "1.2-2"
+              }})</mat-option
+            >
+            <mat-option value="9"
+              >9 Months (9 X
+              {{
+                (product.price + product.processingFee) / 9 | number: "1.2-2"
+              }})</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+        <div
+          style="color: #ff5722"
+          *ngIf="creditLeft < product.price + product.processingFee"
         >
-          Pay & Confirm Order
-        </button>
+          Your current credit amount is lower than you need to use EMI feature.
+        </div>
       </div>
+
+      <button
+        mat-raised-button
+        style="
+          background-color: #0288d1;
+          color: white;
+          margin-left: 60%;
+          margin-bottom: 10px;
+        "
+        (click)="confirmOrder()"
+      >
+        Pay & Confirm Order
+      </button>
+    </div>
   </div>
 </div>

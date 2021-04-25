@@ -18,6 +18,7 @@ export class ConfirmOrderComponent implements OnInit {
   product: Product;
   address: Address;
 
+  creditLeft: number = 0;
   orderDto: OrderDto = new OrderDto();
 
   constructor(
@@ -29,6 +30,10 @@ export class ConfirmOrderComponent implements OnInit {
   ngOnInit(): void {
     this.orderDto.autoDebit = false;
     this.orderDto.emimonths = 0;
+
+    this.creditLeft = JSON.parse(
+      localStorage.getItem('loggedinuser')
+    ).creditLeft;
 
     let prodId = +sessionStorage.getItem('productId');
     if (prodId != null || prodId != undefined) {

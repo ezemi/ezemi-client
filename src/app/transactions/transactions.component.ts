@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -15,7 +16,10 @@ export class TransactionsComponent implements OnInit {
   transacts: Transaction[] = [];
   loguser: LoginStatus;
 
-  constructor(private uservice: UserServiceService) {}
+  constructor(
+    private uservice: UserServiceService,
+    public datepipe: DatePipe
+  ) {}
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatPaginator) dataSource: MatTableDataSource<Transaction>;
   @ViewChild(MatSort) sort: MatSort;
@@ -28,7 +32,10 @@ export class TransactionsComponent implements OnInit {
       .subscribe((data) => {
         console.log(JSON.stringify(data));
         this.transacts = data;
-        this.transacts.sort((b, a) => +new Date(a.date) - +new Date(b.date));
+        this.transacts.sort(
+          (b, a) => +new Date(a.transactionDate) - +new Date(b.transactionDate)
+        );
+        //this.transacts.forEach(x => x.date = this.datepipe.transform(x.date))
         // console.log(this.transacts);
         this.dataSource = new MatTableDataSource(this.transacts);
         this.dataSource.paginator = this.paginator;

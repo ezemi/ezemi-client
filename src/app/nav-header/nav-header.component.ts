@@ -29,11 +29,7 @@ export class NavHeaderComponent implements OnInit {
   }
 
   toHome() {
-    if (!!JSON.parse(localStorage.getItem('loggedinuser'))) {
-      this.router.navigate(['page-content/products']);
-    } else {
-      this.router.navigate(['welcome']);
-    }
+    this.router.navigate(['welcome']);
   }
 
   logoutUser() {

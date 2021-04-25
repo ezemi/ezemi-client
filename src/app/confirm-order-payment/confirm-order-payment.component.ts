@@ -13,11 +13,13 @@ import { UpdateProductComponent } from '../update-product/update-product.compone
   styleUrls: ['./confirm-order-payment.component.css'],
 })
 export class ConfirmOrderPaymentComponent implements OnInit {
-
   orderDto: OrderDto = new OrderDto();
   product: Product = new Product();
   amtToPay: number = 0;
-  
+  otp: string = '';
+  correctOtp: string = '';
+  verified: boolean = false;
+
   constructor(
     private router: Router,
     private userSerivce: UserServiceService,
@@ -42,13 +44,28 @@ export class ConfirmOrderPaymentComponent implements OnInit {
           this.amtToPay = this.product.price + this.product.processingFee;
         }
       });
+
+    let email = JSON.parse(localStorage.getItem('loggedinuser')).email;
+
+    this.userSerivce.getOtpforpayment(email).subscribe((data) => {
+      this.correctOtp = data;
+    });
   }
   close() {
     this.dialogref.close();
   }
 
+  verifyOtp() {
+    if (this.correctOtp != '' && this.correctOtp == this.otp) {
+      this.verified = true;
+    } else {
+      this.verified = false;
+    }
+  }
+
   confirmOrder() {
     this.userSerivce.makeAnOrder(this.orderDto).subscribe((data) => {});
+    sessionStorage.removeItem('productId');
     this.router.navigate(['page-content/viewOrder']);
     this.close();
   }

@@ -11,6 +11,17 @@ import { UserServiceService } from '../services/user-service.service';
 })
 export class PayemiComponent implements OnInit {
   order: Order;
+  otp: string = '';
+  correctOtp: string = '';
+  verified: boolean = false;
+
+  ngOnInit(): void {
+    let email = JSON.parse(localStorage.getItem('loggedinuser')).email;
+
+    this.userService.getOtpforpayment(email).subscribe((data) => {
+      this.correctOtp = data;
+    });
+  }
   constructor(
     public dialogref: MatDialogRef<PayemiComponent>,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: Order,
@@ -33,5 +44,12 @@ export class PayemiComponent implements OnInit {
   close() {
     this.dialogref.close();
   }
-  ngOnInit(): void {}
+
+  verifyOtp() {
+    if (this.correctOtp != '' && this.correctOtp == this.otp) {
+      this.verified = true;
+    } else {
+      this.verified = false;
+    }
+  }
 }

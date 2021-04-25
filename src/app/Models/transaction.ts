@@ -1,9 +1,8 @@
 export class Transaction {
-     transactionId:string;
-	 amount:number;
-	
-	 date:Date;
-	
-	transactionMsg:string;
+  transactionId: string;
+  amount: number;
 
+  transactionDate: Date;
+
+  transactionMsg: string;
 }

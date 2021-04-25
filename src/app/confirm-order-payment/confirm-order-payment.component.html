@@ -1,63 +1,50 @@
 <div>
-  <mat-toolbar color="primary">Confirming Your Order for : {{ product.productName }}</mat-toolbar>
-  <br/>
+  <mat-toolbar color="primary"
+    >Confirming Your Order for : {{ product.productName }}</mat-toolbar
+  >
+  <br />
 
   <table>
-      <tr>
-        <th>Proudct Total Cost </th>
-        <td>{{product.price}}</td>
-      </tr>
+    <tr>
+      <th>Proudct Total Cost</th>
+      <td>{{ product.price }}</td>
+    </tr>
 
-      <tr *ngIf="orderDto.emimonths != 0">
-        <th>Selected EMI </th>
-        <td >
-          {{
-            orderDto.emimonths +
-              "(months)  X " +
-              ((product.price + product.processingFee) / 3 | number: "1.2-2")
-          }}
-        </td>
-      </tr>
+    <tr *ngIf="orderDto.emimonths != 0">
+      <th>Selected EMI</th>
+      <td>
+        {{
+          orderDto.emimonths +
+            "(months)  X " +
+            ((product.price + product.processingFee) / 3 | number: "1.2-2")
+        }}
+      </td>
+    </tr>
 
-      <tr>
-        <th>Paying Amount </th>
-        <td>
-          {{
-            (product.price + product.processingFee) /
-              (orderDto.emimonths == 0 ? 1 : orderDto.emimonths) | number: "1.2-2"
-          }}
-        </td>
-      </tr>
+    <tr>
+      <th>Paying Amount</th>
+      <td>
+        {{
+          (product.price + product.processingFee) /
+            (orderDto.emimonths == 0 ? 1 : orderDto.emimonths) | number: "1.2-2"
+        }}
+      </td>
+    </tr>
   </table>
 
+  Enter Otp sent to your email :
+  <input [(ngModel)]="otp" (input)="verifyOtp()" placeholder="OTP" required />
+
   <div class="btnDiv">
-    <button mat-raised-button color="primary" (click)="confirmOrder()">Pay</button>
-    <button mat-button mat-button  (click)="close()">Cancel</button>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="!verified"
+      (click)="confirmOrder()"
+    >
+      Pay
+    </button>
+    <button mat-button mat-button (click)="close()">Cancel</button>
     <br />
   </div>
 </div>
-
-
-
-
-
-<!-- <div>
-  <p>Product Total Cost : {{product.price}}</p>
-</div>
-<h3 *ngIf="orderDto.emimonths != 0">
-  Selected Emi option :
-  {{
-    orderDto.emimonths +
-      "(months)  X " +
-      ((product.price + product.processingFee) / 3 | number: "1.2-2")
-  }}
-</h3>
-<br />
-
-<h3>
-  Click on pay to pay
-  {{
-    (product.price + product.processingFee) /
-      (orderDto.emimonths == 0 ? 1 : orderDto.emimonths) | number: "1.2-2"
-  }}
-</h3> -->

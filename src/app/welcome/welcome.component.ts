@@ -9,14 +9,13 @@ import { AdminServiceService } from '../services/admin-service.service';
   styleUrls: ['./welcome.component.css'],
 })
 export class WelcomeComponent implements OnInit {
-
-  constructor(private router: Router, private aservice : AdminServiceService) {}
+  constructor(private router: Router, private aservice: AdminServiceService) {}
 
   isNew: boolean;
-  query:ContactUs = new ContactUs();
-  message:String;
-  goldcredit:number=100000;
-  platcredit:number=200000;
+  query: ContactUs = new ContactUs();
+  message: String;
+  goldcredit: number = 100000;
+  platcredit: number = 200000;
 
   ngOnInit(): void {}
 
@@ -27,9 +26,7 @@ export class WelcomeComponent implements OnInit {
     this.router.navigate(['/page-content']);
   }
 
-
-  submitQuery(){
-    
+  submitQuery() {
     this.aservice.addCustomerQuery(this.query).subscribe((data) => {
       console.log(JSON.stringify(data));
       this.message = data.message;
@@ -37,7 +34,11 @@ export class WelcomeComponent implements OnInit {
     setTimeout(function () {
       document.location.reload();
     }, 1000);
-     
   }
 
+  toFAQ() {
+    this.router.navigate([]).then((result) => {
+      window.open('page-content/FAQs', '_blank');
+    });
+  }
 }

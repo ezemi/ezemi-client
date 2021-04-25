@@ -1,5 +1,8 @@
 mat-sidenav {
-  padding: 15px;
+  box-sizing: border-box;
+
+  padding: 30px;
+  width: 250px;
 }
 .mat-drawer {
   background-color: #023075;

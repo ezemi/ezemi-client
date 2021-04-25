@@ -12,7 +12,7 @@ import { ProductServiceService } from '../services/product-service.service';
 export class ProductdetailsComponent implements OnInit {
   appUser: LoginStatus;
   product: Product;
-  creditLeft: number = 0;
+
   isActivated: boolean = false;
   isLoggedin: boolean = false;
   // emimonths: number = 0;
@@ -27,9 +27,7 @@ export class ProductdetailsComponent implements OnInit {
       //console.log(JSON.parse(localStorage.getItem('loggedinuser')));
 
       this.isLoggedin = true;
-      this.creditLeft = JSON.parse(
-        localStorage.getItem('loggedinuser')
-      ).creditLeft;
+
       this.isActivated = JSON.parse(
         localStorage.getItem('loggedinuser')
       ).cardActivated;

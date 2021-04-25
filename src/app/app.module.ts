@@ -61,6 +61,10 @@ import { ReplyComponent } from './reply/reply.component';
 import { UserDetailsPageComponent } from './user-details-page/user-details-page.component';
 import { DenyapplicationComponent } from './denyapplication/denyapplication.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { CustomerauthGuard } from './customerauth.guard';
+
+import { DatePipe } from '@angular/common';
+import { FAQsComponent } from './faqs/faqs.component';
 
 @NgModule({
   declarations: [
@@ -117,6 +121,8 @@ import { CarouselComponent } from './carousel/carousel.component';
     DenyapplicationComponent,
 
     CarouselComponent,
+
+    FAQsComponent,
   ],
   imports: [
     BrowserModule,
@@ -128,7 +134,7 @@ import { CarouselComponent } from './carousel/carousel.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [AuthGuard, AdminauthGuard],
+  providers: [AuthGuard, AdminauthGuard, CustomerauthGuard, DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

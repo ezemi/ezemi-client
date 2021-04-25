@@ -19,6 +19,7 @@ export class ChangepassComponent implements OnInit {
   otpverified: Boolean = false;
   confirmPass: string = '';
   passChanged = false;
+  doesnotexist: boolean = false;
 
   constructor(
     private accountService: AccountServiceService,
@@ -35,6 +36,8 @@ export class ChangepassComponent implements OnInit {
         if (this.otp != 'FAILED') {
           this.emailsend = false;
           this.otpreceived = true;
+        } else {
+          this.doesnotexist = true;
         }
       });
   }
@@ -58,6 +61,8 @@ export class ChangepassComponent implements OnInit {
   changePass() {
     this.accountService.changePass(this.changePassDto).subscribe((data) => {
       this.passChanged = true;
+      this.confirmPass = '';
+      this.changePassDto.newPassword = '';
     });
   }
 

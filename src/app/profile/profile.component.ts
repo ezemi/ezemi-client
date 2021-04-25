@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit {
   loguser: LoginStatus;
   outStrint: string = '';
   cstatus: string;
+
   constructor(public dialog: MatDialog, private uservice: UserServiceService) {}
 
   ngOnInit(): void {
@@ -44,8 +45,7 @@ export class ProfileComponent implements OnInit {
     });
 
     dialogref1.afterClosed().subscribe((result) => {
-        document.location.reload();
-      
+      document.location.reload();
     });
   }
 
@@ -57,10 +57,9 @@ export class ProfileComponent implements OnInit {
 
     dialogref2.afterClosed().subscribe((result) => {
       setTimeout(function () {
-         document.location.reload();
+        document.location.reload();
         // this.ngOnInit();
       }, 1000);
-     
     });
   }
 }

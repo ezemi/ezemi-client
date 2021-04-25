@@ -1,6 +1,8 @@
 mat-sidenav {
-  width: 280px;
-  padding: 15px;
+  box-sizing: border-box;
+
+  padding: 30px;
+  width: 250px;
 }
 .mat-drawer {
   background-color: #023075;
@@ -17,4 +19,7 @@ mat-sidenav {
 .pagesize {
   min-height: 80vh;
   width: 100%;
+}
+.navButton:active {
+  background-color: #345485;
 }

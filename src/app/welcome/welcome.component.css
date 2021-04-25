@@ -351,9 +351,11 @@ h2 {
 }
 
 .fontHeading {
-  color: black;
+  color: blue;
+  text-decoration: underline;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  margin-left: 40px;
+  margin-left: 5%;
+  cursor: pointer;
 }
 
 .message {

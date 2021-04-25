@@ -98,22 +98,11 @@
             color="accent"
             (click)="orderNow()"
             class="buy-btn"
-            [disabled]="
-              isLoggedin &&
-              (creditLeft < product.price + product.processingFee ||
-                !isActivated)
-            "
+            [disabled]="isLoggedin && !isActivated"
           >
             Buy Now
           </button>
           <div *ngIf="isLoggedin">
-            <div
-              style="color: #ff5722"
-              *ngIf="creditLeft < product.price + product.processingFee"
-            >
-              Your current credit amount is lower than you need to make this
-              this order
-            </div>
             <div style="color: #ff5722" *ngIf="!isActivated">
               Your need to activate your card to make this order
             </div>

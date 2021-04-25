@@ -30,6 +30,8 @@ export class OrdersComponent implements OnInit {
     'payNow',
   ];
 
+  displayedColumns2: string[] = ['orderId', 'product', 'cost'];
+
   // @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   ngOnInit() {

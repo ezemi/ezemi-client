@@ -102,7 +102,9 @@
 <!-- Contact US Form -->
 <div class="contactUsDiv">
   <br />
-  <h1 class="fontHeading">Tell Us How Can We Help</h1>
+  <h1 class="fontHeading" (click)="toFAQ()">
+    FAQs <mat-icon>help_outline</mat-icon>
+  </h1>
   <div class="formDiv">
     <mat-toolbar color="primary">Contact Us</mat-toolbar><br />
     <form #form="ngForm">

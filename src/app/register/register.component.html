@@ -5,7 +5,7 @@
     </h1>
     <!-- <mat-toolbar color="primary">Registration</mat-toolbar> -->
     <div fxLayoutAlign="stretch" fxLayout="column" class="register-form">
-      <form [formGroup]="formGroup">
+      <form #form="ngForm" [formGroup]="formGroup">
         <mat-vertical-stepper
           #linearVerticalStepper="matVerticalStepper"
           formArrayName="formArray"

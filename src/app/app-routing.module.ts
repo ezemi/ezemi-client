@@ -7,8 +7,10 @@ import { AuthGuard } from './auth.guard';
 import { ChangepassComponent } from './changepass/changepass.component';
 import { CollectandreportComponent } from './collectandreport/collectandreport.component';
 import { ConfirmOrderComponent } from './confirm-order/confirm-order.component';
+import { ConfirmorderguardGuard } from './confirmorderguard.guard';
 import { CustomerAdministrationComponent } from './customer-administration/customer-administration.component';
 import { CustomerauthGuard } from './customerauth.guard';
+import { FAQsComponent } from './faqs/faqs.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ManageBankComponent } from './manage-bank/manage-bank.component';
@@ -26,6 +28,7 @@ import { ProductsComponent } from './products/products.component';
 import { ProfileComponent } from './profile/profile.component';
 
 import { RegisterComponent } from './register/register.component';
+import { RegisterationCandeactivateGuard } from './registeration-candeactivate.guard';
 import { RegisterationsuccessfulComponent } from './registerationsuccessful/registerationsuccessful.component';
 import { ReplyQueriesComponent } from './reply-queries/reply-queries.component';
 import { ShowNewOrdersComponent } from './show-new-orders/show-new-orders.component';
@@ -63,6 +66,7 @@ const routes: Routes = [
       {
         path: 'register',
         component: RegisterComponent,
+        canDeactivate: [RegisterationCandeactivateGuard],
       },
       {
         path: 'changepassword',
@@ -83,7 +87,7 @@ const routes: Routes = [
       {
         path: 'confirmOrder',
         component: ConfirmOrderComponent,
-        canActivate: [AuthGuard, CustomerauthGuard],
+        canActivate: [AuthGuard, CustomerauthGuard, ConfirmorderguardGuard],
       },
       {
         path: 'viewOrder',
@@ -169,6 +173,10 @@ const routes: Routes = [
             component: ManageCardsComponent,
           },
         ],
+      },
+      {
+        path: 'FAQs',
+        component: FAQsComponent,
       },
       {
         path: 'notauthorised',

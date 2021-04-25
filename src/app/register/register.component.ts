@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   AbstractControl,
   FormArray,
   FormBuilder,
   FormGroup,
+  NgForm,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -18,6 +19,8 @@ import { AccountServiceService } from '../services/account-service.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
+  @ViewChild('form') public registerform: NgForm;
+
   otpsent: boolean = false;
   email: string;
   otp: string = '';
