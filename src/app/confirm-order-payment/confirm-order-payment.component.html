@@ -33,7 +33,13 @@
   </table>
 
   Enter Otp sent to your email :
-  <input [(ngModel)]="otp" (input)="verifyOtp()" placeholder="OTP" required />
+  <input
+    [(ngModel)]="otp"
+    type="password"
+    (input)="verifyOtp()"
+    placeholder="OTP"
+    required
+  />
 
   <div class="btnDiv">
     <button
