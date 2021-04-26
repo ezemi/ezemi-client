@@ -7,27 +7,26 @@ import { AdminServiceService } from '../services/admin-service.service';
 @Component({
   selector: 'app-customer-administration',
   templateUrl: './customer-administration.component.html',
-  styleUrls: ['./customer-administration.component.css']
+  styleUrls: ['./customer-administration.component.css'],
 })
 export class CustomerAdministrationComponent implements OnInit {
+  approvedUser: User[];
 
-  approvedUser : User[];
-
-  constructor(private aservice: AdminServiceService, public dialog: MatDialog) { }
+  constructor(
+    private aservice: AdminServiceService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
-    this.aservice.getApprovedUsers().subscribe(
-      data=>{
-        console.log(JSON.stringify(data));
-        this.approvedUser = data;
-      }
-    );
+    this.aservice.getApprovedUsers().subscribe((data) => {
+      console.log(JSON.stringify(data));
+      this.approvedUser = data;
+    });
   }
 
   displayedColumns: String[] = [
     'userId',
     'firstname',
-    'lastname',
     'email',
     'phoneNo',
     'viewUser',
@@ -44,5 +43,4 @@ export class CustomerAdministrationComponent implements OnInit {
       this.ngOnInit();
     });
   }
-
 }

@@ -30,7 +30,6 @@ export class ManageProductsComponent implements OnInit {
     'price',
     'inStock',
     'ProcessingFee',
-    'DateAdded',
     'ProductCategory',
     'updateProduct',
   ];

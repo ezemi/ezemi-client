@@ -9,6 +9,7 @@
       {{ amount | currency: "INR":"symbol-narrow" }}
     </h2>
     <h2>Click on pay to activate card</h2>
+    <br />
     Enter Otp sent to your email :
     <input [(ngModel)]="otp" (input)="verifyOtp()" placeholder="OTP" required />
     <button

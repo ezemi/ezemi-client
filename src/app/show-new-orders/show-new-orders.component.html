@@ -1,9 +1,9 @@
-<div style="height: auto;">
+<mat-progress-bar *ngIf="showprogress" mode="indeterminate"></mat-progress-bar>
+<div style="height: auto">
   <div>
     <h1>Orders To Ship</h1>
   </div>
   <br />
-
   <div>
     <table mat-table [dataSource]="orders" class="mat-elevation-z8">
       <ng-container matColumnDef="orderId">

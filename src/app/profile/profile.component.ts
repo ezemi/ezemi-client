@@ -39,7 +39,7 @@ export class ProfileComponent implements OnInit {
 
   openActivateCardComponent(obj) {
     let dialogref1 = this.dialog.open(ActivatecardComponent, {
-      height: '300px',
+      height: 'auto',
       width: '400px',
       data: obj,
     });

@@ -1,6 +1,8 @@
 <div style="min-height: 80vh" fxShow="true">
   <div *ngIf="unpaidOrders.length == 0; then ifblock; else elseblock"></div>
-  <ng-template #ifblock> <h1>No orders with EMI left.</h1> </ng-template>
+  <ng-template #ifblock
+    ><div class="mat-elevation-z8"><h1>No orders with EMI left.</h1></div>
+  </ng-template>
   <ng-template #elseblock>
     <div class="mat-elevation-z8">
       <mat-card>Current Orders</mat-card>
@@ -89,7 +91,9 @@
   </div> -->
 
   <div *ngIf="paidOrders.length == 0; then ifblock1; else elseblock1"></div>
-  <ng-template #ifblock1> <h1>No orders.</h1> </ng-template>
+  <ng-template #ifblock1
+    ><div class="mat-elevation-z8"><h1>No orders.</h1></div></ng-template
+  >
   <ng-template #elseblock1>
     <div class="mat-elevation-z8">
       <mat-card>Completed Orders</mat-card>

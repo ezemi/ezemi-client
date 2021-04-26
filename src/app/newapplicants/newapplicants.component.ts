@@ -40,14 +40,14 @@ export class NewapplicantsComponent implements OnInit {
 
   denyApplication() {
     let dialogref = this.dialog.open(DenyapplicationComponent, {
-      height: '350px',
+      height: 'auto',
       width: '550px',
       data: this.rowData.email,
     });
 
     dialogref.afterClosed().subscribe((result) => {
       setTimeout(function () {
-        document.location.reload();
+        window.location.reload();
       }, 0);
     });
   }

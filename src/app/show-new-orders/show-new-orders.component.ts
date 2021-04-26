@@ -15,6 +15,7 @@ export class ShowNewOrdersComponent implements OnInit {
   name: String;
   orderId: number;
   shipped: boolean = false;
+  showprogress: boolean = false;
 
   toggleClass() {
     this.shipped = true;
@@ -45,9 +46,10 @@ export class ShowNewOrdersComponent implements OnInit {
   ];
 
   shipProduct(orders) {
+    this.showprogress = true;
     this.aservice.orderShipped(orders.orderId).subscribe((data) => {
-      console.log(JSON.stringify(data));
-      this.ngOnInit();
+      window.location.reload();
+      this.showprogress = false;
     });
   }
 

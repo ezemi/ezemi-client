@@ -35,7 +35,11 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('loggedinuser', JSON.stringify(this.user));
         this.header.ngOnInit();
         if (this.user.role == 'CUSTOMER') {
-          this.router.navigate(['page-content/products']);
+          if (this.user.cardActivated == true) {
+            this.router.navigate(['page-content/products']);
+          } else {
+            this.router.navigate(['page-content/profile']);
+          }
         } else if (this.user.role == 'ADMIN') {
           this.router.navigate(['page-content/administration/newapplications']);
         }

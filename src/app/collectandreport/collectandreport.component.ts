@@ -41,7 +41,7 @@ export class CollectandreportComponent implements OnInit {
     });
 
     dialogref.afterClosed().subscribe((result) => {
-      this.ngOnInit();
+      window.location.reload();
     });
   }
 }

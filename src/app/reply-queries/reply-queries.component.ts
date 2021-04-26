@@ -26,7 +26,7 @@ export class ReplyQueriesComponent implements OnInit {
 
   openReply(obj) {
     let dialogref = this.dialog.open(ReplyComponent, {
-      height: '350px',
+      height: 'auto',
       width: '550px',
       data: obj,
     });

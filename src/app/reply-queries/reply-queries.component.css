@@ -1,22 +1,19 @@
-.parent{
-    min-height: 570px;
-     
+.parent {
+  min-height: 570px;
 }
-.card-conatainer{
-    width: 90%;
-    margin-left: 5%;
-    margin-right:5%;
-    
+.card-conatainer {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
-.example-card{
-    margin: 20px;
+.example-card {
+  margin: 20px;
 }
-.msg{
-    margin-left: 50px;
-    font-size: large;
-    text-decoration: underline grey;
+.msg {
+  margin-left: 50px;
+  font-size: large;
 }
 
-button{
-   margin-left: 90%;    
-} 
+button {
+  margin-left: 90%;
+}

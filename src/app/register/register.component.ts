@@ -26,6 +26,7 @@ export class RegisterComponent implements OnInit {
   otp: string = '';
   hide = true;
   hide1 = true;
+  showprogress = false;
 
   user: UserRegDto = new UserRegDto();
 
@@ -46,8 +47,14 @@ export class RegisterComponent implements OnInit {
   formGroup: FormGroup;
 
   validationMessages = {
-    firstNameFormCtrl: { required: 'First name is required' },
-    lastNameFormCtrl: { required: 'last name is required' },
+    firstNameFormCtrl: {
+      required: 'First name is required',
+      pattern: 'Invalid Name',
+    },
+    lastNameFormCtrl: {
+      required: 'last name is required',
+      pattern: 'Invalid Name',
+    },
     emailFormCtrl: {
       required: 'email is required',
       email: 'invalid email',
@@ -63,7 +70,7 @@ export class RegisterComponent implements OnInit {
     passwordFormCtrl: {
       required: 'password is required',
       pattern:
-        'Minimum eight characters, at least one letter and one number and special character',
+        'Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character',
     },
     confirmPasswordFormCtrl: { required: 'password is required' },
     cardFormCtrl: { required: 'card is required' },
@@ -154,8 +161,14 @@ export class RegisterComponent implements OnInit {
     this.formGroup = this._formBuilder.group({
       formArray: this._formBuilder.array([
         this._formBuilder.group({
-          firstNameFormCtrl: [null, Validators.required],
-          lastNameFormCtrl: [null, Validators.required],
+          firstNameFormCtrl: [
+            null,
+            [Validators.required, Validators.pattern('[a-zA-Z ]*')],
+          ],
+          lastNameFormCtrl: [
+            null,
+            [Validators.required, Validators.pattern('[a-zA-Z ]*')],
+          ],
           phoneNumber: [
             null,
             [
@@ -261,6 +274,7 @@ export class RegisterComponent implements OnInit {
 
   status: Status;
   register() {
+    this.showprogress = true;
     let fd: FormData = new FormData();
     fd.append('firstname', this.user.firstname);
     fd.append('lastname', this.user.lastname);
@@ -284,6 +298,7 @@ export class RegisterComponent implements OnInit {
     this.accountService.registerUser(fd).subscribe((data) => {
       this.status = data;
       if (this.status.status == 'SUCCESS') {
+        this.showprogress = false;
         this.router.navigate(['page-content/registerationsuccessfull']);
       }
     });

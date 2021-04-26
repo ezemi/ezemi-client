@@ -18,7 +18,7 @@ export class RegisterationCandeactivateGuard
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot
   ): boolean {
-    if (component.registerform.dirty) {
+    if (component.registerform.dirty && component.registerform.invalid) {
       return confirm('Are you sure you want to discard your changes?');
     }
     return true;

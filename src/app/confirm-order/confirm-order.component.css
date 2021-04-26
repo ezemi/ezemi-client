@@ -1,28 +1,31 @@
 .container {
   /* background-color: greenyellow; */
-  width: 60%;
+  border: solid 0.5px;
+  width: 50%;
   margin: auto;
   min-height: 80vh;
   display: flex;
-  flex-direction: column;
-  align-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* flex-direction: column; */
+  /* align-content: center; */
   /* aline-content: space-between; */
   /* align-items: center; */
 }
 
 .textContent {
   /* background-color: pink;  */
-  margin: auto;
-  width: 50%;
+  /* margin: auto; */
+  font-size: 1.3em;
 }
 
 h1 {
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 h3 {
   display: inline-block;
-  font-weight: bold;
+  /* font-weight: bold;
   margin-left: 10px;
-  margin-right: 5px;
+  margin-right: 5px; */
 }
